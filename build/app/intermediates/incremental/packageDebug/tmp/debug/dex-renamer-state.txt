@@ -1,0 +1,4 @@
+#Thu Jul 06 09:53:21 IST 2023
+base.0=D\:\\chirag\\project\\railify_app\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
+path.0=classes.dex
+renamed.0=classes.dex
