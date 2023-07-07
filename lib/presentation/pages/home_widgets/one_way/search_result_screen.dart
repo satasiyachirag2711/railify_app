@@ -44,139 +44,139 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
         centerTitle: true,
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            Container(
-              color: AppColor.white,
-              height: Get.height * 0.1,
-              child: DatePicker(
-                DateTime.now(),
-                initialSelectedDate: DateTime.now(),
-                selectionColor: AppColor.blue,
-                selectedTextColor: Colors.white,
-                onDateChange: (date) {
-                  setState(() {
-                    String formattedDate = DateFormat('yyyy-MM-dd').format(date);
-                    global.selectedDate = DateTime.parse(formattedDate);
-                  });
-                },
+        child: Obx(() {
+          return Column(
+            children: [
+              Container(
+                color: AppColor.white,
+                height: Get.height * 0.1,
+                child: DatePicker(
+                  DateTime.now(),
+                  initialSelectedDate: DateTime.now(),
+                  selectionColor: AppColor.blue,
+                  selectedTextColor: Colors.white,
+                  onDateChange: (date) {
+                    RxString formattedDate = DateFormat('yyyy-MM-dd').format(date).obs;
+                    global.selectedDate = DateTime.parse(formattedDate.value);
+                  },
+                ),
               ),
-            ),
-            Container(
-                height: Get.height * 1.3,
-                child: ListView.builder(
-                  itemCount: AppList.search.length,
-                  physics: const NeverScrollableScrollPhysics(),
-                  itemBuilder: (context, index) => Column(
-                    children: [
-                      GestureDetector(
-                        onTap: () {
-                          Get.to(
-                            BookingDetailScreen(
-                              title: AppList.search[index]["data1"],
-                              image: AppList.search[index]["image"],
-                              subtitle: AppList.search[index]["data5"],
-                              trailing: AppList.search[index]["data2"],
-                              leading: AppList.search[index]["data3"],
-                              date: DateFormat('dd MMMM yyyy').format(global.selectedDate),
-                              trailingtwo: AppList.search[index]["data4"],
-                            ),
-                          );
-                        },
-                        child: Container(
-                          margin: EdgeInsets.all(20),
-                          decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
-                          height: Get.height * 0.2,
-                          child: Column(
-                            children: [
-                              ListTile(
-                                leading: Image.asset(AppList.search[index]["image"], scale: index == 2 ? 9 : 5),
-                                title: Text(
-                                  AppList.search[index]["data1"],
-                                  style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.038),
-                                ),
-                                subtitle: Text(
-                                  "Economy",
-                                  style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                                ),
-                                trailing: Wrap(
-                                  children: [
-                                    Text(
-                                      "Available",
-                                      style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: Get.width * 0.028),
-                                    ),
-                                    SizedBox(width: Get.width * 0.04),
-                                    Text(
-                                      AppList.search[index]["data2"],
-                                      style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
-                                    )
-                                  ],
-                                ),
+              Container(
+                  height: Get.height * 1.3,
+                  child: ListView.builder(
+                    itemCount: AppList.search.length,
+                    physics: const NeverScrollableScrollPhysics(),
+                    itemBuilder: (context, index) => Column(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            Get.to(
+                              BookingDetailScreen(
+                                title: AppList.search[index]["data1"],
+                                image: AppList.search[index]["image"],
+                                subtitle: AppList.search[index]["data5"],
+                                trailing: AppList.search[index]["data2"],
+                                leading: AppList.search[index]["data3"],
+                                date: DateFormat('dd MMMM yyyy').format(global.selectedDate),
+                                trailingtwo: AppList.search[index]["data4"],
                               ),
-                              Divider(),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
+                            );
+                          },
+                          child: Container(
+                            margin: EdgeInsets.all(20),
+                            decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
+                            height: Get.height * 0.2,
+                            child: Column(
+                              children: [
+                                ListTile(
+                                  leading: Image.asset(AppList.search[index]["image"], scale: index == 2 ? 9 : 5),
+                                  title: Text(
+                                    AppList.search[index]["data1"],
+                                    style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.038),
+                                  ),
+                                  subtitle: Text(
+                                    "Economy",
+                                    style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
+                                  ),
+                                  trailing: Wrap(
                                     children: [
                                       Text(
-                                        AppString.apex,
-                                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
+                                        "Available",
+                                        style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: Get.width * 0.028),
                                       ),
-                                      Padding(
-                                        padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
-                                        child: Text(
-                                          AppList.search[index]["data3"],
-                                          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
+                                      SizedBox(width: Get.width * 0.04),
+                                      Text(
+                                        "\$${AppList.search[index]["data2"]}",
+                                        style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Divider(),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          AppString.apex,
+                                          style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
                                         ),
-                                      ),
-                                      Text(
-                                        DateFormat('dd MMMM yyyy').format(global.selectedDate),
-                                        style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                                      )
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Image.asset(AppImages.searchicon, scale: 12),
-                                      Text(
-                                        AppList.search[index]["data5"],
-                                        style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                                      )
-                                    ],
-                                  ),
-                                  Column(
-                                    children: [
-                                      Text(
-                                        AppString.proxima,
-                                        style: TextStyle(fontSize: Get.width * 0.034),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
-                                        child: Text(
-                                          AppList.search[index]["data4"],
-                                          style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
+                                          child: Text(
+                                            AppList.search[index]["data3"],
+                                            style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
+                                          ),
                                         ),
-                                      ),
-                                      Text(
-                                        DateFormat('dd MMMM yyyy').format(global.selectedDate),
-                                        style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                                      )
-                                    ],
-                                  ),
-                                ],
-                              )
-                            ],
+                                        Text(
+                                          DateFormat('dd MMMM yyyy').format(global.selectedDate),
+                                          style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
+                                        )
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        Image.asset(AppImages.searchicon, scale: 12),
+                                        Text(
+                                          AppList.search[index]["data5"],
+                                          style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
+                                        )
+                                      ],
+                                    ),
+                                    Column(
+                                      children: [
+                                        Text(
+                                          AppString.proxima,
+                                          style: TextStyle(fontSize: Get.width * 0.034),
+                                        ),
+                                        Padding(
+                                          padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
+                                          child: Text(
+                                            AppList.search[index]["data4"],
+                                            style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
+                                          ),
+                                        ),
+                                        Text(
+                                          DateFormat('dd MMMM yyyy').format(global.selectedDate),
+                                          style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
+                                        )
+                                      ],
+                                    ),
+                                  ],
+                                )
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-                    ],
-                  ),
-                ))
-          ],
-        ),
+                      ],
+                    ),
+                  ))
+            ],
+          );
+        }),
       ),
     );
   }

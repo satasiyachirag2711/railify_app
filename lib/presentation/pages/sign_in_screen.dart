@@ -23,6 +23,7 @@ class SignInScreen extends StatefulWidget {
 class _SignInScreenState extends State<SignInScreen> {
   GlobleController globle = Get.find();
   final formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,41 +72,42 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
                 SizedBox(height: Get.height * 0.03),
-                CustomTextFild(
-                  validator: (value) {
-                    if (globle.password.text.isEmpty) {
-                      return "Please enter Password";
-                    } else {
-                      null;
-                    }
-                  },
-                  obsertext: globle.tab,
-                  hint: AppString.Password,
-                  controller: globle.password,
-                  leble: AppString.Password,
-                  Icons: IconButton(
-                    onPressed: () {
-                      setState(() {
-                        globle.tab = !globle.tab;
-                      });
+                Obx(() {
+                  return CustomTextFild(
+                    validator: (value) {
+                      if (globle.password.text.isEmpty) {
+                        return "Please enter Password";
+                      } else {
+                        null;
+                      }
                     },
-                    icon: Icon(
-                      globle.tab == false ? Icons.visibility : Icons.visibility_off,
-                      size: 30,
-                      color: globle.tab == false ? AppColor.grey : AppColor.blue,
+                    obsertext: globle.tab.value,
+                    hint: AppString.Password,
+                    controller: globle.password,
+                    leble: AppString.Password,
+                    Icons: IconButton(
+                      onPressed: () {
+                        globle.tab.value = !globle.tab.value;
+                      },
+                      icon: Icon(
+                        globle.tab.value == false ? Icons.visibility : Icons.visibility_off,
+                        size: 30,
+                        color: globle.tab.value == false ? AppColor.grey : AppColor.blue,
+                      ),
                     ),
-                  ),
-                ),
+                  );
+                }),
                 SizedBox(height: Get.height * 0.01),
                 Row(
                   children: [
-                    Checkbox(
-                      value: globle.chacked,
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-                      onChanged: (value) {
-                        setState(() {
-                          globle.chacked = value!;
-                        });
+                    Obx(
+                      () {
+                        return Checkbox(
+                            value: globle.chacked.value,
+                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
+                            onChanged: (value) {
+                              globle.chacked.value = value!;
+                            });
                       },
                     ),
                     Text(
@@ -119,7 +121,9 @@ class _SignInScreenState extends State<SignInScreen> {
                     padding: EdgeInsets.symmetric(vertical: Get.height * 0.04),
                     child: TextButton(
                       onPressed: () {
-                        Get.to(ResetPasswordScreen());
+                        Get.to(const ResetPasswordScreen());
+                        globle.email.clear();
+                        globle.password.clear();
                       },
                       child: Text(
                         AppString.forgotpassword,
@@ -131,7 +135,9 @@ class _SignInScreenState extends State<SignInScreen> {
                 Center(
                   child: GestureDetector(
                     onTap: () {
-                      Get.to(SignUpScreen());
+                      Get.to(const SignUpScreen());
+                      globle.email.clear();
+                      globle.password.clear();
                     },
                     child: RichText(
                       text: TextSpan(
@@ -153,7 +159,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   text: AppString.SignIn,
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      if (globle.chacked == true) {
+                      if (globle.chacked.value == true) {
                         showDialog(
                           context: context,
                           builder: (context) => Padding(
@@ -164,9 +170,9 @@ class _SignInScreenState extends State<SignInScreen> {
                             ),
                           ),
                         );
-                        setState(() {
-                          Future.delayed(Duration(seconds: 4)).then((value) => Get.off(HomePage()));
-                        });
+
+                        Future.delayed(const Duration(seconds: 4)).then((value) => Get.off(const HomePage()));
+
                         globle.email.clear();
                         globle.password.clear();
                       }

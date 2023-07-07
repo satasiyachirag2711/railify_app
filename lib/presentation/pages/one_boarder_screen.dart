@@ -51,12 +51,16 @@ class _OneBoarderScreenState extends State<OneBoarderScreen> {
                     text: AppString.signUP,
                     onPressed: () {
                       Get.to(const SignUpScreen());
+                      globle.email.clear();
+                      globle.password.clear();
                     },
                   ),
                 ),
                 ElevatedButton(
                   onPressed: () {
                     Get.to(const SignInScreen());
+                    globle.email.clear();
+                    globle.password.clear();
                   },
                   style: ButtonStyle(
                     backgroundColor: const MaterialStatePropertyAll(Color(0xFFF3F6F6)),

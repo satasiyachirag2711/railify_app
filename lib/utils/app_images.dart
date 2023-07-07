@@ -40,4 +40,6 @@ class AppImages {
   static String disone = "$image/dis_one.jpg";
   static String distwo = "$image/dis_two.png";
   static String disthree = "$image/dis_three.png";
+  static String barcode = "$image/barcode.png";
+  static String qrcode = "$image/qrcode.png";
 }

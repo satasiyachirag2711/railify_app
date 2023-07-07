@@ -21,7 +21,11 @@ class SelectSeatScreen extends StatefulWidget {
   final String name;
   final String email;
   final String phonenumber;
-  const SelectSeatScreen({super.key, required this.image, required this.title, required this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.subtitle, required this.name, required this.email, required this.phonenumber});
+  final String idtype;
+  final String idnumber;
+  final String passengertype;
+
+  const SelectSeatScreen({super.key, required this.image, required this.title, required this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.subtitle, required this.name, required this.email, required this.phonenumber, required this.idtype, required this.idnumber, required this.passengertype});
 
   @override
   State<SelectSeatScreen> createState() => _SelectSeatScreenState();
@@ -29,6 +33,7 @@ class SelectSeatScreen extends StatefulWidget {
 
 class _SelectSeatScreenState extends State<SelectSeatScreen> {
   GlobleController globle = Get.find();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -99,34 +104,34 @@ class _SelectSeatScreenState extends State<SelectSeatScreen> {
                                 ),
                               ),
                             )
-                          : GestureDetector(
-                              onTap: () {
-                                setState(() {
-                                  if (globle.select.contains(AppList.seat)) {
-                                    globle.select.add(AppList.seat);
+                          : Obx(() {
+                              return GestureDetector(
+                                onTap: () {
+                                  if (globle.select.contains(AppList.seat[index])) {
+                                    globle.select.remove(AppList.seat[index]);
                                   } else {
-                                    globle.select.remove(AppList.seat);
+                                    globle.select.add(AppList.seat[index]);
                                   }
-                                  globle.isSelected[index] = !globle.isSelected[index];
                                   print(AppList.seat[index]);
-                                });
-                              },
-                              child: Container(
-                                margin: const EdgeInsets.all(5),
-                                decoration: BoxDecoration(
-                                  color: globle.select == true ? AppColor.blue : Colors.blue.shade50,
-                                  borderRadius: BorderRadius.circular(12),
+                                  print(globle.select);
+                                },
+                                child: Container(
+                                  margin: const EdgeInsets.all(5),
+                                  decoration: BoxDecoration(
+                                    color: globle.select.contains(AppList.seat[index]) ? AppColor.blue : Colors.blue.shade50,
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  child: Center(
+                                    child: globle.select.contains(AppList.seat[index])
+                                        ? Icon(Icons.check, color: AppColor.white)
+                                        : Text(
+                                            AppList.seat[index],
+                                            style: TextStyle(color: AppColor.blue, fontWeight: FontWeight.bold),
+                                          ),
+                                  ),
                                 ),
-                                child: Center(
-                                  child: globle.select == true
-                                      ? Icon(Icons.check, color: AppColor.white)
-                                      : Text(
-                                          AppList.seat[index],
-                                          style: TextStyle(color: AppColor.blue, fontWeight: FontWeight.bold),
-                                        ),
-                                ),
-                              ),
-                            ),
+                              );
+                            }),
                 ),
               ),
               CustomBtn(
@@ -134,6 +139,9 @@ class _SelectSeatScreenState extends State<SelectSeatScreen> {
                 onPressed: () {
                   Get.to(
                     SelectPayment(
+                      passengertype: widget.passengertype,
+                      idtype: widget.idtype,
+                      idnumber: widget.idnumber,
                       title: widget.title,
                       trailing: widget.trailing,
                       leading: widget.leading,

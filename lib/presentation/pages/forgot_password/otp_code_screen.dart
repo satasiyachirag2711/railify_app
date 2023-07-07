@@ -52,7 +52,9 @@ class _OtpCodeScreenState extends State<OtpCodeScreen> {
                       border: Border.all(color: AppColor.blue),
                     ),
                   ),
-                  validator: (s) {},
+                  validator: (s) {
+                    return null;
+                  },
                   pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
                 ),
                 Text(
@@ -68,7 +70,8 @@ class _OtpCodeScreenState extends State<OtpCodeScreen> {
                   text: AppString.conti,
                   onPressed: () {
                     if (formKey.currentState!.validate()) {
-                      print("============================${globle.otp.length}");
+                      globle.password.clear();
+                      print("============================${globle.otp.value.length}");
                       Get.to(
                         CreateNewPassword(),
                       );

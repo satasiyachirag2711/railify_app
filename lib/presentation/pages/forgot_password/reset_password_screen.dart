@@ -78,6 +78,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                     Get.to(OtpCodeScreen(
                       email: globle.email.text.toString(),
                     ));
+                    globle.email.clear();
                   }
                 },
               )

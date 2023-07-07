@@ -188,6 +188,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "ticket_widget",
+      "rootUri": "file:///D:/chirag/sdk/fluttersdk/flutter/.pub-cache/hosted/pub.dartlang.org/ticket_widget-0.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///D:/chirag/sdk/fluttersdk/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.2",
       "packageUri": "lib/",
@@ -200,7 +206,7 @@
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-07-07T03:40:01.933485Z",
+  "generated": "2023-07-07T12:24:29.399492Z",
   "generator": "pub",
   "generatorVersion": "2.18.4"
 }

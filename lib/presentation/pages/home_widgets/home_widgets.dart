@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/one_way_custom.dart';
+import 'package:railify_app/presentation/pages/notification_screen.dart';
 import 'package:railify_app/utils/app_images.dart';
 import 'package:railify_app/utils/app_string.dart';
 
@@ -36,21 +37,25 @@ class _HomeWigetsState extends State<HomeWigets> {
                     AppString.andrew,
                     style: TextStyle(color: AppColor.white, fontSize: Get.width * 0.04, height: 1.5, fontWeight: FontWeight.bold),
                   ),
-                  trailing: Container(
-                    decoration: BoxDecoration(borderRadius: BorderRadius.circular(Get.width), border: Border.all(color: AppColor.white)),
-                    child: Stack(
-                      alignment: const Alignment(0.2, -0.2),
-                      children: [
-                        IconButton(
-                          onPressed: () {},
-                          icon: Icon(Icons.notifications_sharp, color: AppColor.white),
-                        ),
-                        Container(
-                          height: 6,
-                          width: 6,
-                          decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(20)),
-                        ),
-                      ],
+                  trailing: GestureDetector(
+                    onTap: () => Get.to(const NotificationScreen()),
+                    child: Container(
+                      decoration: BoxDecoration(borderRadius: BorderRadius.circular(Get.width), border: Border.all(color: AppColor.white)),
+                      child: Stack(
+                        alignment: const Alignment(0.5, -0.3),
+                        children: [
+                          Icon(
+                            Icons.notifications_sharp,
+                            color: AppColor.white,
+                            size: Get.width * 0.07,
+                          ),
+                          Container(
+                            height: 6,
+                            width: 6,
+                            decoration: BoxDecoration(color: Colors.red, borderRadius: BorderRadius.circular(20)),
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ),
