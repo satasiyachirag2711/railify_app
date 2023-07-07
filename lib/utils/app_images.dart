@@ -27,6 +27,8 @@ class AppImages {
   static String notitwo = "$icon/two.png";
   static String notithree = "$icon/three.png";
   static String searchicon = "$icon/search_icon.png";
+  static String paypal = "$icon/paypal.png";
+  static String visa = "$icon/visa.png";
 
   static String intro_one = "$image/intro_one.jpg";
   static String intro_two = "$image/intro_two.jpg";

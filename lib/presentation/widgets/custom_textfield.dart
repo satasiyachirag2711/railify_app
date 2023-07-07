@@ -32,7 +32,7 @@ class CustomTextFild extends StatelessWidget {
     this.margin = false,
     this.onChange,
     this.max = false,
-    this.obsertext = true,
+    this.obsertext = false,
     this.button,
     this.numberKeyboard = false,
     this.inputFormatter,
@@ -68,7 +68,7 @@ class CustomTextFild extends StatelessWidget {
             prefixIcon: icon,
             hintStyle: TextStyle(
               fontSize: Get.width * 0.034,
-              color: AppColor.black,
+              color: AppColor.black54,
             ),
           ),
         ),

@@ -12,13 +12,19 @@ class GlobleController extends GetxController {
   TextEditingController confirmPassword = TextEditingController();
   TextEditingController date = TextEditingController();
   TextEditingController fullName = TextEditingController();
-
+  TextEditingController numberController = TextEditingController();
+  TextEditingController idnumber = TextEditingController();
+  String country = "";
   dynamic selectedValue;
   dynamic selectedValuetwo;
   dynamic selectedValuethree;
   dynamic selectedValuefour;
+  dynamic selectedValuefive;
+  dynamic selectedValuesix;
   RxInt navigation = 0.obs;
   bool tab = true;
+  bool switc = false;
+  bool show = false;
   int selectedRadioIndex = -1;
   int ticketavilibility = -1;
   int trainclass = -1;
@@ -26,4 +32,7 @@ class GlobleController extends GetxController {
   bool chacked = false;
   String otp = "";
   DateTime selectedDate = DateTime.now();
+  List<bool> isSelected = List.filled(35, false);
+  int payment = -1;
+  List select=[];
 }

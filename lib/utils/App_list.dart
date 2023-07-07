@@ -48,15 +48,11 @@ class AppList {
     {"image": "assets/images/search_five.png", "data1": "MTA NYC", "data2": "\$38.00", "data3": "12:00", "data4": "13:40", "data5": "Duration 1h 40m"}
   ];
 
-  static List sortfilter = [
-    "Default",
-    "Lowest Price",
-    "Highest Price",
-    "Shortest Duration",
-    "Longest Duration",
-  ];
+  static List sortfilter = ["Default", "Lowest Price", "Highest Price", "Shortest Duration", "Longest Duration"];
   static List sortfilterOne = ["Show All Ticket", "Show Available Ticket", "Show Unavailable Ticket"];
   static List sortfilterTwo = ["All Class", "Executive", "Business", "Economy"];
+  static List idtype = ["ID Card"];
+  static List passengertype = ["Adult(General)"];
   static List<Map<String, dynamic>> sortfilterThree = [
     {"image": "assets/images/ball.png", "data1": "Alaska Railroad", "data2": false},
     {"image": "assets/images/search_one.jpeg", "data1": "Amtrak", "data2": false},
@@ -73,4 +69,14 @@ class AppList {
     {"image": "assets/images/sortfilter_two.jpeg", "data1": "Western Pacific", "data2": false},
     {"image": "assets/images/milvauke.png", "data1": "Wisconsin and Southern Rail...", "data2": false},
   ];
+
+  static List<Map<String, dynamic>> payment = [
+    {"image": AppImages.wallet, "dataOne": "My Wallet"},
+    {"image": AppImages.paypal, "dataOne": "Paypal"},
+    {"image": AppImages.google, "dataOne": "Google Pay"},
+    {"image": AppImages.apple, "dataOne": "Apple Pay"},
+    {"image": AppImages.visa, "dataOne": ".... .... .... 5567"},
+  ];
+
+  static List seat = ["A1", "B1", "1", "C1", "D1", "A2", "B2", "2", "C2", "D2", "A3", "B3", "3", "C3", "D3", "A4", "B4", "4", "C4", "D4", "A5", "B5", "5", "C5", "D5", "A6", "B6", "6", "C6", "D6", "A7", "B7", "7", "C7", "D7"];
 }
