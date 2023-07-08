@@ -71,18 +71,23 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                   ],
                 ),
               ),
-              CustomBtn(
-                text: AppString.conti,
-                onPressed: () {
-                  if (formKey.currentState!.validate()) {
-                    Get.to(OtpCodeScreen(
-                      email: globle.email.text.toString(),
-                    ));
-                    globle.email.clear();
-                  }
-                },
-              )
             ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05, vertical: Get.height * 0.02),
+          child: CustomBtn(
+            text: AppString.conti,
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                Get.to(OtpCodeScreen(
+                  email: globle.email.text.toString(),
+                ));
+                globle.email.clear();
+              }
+            },
           ),
         ),
       ),

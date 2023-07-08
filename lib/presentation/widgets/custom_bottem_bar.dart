@@ -54,7 +54,7 @@ class CustomBottomBar extends StatelessWidget {
           ),
           Expanded(
             child: bottomBtn(
-                textLabel: "Progress",
+                textLabel: "My Ticket",
                 onTap: () {
                   funcTwo();
                 },
@@ -65,7 +65,7 @@ class CustomBottomBar extends StatelessWidget {
           ),
           Expanded(
             child: bottomBtn(
-              textLabel: "Live",
+              textLabel: "My Wallet",
               onTap: () {
                 funcThree();
               },
@@ -77,7 +77,7 @@ class CustomBottomBar extends StatelessWidget {
           ),
           Expanded(
             child: bottomBtn(
-              textLabel: "Docs",
+              textLabel: "Account",
               onTap: () {
                 fucFour();
               },

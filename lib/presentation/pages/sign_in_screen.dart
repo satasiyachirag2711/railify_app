@@ -155,32 +155,37 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 CustomContinue(top: Get.height * 0.04, bottom: Get.height * 0.04),
                 SizedBox(height: Get.height * 0.08),
-                CustomBtn(
-                  text: AppString.SignIn,
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      if (globle.chacked.value == true) {
-                        showDialog(
-                          context: context,
-                          builder: (context) => Padding(
-                            padding: EdgeInsets.only(bottom: Get.height * 0.08),
-                            child: AlertDialog(
-                              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                              title: CustomPopup(text: AppString.signinsucess),
-                            ),
-                          ),
-                        );
-
-                        Future.delayed(const Duration(seconds: 4)).then((value) => Get.off(const HomePage()));
-
-                        globle.email.clear();
-                        globle.password.clear();
-                      }
-                    }
-                  },
-                )
               ],
             ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05, vertical: Get.height * 0.02),
+          child: CustomBtn(
+            text: AppString.SignIn,
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                if (globle.chacked.value == true) {
+                  showDialog(
+                    context: context,
+                    builder: (context) => Padding(
+                      padding: EdgeInsets.only(bottom: Get.height * 0.08),
+                      child: AlertDialog(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        title: CustomPopup(text: AppString.signinsucess),
+                      ),
+                    ),
+                  );
+
+                  Future.delayed(const Duration(seconds: 4)).then((value) => Get.off(const HomePage()));
+
+                  globle.email.clear();
+                  globle.password.clear();
+                }
+              }
+            },
           ),
         ),
       ),

@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:railify_app/controller/globle_controller.dart';
+import 'package:railify_app/presentation/pages/home_widgets/check_booking.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/one_way_custom.dart';
+import 'package:railify_app/presentation/pages/home_widgets/our_news_stories.dart';
+import 'package:railify_app/presentation/pages/home_widgets/round_trip/round_trip_custom.dart';
 import 'package:railify_app/presentation/pages/notification_screen.dart';
 import 'package:railify_app/utils/app_images.dart';
 import 'package:railify_app/utils/app_string.dart';
 
 import '../../../utils/App_list.dart';
 import '../../../utils/app_color.dart';
+import 'get_discount_screen.dart';
 
 class HomeWigets extends StatefulWidget {
   const HomeWigets({super.key});
@@ -92,9 +96,7 @@ class _HomeWigetsState extends State<HomeWigets> {
                                   // First Tab View
                                   OneWayCustom(),
                                   // Second Tab View
-                                  Center(
-                                    child: Text("Round Tab View"),
-                                  ),
+                                  RoundTripCustom()
                                 ],
                               ),
                             )
@@ -118,30 +120,35 @@ class _HomeWigetsState extends State<HomeWigets> {
                         ),
                         itemBuilder: (context, index) => Column(
                           children: [
-                            Container(
-                              height: 50,
-                              decoration: BoxDecoration(borderRadius: BorderRadius.circular(Get.width), color: Colors.grey.shade100),
-                              child: index == 7
-                                  ? Center(
-                                      child: Container(
-                                      height: 30,
-                                      width: 35,
-                                      decoration: BoxDecoration(
-                                        color: AppColor.blue,
-                                        borderRadius: BorderRadius.circular(10),
-                                      ),
-                                      child: Center(
-                                        child: Text(
-                                          "i",
-                                          style: TextStyle(color: AppColor.white, fontSize: Get.width * 0.04, fontWeight: FontWeight.bold),
+                            GestureDetector(
+                              onTap: () {
+                                Get.to(const CheckBookScreen());
+                              },
+                              child: Container(
+                                height: 50,
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(Get.width), color: Colors.grey.shade100),
+                                child: index == 7
+                                    ? Center(
+                                        child: Container(
+                                        height: 30,
+                                        width: 30,
+                                        decoration: BoxDecoration(
+                                          color: AppColor.blue,
+                                          borderRadius: BorderRadius.circular(10),
                                         ),
+                                        child: Center(
+                                          child: Text(
+                                            "i",
+                                            style: TextStyle(color: AppColor.white, fontSize: Get.width * 0.04, fontWeight: FontWeight.bold),
+                                          ),
+                                        ),
+                                      ))
+                                    : Image.asset(
+                                        AppList.checkBooking[index]["image"],
+                                        color: AppColor.blue,
+                                        scale: 17,
                                       ),
-                                    ))
-                                  : Image.asset(
-                                      AppList.checkBooking[index]["image"],
-                                      color: AppColor.blue,
-                                      scale: 17,
-                                    ),
+                              ),
                             ),
                             const SizedBox(height: 10),
                             Text(
@@ -153,21 +160,26 @@ class _HomeWigetsState extends State<HomeWigets> {
                         ),
                       ),
                     ),
-                    Padding(
-                      padding: EdgeInsets.symmetric(horizontal: Get.width * 0.04),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            AppString.special,
-                            style: TextStyle(color: AppColor.black, fontSize: Get.width * 0.05, height: 1.8, fontWeight: FontWeight.bold),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.arrow_forward_rounded, color: AppColor.blue, size: Get.width * 0.07),
-                          ),
-                        ],
+                    GestureDetector(
+                      onTap: () {
+                        Get.to(const GetDiscountScreen());
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(horizontal: Get.width * 0.04),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              AppString.special,
+                              style: TextStyle(color: AppColor.black, fontSize: Get.width * 0.05, height: 1.8, fontWeight: FontWeight.bold),
+                            ),
+                            IconButton(
+                              onPressed: () {},
+                              icon: Icon(Icons.arrow_forward_rounded, color: AppColor.blue, size: Get.width * 0.07),
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                     SizedBox(
@@ -237,23 +249,25 @@ class _HomeWigetsState extends State<HomeWigets> {
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(horizontal: Get.width * 0.04),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            AppString.ournewsstori,
-                            style: TextStyle(color: AppColor.black, fontSize: Get.width * 0.05, height: 1.8, fontWeight: FontWeight.bold),
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.arrow_forward_rounded, color: AppColor.blue, size: Get.width * 0.07),
-                          ),
-                        ],
+                      child: GestureDetector(
+                        onTap: () {
+                          Get.to(const OurNewStroiescreen());
+                        },
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              AppString.ournewsstori,
+                              style: TextStyle(color: AppColor.black, fontSize: Get.width * 0.05, height: 1.8, fontWeight: FontWeight.bold),
+                            ),
+                            Icon(Icons.arrow_forward_rounded, color: AppColor.blue, size: Get.width * 0.07),
+                          ],
+                        ),
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(bottom: Get.height * 0.1),
+                      margin: EdgeInsets.only(bottom: Get.height * 0.02),
                       height: Get.height * 0.42,
                       child: ListView.builder(
                         scrollDirection: Axis.horizontal,

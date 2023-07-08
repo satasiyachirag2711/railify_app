@@ -66,20 +66,26 @@ class _OtpCodeScreenState extends State<OtpCodeScreen> {
                   style: TextStyle(height: 1.6, fontSize: Get.width * 0.038),
                 ),
                 SizedBox(height: Get.height * 0.38),
-                CustomBtn(
-                  text: AppString.conti,
-                  onPressed: () {
-                    if (formKey.currentState!.validate()) {
-                      globle.password.clear();
-                      print("============================${globle.otp.value.length}");
-                      Get.to(
-                        CreateNewPassword(),
-                      );
-                    }
-                  },
-                )
               ],
             ),
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: Get.width * 0.08, vertical: Get.height * 0.02),
+          child: CustomBtn(
+            text: AppString.conti,
+            onPressed: () {
+              if (formKey.currentState!.validate()) {
+                if (globle.pinput.length > 3) {
+                  globle.password.clear();
+                  Get.to(
+                    CreateNewPassword(),
+                  );
+                }
+              }
+            },
           ),
         ),
       ),

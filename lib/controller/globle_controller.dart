@@ -11,6 +11,7 @@ class GlobleController extends GetxController {
   TextEditingController pinput = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
   TextEditingController date = TextEditingController();
+  TextEditingController returndate = TextEditingController();
   TextEditingController fullName = TextEditingController();
   TextEditingController numberController = TextEditingController();
   TextEditingController idnumber = TextEditingController();
@@ -35,9 +36,9 @@ class GlobleController extends GetxController {
   int train = -1.obs;
   RxInt currentIndex = 0.obs;
   RxBool chacked = false.obs;
-  RxString otp = "".obs;
   DateTime selectedDate = DateTime.now();
   RxList<bool> isSelected = List.filled(35, false).obs;
   int payment = -1.obs;
   RxList select = [].obs;
+  RxBool unselect = false.obs;
 }

@@ -134,30 +134,35 @@ class _SelectSeatScreenState extends State<SelectSeatScreen> {
                             }),
                 ),
               ),
-              CustomBtn(
-                text: AppString.conti,
-                onPressed: () {
-                  Get.to(
-                    SelectPayment(
-                      passengertype: widget.passengertype,
-                      idtype: widget.idtype,
-                      idnumber: widget.idnumber,
-                      title: widget.title,
-                      trailing: widget.trailing,
-                      leading: widget.leading,
-                      trailingtwo: widget.trailingtwo,
-                      date: widget.date,
-                      subtitle: widget.subtitle,
-                      image: widget.image,
-                      phonenumber: widget.phonenumber,
-                      name: widget.name,
-                      email: widget.email,
-                      seat: globle.select.toString(),
-                    ),
-                  );
-                },
-              )
             ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: CustomBtn(
+            text: AppString.conti,
+            onPressed: () {
+              Get.to(
+                SelectPayment(
+                  passengertype: widget.passengertype,
+                  idtype: widget.idtype,
+                  idnumber: widget.idnumber,
+                  title: widget.title,
+                  trailing: widget.trailing,
+                  leading: widget.leading,
+                  trailingtwo: widget.trailingtwo,
+                  date: widget.date,
+                  subtitle: widget.subtitle,
+                  image: widget.image,
+                  phonenumber: widget.phonenumber,
+                  name: widget.name,
+                  email: widget.email,
+                  seat: globle.select.toString(),
+                ),
+              );
+            },
           ),
         ),
       ),

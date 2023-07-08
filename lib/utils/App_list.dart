@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:railify_app/utils/app_images.dart';
 import 'package:railify_app/utils/app_string.dart';
@@ -77,6 +78,23 @@ class AppList {
     {"image": AppImages.google, "dataOne": "Google Pay"},
     {"image": AppImages.apple, "dataOne": "Apple Pay"},
     {"image": AppImages.visa, "dataOne": ".... .... .... 5567"},
+  ].obs;
+
+  static RxList<Map<String, dynamic>> account = [
+    {"image": Icons.person, "dataOne": AppString.personal},
+    {"image": Icons.people, "dataOne": AppString.passengerlist},
+    {"image": Icons.payment, "dataOne": AppString.paymentmethod},
+    {"image": Icons.notifications_active_outlined, "dataOne": AppString.notification},
+    {"image": Icons.security_outlined, "dataOne": AppString.security},
+    {"image": Icons.language, "dataOne": AppString.language},
+    {"image": Icons.remove_red_eye_outlined, "dataOne": AppString.darkmode},
+  ].obs;
+
+  static RxList<Map<String, dynamic>> accounttwo = [
+    {"image": Icons.help_center_outlined, "dataOne": AppString.helpcenter},
+    {"image": Icons.lock_outline, "dataOne": AppString.privacypolicy},
+    {"image": Icons.info_outline_rounded, "dataOne": AppString.aboutrailify},
+    {"image": Icons.login, "dataOne": AppString.logout},
   ].obs;
 
   static RxList seat = ["A1", "B1", "1", "C1", "D1", "A2", "B2", "2", "C2", "D2", "A3", "B3", "3", "C3", "D3", "A4", "B4", "4", "C4", "D4", "A5", "B5", "5", "C5", "D5", "A6", "B6", "6", "C6", "D6", "A7", "B7", "7", "C7", "D7"].obs;

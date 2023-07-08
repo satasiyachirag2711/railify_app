@@ -171,7 +171,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                           icon: Icon(Icons.person),
                           validator: (value) {
                             if (global.fullName.text.isEmpty) {
-                              return "Please enter Password";
+                              return "Please enter Name";
                             } else {
                               null;
                             }
@@ -361,33 +361,37 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                       ),
                     ),
                   ),
-                  SizedBox(height: 20),
-                  CustomBtn(
-                      text: AppString.conti,
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          Get.to(
-                            SelectSeatScreen(
-                                idnumber: global.idnumber.text,
-                                idtype: global.selectedValuefive,
-                                passengertype: global.selectedValuesix,
-                                title: widget.title,
-                                trailing: widget.trailing,
-                                leading: widget.leading,
-                                trailingtwo: widget.trailingtwo,
-                                date: widget.date,
-                                subtitle: widget.subtitle,
-                                image: widget.image,
-                                email: global.email.text,
-                                name: global.fullName.text,
-                                phonenumber: global.country.isEmpty ? "+91${global.numberController.text}" : "+ ${global.country + global.numberController.text}"),
-                          );
-                        }
-                      })
                 ],
               );
             }),
           ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        child: Padding(
+          padding: const EdgeInsets.all(20),
+          child: CustomBtn(
+              text: AppString.conti,
+              onPressed: () {
+                if (formKey.currentState!.validate()) {
+                  Get.to(
+                    SelectSeatScreen(
+                        idnumber: global.idnumber.text,
+                        idtype: global.selectedValuefive,
+                        passengertype: global.selectedValuesix,
+                        title: widget.title,
+                        trailing: widget.trailing,
+                        leading: widget.leading,
+                        trailingtwo: widget.trailingtwo,
+                        date: widget.date,
+                        subtitle: widget.subtitle,
+                        image: widget.image,
+                        email: global.email.text,
+                        name: global.fullName.text,
+                        phonenumber: global.country.isEmpty ? "+91${global.numberController.text}" : "+ ${global.country + global.numberController.text}"),
+                  );
+                }
+              }),
         ),
       ),
     );
