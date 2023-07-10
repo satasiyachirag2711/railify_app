@@ -11,6 +11,7 @@ class GlobleController extends GetxController {
   TextEditingController pinput = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
   TextEditingController date = TextEditingController();
+  TextEditingController updates = TextEditingController();
   TextEditingController returndate = TextEditingController();
   TextEditingController fullName = TextEditingController();
   TextEditingController numberController = TextEditingController();

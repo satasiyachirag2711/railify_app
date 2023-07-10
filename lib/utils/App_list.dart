@@ -98,4 +98,6 @@ class AppList {
   ].obs;
 
   static RxList seat = ["A1", "B1", "1", "C1", "D1", "A2", "B2", "2", "C2", "D2", "A3", "B3", "3", "C3", "D3", "A4", "B4", "4", "C4", "D4", "A5", "B5", "5", "C5", "D5", "A6", "B6", "6", "C6", "D6", "A7", "B7", "7", "C7", "D7"].obs;
+
+  static RxList passengerList = ["Jenny Wilson", "Ronald Richards", "Eleanor Pena", "Jacob Jones", "Savannah Nguyen", "Kristin Watson", "Albert Flores", "Jane Cooper", "Jane Cooper", "Courtney Henry"].obs;
 }

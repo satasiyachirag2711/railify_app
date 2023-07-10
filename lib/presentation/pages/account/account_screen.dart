@@ -3,8 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:railify_app/controller/globle_controller.dart';
-import 'package:railify_app/presentation/pages/account/about_screen.dart';
-import 'package:railify_app/presentation/pages/account/general_screen.dart';
+import 'package:railify_app/presentation/pages/account/about/help_center.dart';
+import 'package:railify_app/presentation/pages/account/general/passengerlist.dart';
 import 'package:railify_app/presentation/pages/one_boarder_screen.dart';
 import 'package:railify_app/utils/App_list.dart';
 import 'package:railify_app/utils/app_color.dart';
@@ -144,7 +144,12 @@ class _AccountScreenState extends State<AccountScreen> {
                       if (index == 6) {
                         return null;
                       } else {
-                        Get.to(GeneralScreen(name: AppList.account[index]["dataOne"]));
+                        index == 1
+                            ? Get.to(PassengerList(
+                                fullName: "",
+                                name: AppList.account[index]["dataOne"],
+                              ))
+                            : SizedBox();
                       }
                     },
                   ),
