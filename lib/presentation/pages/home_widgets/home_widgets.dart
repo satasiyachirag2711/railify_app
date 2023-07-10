@@ -4,7 +4,10 @@ import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/home_widgets/check_booking.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/one_way_custom.dart';
 import 'package:railify_app/presentation/pages/home_widgets/our_news_stories.dart';
+import 'package:railify_app/presentation/pages/home_widgets/re_schedule/re_schedule_screen.dart';
 import 'package:railify_app/presentation/pages/home_widgets/round_trip/round_trip_custom.dart';
+import 'package:railify_app/presentation/pages/home_widgets/shipping_rate_screen.dart';
+import 'package:railify_app/presentation/pages/home_widgets/train_cancellation/select_trip_to_cancel.dart';
 import 'package:railify_app/presentation/pages/notification_screen.dart';
 import 'package:railify_app/utils/app_images.dart';
 import 'package:railify_app/utils/app_string.dart';
@@ -122,7 +125,15 @@ class _HomeWigetsState extends State<HomeWigets> {
                           children: [
                             GestureDetector(
                               onTap: () {
-                                Get.to(const CheckBookScreen());
+                                index == 0
+                                    ? Get.to(CheckBookScreen(check: AppList.checkBooking[index]["data"]))
+                                    : index == 1
+                                        ? Get.to(ReScheduleScreen())
+                                        : index == 2
+                                            ? Get.to(SelectTripScreen())
+                                            : Get.to(
+                                                ShippingRateScreen(),
+                                              );
                               },
                               child: Container(
                                 height: 50,

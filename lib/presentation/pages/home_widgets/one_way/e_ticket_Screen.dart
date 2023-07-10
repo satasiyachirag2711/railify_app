@@ -141,7 +141,7 @@ class _ETicketScreenState extends State<ETicketScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(AppString.passenger, style: TextStyle(color: AppColor.black54)),
-                        Text("\$${widget.name}", style: const TextStyle(fontWeight: FontWeight.w500)),
+                        Text(widget.name, style: const TextStyle(fontWeight: FontWeight.w500)),
                       ],
                     ),
                     Row(

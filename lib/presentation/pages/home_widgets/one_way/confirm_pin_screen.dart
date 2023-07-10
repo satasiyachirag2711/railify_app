@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:pinput/pinput.dart';
+import 'package:railify_app/presentation/pages/home_page.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/transaction_details_screen.dart';
 import 'package:railify_app/presentation/widgets/custom_btn.dart';
 
@@ -92,7 +93,7 @@ class _ConfirmPinScreenState extends State<ConfirmPinScreen> {
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
                           title: Container(
                             decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(10)),
-                            height: Get.height * 0.6,
+                            height: Get.height * 0.65,
                             child: SingleChildScrollView(
                               child: Column(
                                 children: [
@@ -129,6 +130,14 @@ class _ConfirmPinScreenState extends State<ConfirmPinScreen> {
                                         );
                                       },
                                       text: AppString.viewtransaction),
+                                  SizedBox(height: 20),
+                                  ElevatedButton(
+                                    onPressed: () {
+                                      Get.offAll(HomePage());
+                                    },
+                                    child: Text(AppString.backtohome),
+                                    style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue.shade100), minimumSize: MaterialStatePropertyAll(Size(Get.width, 50)), shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
+                                  )
                                 ],
                               ),
                             ),

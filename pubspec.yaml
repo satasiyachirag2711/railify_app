@@ -44,6 +44,7 @@ dependencies:
   intl_phone_field: ^3.1.0
   ticket_widget: ^0.0.1
   share_plus: ^7.0.2
+  image_picker: ^1.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

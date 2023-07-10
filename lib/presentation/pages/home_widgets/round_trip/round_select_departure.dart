@@ -4,22 +4,22 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 import 'package:railify_app/controller/globle_controller.dart';
-import 'package:railify_app/presentation/pages/home_widgets/one_way/booking_detailscreen.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/sort_filter_screen.dart';
+import 'package:railify_app/presentation/pages/home_widgets/round_trip/round_return_train.dart';
 import 'package:railify_app/utils/app_images.dart';
 
 import '../../../../utils/App_list.dart';
 import '../../../../utils/app_color.dart';
 import '../../../../utils/app_string.dart';
 
-class SearchResultScreen extends StatefulWidget {
-  const SearchResultScreen({super.key});
+class SelectDepartureTrain extends StatefulWidget {
+  const SelectDepartureTrain({super.key});
 
   @override
-  State<SearchResultScreen> createState() => _SearchResultScreenState();
+  State<SelectDepartureTrain> createState() => _SelectDepartureTrainState();
 }
 
-class _SearchResultScreenState extends State<SearchResultScreen> {
+class _SelectDepartureTrainState extends State<SelectDepartureTrain> {
   GlobleController global = Get.find();
 
   @override
@@ -27,8 +27,8 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-          AppString.searchresult,
-          style: const TextStyle(fontWeight: FontWeight.bold),
+          "${AppString.selected} ${AppString.departuretrain}",
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.04),
         ),
         actions: [
           IconButton(
@@ -58,7 +58,8 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                   onDateChange: (date) {
                     setState(() {
                       RxString formattedDate = DateFormat('yyyy-MM-dd').format(date).obs;
-                      global.selectedDate = DateTime.parse(formattedDate.value);                    });
+                      global.selectedDate = DateTime.parse(formattedDate.value);
+                    });
                   },
                 ),
               ),
@@ -72,7 +73,7 @@ class _SearchResultScreenState extends State<SearchResultScreen> {
                         GestureDetector(
                           onTap: () {
                             Get.to(
-                              BookingDetailScreen(
+                              RoundReturnTrain(
                                 title: AppList.search[index]["data1"],
                                 image: AppList.search[index]["image"],
                                 subtitle: AppList.search[index]["data5"],

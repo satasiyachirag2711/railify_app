@@ -13,6 +13,7 @@ class CustomTextFild extends StatelessWidget {
   final bool margin;
   final bool max;
   IconButton? Icons;
+  int? maxlength;
   Icon? icon;
   final bool obsertext;
   final TextEditingController controller;
@@ -40,6 +41,7 @@ class CustomTextFild extends StatelessWidget {
     required this.leble,
     this.Icons,
     this.icon,
+    this.maxlength,
     this.validator,
   }) : super(key: key);
 
@@ -53,6 +55,7 @@ class CustomTextFild extends StatelessWidget {
           style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.036),
         ),
         TextFormField(
+          maxLength: maxlength,
           validator: validator,
           cursorColor: AppColor.grey,
           keyboardType: numberKeyboard ? TextInputType.number : TextInputType.emailAddress,

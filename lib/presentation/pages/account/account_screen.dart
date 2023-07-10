@@ -1,10 +1,17 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:railify_app/controller/globle_controller.dart';
+import 'package:railify_app/presentation/pages/account/about/about_railify.dart';
 import 'package:railify_app/presentation/pages/account/about/help_center.dart';
+import 'package:railify_app/presentation/pages/account/about/privacy_policy.dart';
+import 'package:railify_app/presentation/pages/account/general/language_screen.dart';
+import 'package:railify_app/presentation/pages/account/general/notification_screen.dart';
 import 'package:railify_app/presentation/pages/account/general/passengerlist.dart';
+import 'package:railify_app/presentation/pages/account/general/payment_method_screen.dart';
+import 'package:railify_app/presentation/pages/account/general/personal_screen.dart';
+import 'package:railify_app/presentation/pages/account/general/security_update.dart';
 import 'package:railify_app/presentation/pages/one_boarder_screen.dart';
 import 'package:railify_app/utils/App_list.dart';
 import 'package:railify_app/utils/app_color.dart';
@@ -13,7 +20,8 @@ import 'package:railify_app/utils/app_string.dart';
 import 'package:share_plus/share_plus.dart';
 
 class AccountScreen extends StatefulWidget {
-  const AccountScreen({super.key});
+  String? image;
+  AccountScreen({super.key, this.image});
 
   @override
   State<AccountScreen> createState() => _AccountScreenState();
@@ -21,6 +29,12 @@ class AccountScreen extends StatefulWidget {
 
 class _AccountScreenState extends State<AccountScreen> {
   GlobleController global = Get.find();
+  @override
+  void initState() {
+    // TODO: implement initState
+    print("=============================${widget.image}");
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -37,8 +51,11 @@ class _AccountScreenState extends State<AccountScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ListTile(
-                contentPadding: const EdgeInsets.all(0),
-                leading: Image.asset(AppImages.dp, scale: 0.8),
+                contentPadding: EdgeInsets.all(0),
+                leading: CircleAvatar(
+                  backgroundImage: widget.image != null ? FileImage(File(widget.image!)) : AssetImage("assets/placeholder_image.png") as ImageProvider<Object>?,
+                  radius: Get.width * 0.04,
+                ),
                 title: Text(AppString.andrew, style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.04)),
                 subtitle: Text(
                   "andrewainsley@yourdomain.com",
@@ -141,16 +158,19 @@ class _AccountScreenState extends State<AccountScreen> {
                               })
                             : Icon(Icons.arrow_forward_ios_rounded, size: Get.width * 0.05),
                     onTap: () {
-                      if (index == 6) {
-                        return null;
-                      } else {
-                        index == 1
-                            ? Get.to(PassengerList(
-                                fullName: "",
-                                name: AppList.account[index]["dataOne"],
-                              ))
-                            : SizedBox();
-                      }
+                      index == 0
+                          ? Get.to(PersonalScreen())
+                          : index == 1
+                              ? Get.to(PassengerList(fullName: "", name: AppList.account[index]["dataOne"]))
+                              : index == 2
+                                  ? Get.to(PaymentMethodScreen(payment: "", name: AppList.account[index]["dataOne"]))
+                                  : index == 3
+                                      ? Get.to(NotificationAccount())
+                                      : index == 4
+                                          ? Get.to(SecurityUpdateScreen())
+                                          : index == 5
+                                              ? Get.to(const LangauseScreen())
+                                              : const SizedBox();
                     },
                   ),
                 ),
@@ -229,9 +249,11 @@ class _AccountScreenState extends State<AccountScreen> {
                                   ]),
                                 )));
                       } else {
-                        Get.to(AboutScreen(
-                          name: AppList.accounttwo[index]["dataOne"],
-                        ));
+                        index == 0
+                            ? Get.to(HelpCenter(name: AppList.accounttwo[index]["dataOne"]))
+                            : index == 1
+                                ? Get.to(PrivacyScreen(name: AppList.accounttwo[index]["dataOne"]))
+                                : Get.to(AboutRailifyScreen(name: AppList.accounttwo[index]["dataOne"]));
                       }
                     },
                   ),

@@ -255,44 +255,6 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
                   ),
                 ),
                 Text(
-                  AppString.contackdetail,
-                  style: TextStyle(fontSize: Get.width * 0.045, fontWeight: FontWeight.bold),
-                ),
-                Container(
-                  padding: const EdgeInsets.all(16),
-                  decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
-                  height: Get.height * 0.16,
-                  width: Get.width,
-                  margin: EdgeInsets.symmetric(vertical: Get.height * 0.03),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(AppString.fullname, style: TextStyle(color: AppColor.black54)),
-                          Text(widget.name, style: const TextStyle(fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(AppString.email, style: TextStyle(color: AppColor.black54)),
-                          Text(widget.email, style: const TextStyle(fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(AppString.phone, style: TextStyle(color: AppColor.black54)),
-                          Text(widget.phonenumber, style: const TextStyle(fontWeight: FontWeight.bold)),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-                Text(
                   AppString.paymentmethod,
                   style: TextStyle(fontSize: Get.width * 0.045, fontWeight: FontWeight.bold),
                 ),

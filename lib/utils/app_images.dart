@@ -29,6 +29,10 @@ class AppImages {
   static String searchicon = "$icon/search_icon.png";
   static String paypal = "$icon/paypal.png";
   static String visa = "$icon/visa.png";
+  static String customer = "$icon/customer_service.png";
+  static String whatsapp = "$icon/whatsapp.png";
+  static String instagram = "$icon/instagram.png";
+  static String world = "$icon/world.png";
 
   static String intro_one = "$image/intro_one.jpg";
   static String intro_two = "$image/intro_two.jpg";
@@ -42,4 +46,5 @@ class AppImages {
   static String disthree = "$image/dis_three.png";
   static String barcode = "$image/barcode.png";
   static String qrcode = "$image/qrcode.png";
+  static String paymentnew = "$image/payment.png";
 }

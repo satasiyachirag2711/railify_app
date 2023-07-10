@@ -7,6 +7,8 @@ class GlobleController extends GetxController {
   RangeValues ticketrange = RangeValues(0, 200);
 
   TextEditingController email = TextEditingController();
+  TextEditingController bookingid = TextEditingController();
+  TextEditingController cardnumber = TextEditingController();
   TextEditingController password = TextEditingController();
   TextEditingController pinput = TextEditingController();
   TextEditingController confirmPassword = TextEditingController();
@@ -30,6 +32,8 @@ class GlobleController extends GetxController {
   RxBool switc = false.obs;
   RxBool show = false.obs;
   RxBool hide = false.obs;
+  RxBool help = false.obs;
+
   RxBool passenger = false.obs;
   int selectedRadioIndex = -1.obs;
   int ticketavilibility = -1.obs;

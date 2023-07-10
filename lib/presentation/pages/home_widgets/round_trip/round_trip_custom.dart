@@ -4,7 +4,7 @@ import 'package:get/get_instance/get_instance.dart';
 import 'package:get/get_navigation/src/extension_navigation.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:intl/intl.dart';
-import 'package:railify_app/presentation/pages/home_widgets/round_trip/select_departure_screen.dart';
+import 'package:railify_app/presentation/pages/home_widgets/round_trip/round_select_departure.dart';
 import 'package:railify_app/presentation/widgets/custom_btn.dart';
 import 'package:railify_app/utils/app_color.dart';
 import 'package:railify_app/utils/app_string.dart';
@@ -92,8 +92,17 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
                   controller: globle.date,
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
-                        onPressed: () {
-                          selectDate(context);
+                        onPressed: () async {
+                          final DateTime? picked = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            initialDatePickerMode: DatePickerMode.day,
+                            firstDate: DateTime.now(),
+                            lastDate: DateTime(2030),
+                          );
+                          if (picked != null) {
+                            globle.date.text = DateFormat("dd/MM/yyyy").format(picked);
+                          }
                         },
                         icon: const Icon(Icons.calendar_month)),
                     hintText: AppString.departure,
@@ -111,8 +120,17 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
                   controller: globle.returndate,
                   decoration: InputDecoration(
                     suffixIcon: IconButton(
-                        onPressed: () {
-                          selectDate(context);
+                        onPressed: () async {
+                          final DateTime? picked = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            initialDatePickerMode: DatePickerMode.day,
+                            firstDate: DateTime.now(),
+                            lastDate: DateTime(2030),
+                          );
+                          if (picked != null) {
+                            globle.returndate.text = DateFormat("dd/MM/yyyy").format(picked);
+                          }
                         },
                         icon: const Icon(Icons.calendar_month)),
                     hintText: AppString.returndate,
@@ -205,18 +223,5 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
         ],
       );
     });
-  }
-
-  void selectDate(BuildContext context) async {
-    final DateTime? picked = await showDatePicker(
-      context: context,
-      initialDate: DateTime.now(),
-      initialDatePickerMode: DatePickerMode.day,
-      firstDate: DateTime.now(),
-      lastDate: DateTime(2030),
-    );
-    if (picked != null) {
-      globle.returndate.text = DateFormat("dd/MM/yyyy").format(picked);
-    }
   }
 }

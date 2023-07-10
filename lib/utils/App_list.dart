@@ -16,22 +16,28 @@ class AppList {
     "South Station",
     "Stellar Station",
   ].obs;
+
+  static RxList<String> gender = [
+    "Male",
+    "Female",
+  ].obs;
+
   static RxList<String> train = ["All Class", "Executive", "Business", "Economy"].obs;
   static RxList<String> passenger = ["0 Adult", "1 Adult", "2 Adult", "3 Adult", "4 Adult", "5 Adult"].obs;
 
   static RxList<Map<String, dynamic>> checkBooking = [
-    {"image": AppImages.ticket, "data": "Check\nBooking"},
-    {"image": AppImages.calender, "data": "Re-\nSchedule"},
-    {"image": AppImages.calenderone, "data": "Train\nCancellation"},
-    {"image": AppImages.cutlery, "data": "Order\nTrain Food"},
-    {"image": AppImages.seat, "data": "Check Seat\nAvailability"},
-    {"image": AppImages.train, "data": "Train Live\nStatus"},
-    {"image": AppImages.calendertwo, "data": "Train\nSchedule"},
-    {"image": AppImages.letter, "data": "Train Line\nInformation"},
-    {"image": AppImages.doller, "data": "Train\nFare"},
-    {"image": AppImages.refund, "data": "Refund\nCalculation"},
-    {"image": AppImages.clock, "data": "Station\nAlarm"},
-    {"image": AppImages.cube, "data": "Shipping\nRates"},
+    {"image": AppImages.ticket, "data": "Check Booking"},
+    {"image": AppImages.calender, "data": "Re- Schedule"},
+    {"image": AppImages.calenderone, "data": "Train Cancellation"},
+    {"image": AppImages.cutlery, "data": "Order Train Food"},
+    {"image": AppImages.seat, "data": "Check Seat Availability"},
+    {"image": AppImages.train, "data": "Train Live Status"},
+    {"image": AppImages.calendertwo, "data": "Train Schedule"},
+    {"image": AppImages.letter, "data": "Train Line Information"},
+    {"image": AppImages.doller, "data": "Train Fare"},
+    {"image": AppImages.refund, "data": "Refund Calculation"},
+    {"image": AppImages.clock, "data": "Station Alarm"},
+    {"image": AppImages.cube, "data": "Shipping Rates"},
   ].obs;
 
   static RxList<Map<String, dynamic>> notification = [
@@ -80,6 +86,13 @@ class AppList {
     {"image": AppImages.visa, "dataOne": ".... .... .... 5567"},
   ].obs;
 
+  static RxList<Map<String, dynamic>> paymentmethod = [
+    {"image": AppImages.paypal, "dataOne": "Paypal"},
+    {"image": AppImages.google, "dataOne": "Google Pay"},
+    {"image": AppImages.apple, "dataOne": "Apple Pay"},
+    {"image": AppImages.visa, "dataOne": ".... .... .... 5567"},
+  ].obs;
+
   static RxList<Map<String, dynamic>> account = [
     {"image": Icons.person, "dataOne": AppString.personal},
     {"image": Icons.people, "dataOne": AppString.passengerlist},
@@ -97,7 +110,41 @@ class AppList {
     {"image": Icons.login, "dataOne": AppString.logout},
   ].obs;
 
+  static RxList<Map<String, dynamic>> helpCenter = [
+    {"image": AppImages.customer, "dataOne": AppString.customerservice},
+    {"image": AppImages.whatsapp, "dataOne": AppString.whatsapp},
+    {"image": AppImages.instagram, "dataOne": AppString.instagram},
+    {"image": AppImages.facebook, "dataOne": AppString.facebook},
+    {"image": AppImages.twitter, "dataOne": AppString.twitter},
+    {"image": AppImages.world, "dataOne": AppString.website},
+  ].obs;
+
   static RxList seat = ["A1", "B1", "1", "C1", "D1", "A2", "B2", "2", "C2", "D2", "A3", "B3", "3", "C3", "D3", "A4", "B4", "4", "C4", "D4", "A5", "B5", "5", "C5", "D5", "A6", "B6", "6", "C6", "D6", "A7", "B7", "7", "C7", "D7"].obs;
 
   static RxList passengerList = ["Jenny Wilson", "Ronald Richards", "Eleanor Pena", "Jacob Jones", "Savannah Nguyen", "Kristin Watson", "Albert Flores", "Jane Cooper", "Jane Cooper", "Courtney Henry"].obs;
+  static RxList notifications = ["Notify me when...", "I made a train ticket order", "I made a payment", "I canceled my train trip order", "There are special offers/discounts", "There is new news", "System", "App System", "Guidance, tips, and tricks", "Participate in a survey"].obs;
+  static RxList security = ["Remember me", "Biometric", "Face ID", "SMS Authenticator", "Google Authenticator", "Device Management"].obs;
+  static RxList language = ["Suggested", "English (US)", "English (UK)", "Language", "Mandarin", "Spanish", "French", "Arabic", "Bengalix", "Russian", "Japanese", "Korean", "Indonesia", "Gujarati", "Hindi"].obs;
+  static RxList canceltrip = [
+    "Sudden change in plans",
+    "Weather conditions",
+    "Health concerns",
+    "Budget constraints",
+    "Budget constraints",
+    "Unforeseen circumstances",
+    "Mechanical issues",
+    "Personal preferences",
+    "Another reason",
+  ].obs;
+  static RxList about = [
+    AppString.jobvacancy,
+    AppString.developer,
+    AppString.partner,
+    AppString.accessibility,
+    AppString.termsofuse,
+    AppString.feedback,
+    AppString.rateus,
+    AppString.visitour,
+    AppString.followus,
+  ].obs;
 }

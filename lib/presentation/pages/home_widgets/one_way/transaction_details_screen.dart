@@ -315,7 +315,7 @@ class _TransactionDetailsScreenState extends State<TransactionDetailsScreen> {
                               CustomBtn(
                                 text: AppString.showeticket,
                                 onPressed: () {
-                                  Get.off(ETicketScreen(
+                                  Get.to(ETicketScreen(
                                     title: widget.title,
                                     trailing: widget.trailing,
                                     leading: widget.leading,
