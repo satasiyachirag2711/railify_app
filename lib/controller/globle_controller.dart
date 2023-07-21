@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 class GlobleController extends GetxController {
   RangeValues rangeValues = RangeValues(0, 24);
   RangeValues ticketrange = RangeValues(0, 200);
+  RxDouble sliderValue = 0.0.obs;
 
   TextEditingController email = TextEditingController();
   TextEditingController bookingid = TextEditingController();
@@ -19,21 +20,43 @@ class GlobleController extends GetxController {
   TextEditingController numberController = TextEditingController();
   TextEditingController idnumber = TextEditingController();
   TextEditingController redeem = TextEditingController();
+  TextEditingController note = TextEditingController();
+  TextEditingController starttime = TextEditingController();
+  TextEditingController endtime = TextEditingController();
+  TextEditingController senderoutlet = TextEditingController();
+  TextEditingController receiveroutlet = TextEditingController();
+  TextEditingController weight = TextEditingController();
+  TextEditingController length = TextEditingController();
+  TextEditingController width = TextEditingController();
+  TextEditingController height = TextEditingController();
+  TextEditingController topup = TextEditingController();
+  // TextEditingController endtime = TextEditingController();
   String country = "";
+  String searchText = '';
+  List<String> shippingrate = [];
+  List<int> selectedIndices = [];
   dynamic selectedValue;
   dynamic selectedValuetwo;
   dynamic selectedValuethree;
   dynamic selectedValuefour;
   dynamic selectedValuefive;
   dynamic selectedValuesix;
+  dynamic one;
+  dynamic two;
+  dynamic three;
+  dynamic four;
   RxInt navigation = 0.obs;
+  RxBool showContainer = false.obs;
   RxBool tab = true.obs;
+  RxDouble total = 0.00.obs;
+  RxDouble number = 0.00.obs;
   RxBool reivewswitch = true.obs;
   RxBool switc = false.obs;
   RxBool show = false.obs;
   RxBool hide = false.obs;
   RxBool help = false.obs;
-
+  RxList<int> demo = RxList<int>([0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
+  RxList passengerList = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10].obs;
   RxBool passenger = false.obs;
   int selectedRadioIndex = -1.obs;
   int ticketavilibility = -1.obs;
@@ -46,4 +69,5 @@ class GlobleController extends GetxController {
   int payment = -1.obs;
   RxList select = [].obs;
   RxBool unselect = false.obs;
+  RxList<Map> basket = [{}].obs;
 }

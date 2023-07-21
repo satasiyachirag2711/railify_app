@@ -4,13 +4,16 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:railify_app/controller/globle_controller.dart';
+import 'package:railify_app/presentation/pages/home_widgets/food/select_trip_to_order_food.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/e_ticket_Screen.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/widget/custom_btn.dart';
+import 'package:railify_app/presentation/pages/home_widgets/re_schedule/re_schedule_screen.dart';
 import 'package:railify_app/presentation/widgets/custom_btn.dart';
 import 'package:railify_app/utils/app_color.dart';
 import 'package:railify_app/utils/app_string.dart';
 
 import '../../../../utils/app_images.dart';
+import '../train_cancellation/select_trip_to_cancel.dart';
 
 class TransactionDetailsScreen extends StatefulWidget {
   final String image;
@@ -99,7 +102,7 @@ class _TransactionDetailsScreenState extends State<TransactionDetailsScreen> {
                       style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.038),
                     ),
                     subtitle: Text(
-                      "Economy",
+                      AppString.economy,
                       style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
                     ),
                   ),
@@ -241,7 +244,7 @@ class _TransactionDetailsScreenState extends State<TransactionDetailsScreen> {
             ),
             Obx(() {
               return Container(
-                padding: EdgeInsets.all(16),
+                padding: const EdgeInsets.all(16),
                 decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                 height: global.passenger.value == false ? Get.height * 0.4 : Get.height * 0.13,
                 width: Get.width,
@@ -263,7 +266,7 @@ class _TransactionDetailsScreenState extends State<TransactionDetailsScreen> {
                         icon: Icon(global.passenger.value ? Icons.keyboard_arrow_up_outlined : Icons.keyboard_arrow_down_outlined, color: AppColor.black, size: Get.width * 0.07),
                       ),
                     ),
-                    Divider(),
+                    const Divider(),
                     global.passenger.value == false
                         ? Column(
                             children: [
@@ -316,45 +319,50 @@ class _TransactionDetailsScreenState extends State<TransactionDetailsScreen> {
                                 text: AppString.showeticket,
                                 onPressed: () {
                                   Get.to(ETicketScreen(
-                                    title: widget.title,
-                                    trailing: widget.trailing,
-                                    leading: widget.leading,
-                                    trailingtwo: widget.trailingtwo,
-                                    date: widget.date,
-                                    subtitle: widget.subtitle,
-                                    image: widget.image,
-                                    email: widget.email,
-                                    name: widget.name,
-                                    phonenumber: widget.phonenumber,
-                                    seat: widget.seat,
-                                    paymentname: widget.paymentname,
-                                    passengertype: widget.passengertype,
-                                    idtype: widget.idtype,
-                                    idnumber: widget.idnumber,
-                                  ));
+                                      title: widget.title,
+                                      trailing: widget.trailing,
+                                      leading: widget.leading,
+                                      trailingtwo: widget.trailingtwo,
+                                      date: widget.date,
+                                      subtitle: widget.subtitle,
+                                      image: widget.image,
+                                      email: widget.email,
+                                      name: widget.name,
+                                      phonenumber: widget.phonenumber,
+                                      seat: widget.seat,
+                                      paymentname: widget.paymentname,
+                                      passengertype: widget.passengertype,
+                                      idtype: widget.idtype,
+                                      idnumber: widget.idnumber));
                                 },
                               )
                             ],
                           )
-                        : SizedBox(),
+                        : const SizedBox(),
                   ],
                 ),
               );
             }),
             CustomBtnone(
               text: AppString.order,
-              onPressed: () {},
+              onPressed: () {
+                Get.off(const SelectTripOrderFood());
+              },
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: CustomBtnone(
                 text: AppString.reschedule,
-                onPressed: () {},
+                onPressed: () {
+                  Get.off(const ReScheduleScreen());
+                },
               ),
             ),
             CustomBtnone(
               text: AppString.cancelticket,
-              onPressed: () {},
+              onPressed: () {
+                Get.off(const SelectTripScreen());
+              },
             )
           ],
         ),

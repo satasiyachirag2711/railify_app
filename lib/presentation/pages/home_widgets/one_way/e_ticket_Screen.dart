@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/utils/app_color.dart';
 import 'package:railify_app/utils/app_images.dart';
@@ -46,7 +45,7 @@ class _ETicketScreenState extends State<ETicketScreen> {
           width: Get.width * 0.9,
           height: Get.height * 0.8,
           isCornerRounded: true,
-          padding: EdgeInsets.all(25),
+          padding: const EdgeInsets.all(25),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +63,7 @@ class _ETicketScreenState extends State<ETicketScreen> {
                         style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.038),
                       ),
                       subtitle: Text(
-                        "Economy",
+                        AppString.economy,
                         style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
                       ),
                       trailing: Column(
@@ -136,7 +135,7 @@ class _ETicketScreenState extends State<ETicketScreen> {
                         ),
                       ],
                     ),
-                    Divider(),
+                    const Divider(),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -148,7 +147,7 @@ class _ETicketScreenState extends State<ETicketScreen> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(AppString.idnumber, style: TextStyle(color: AppColor.black54)),
-                        Text(widget.idnumber, style: TextStyle(fontWeight: FontWeight.w500)),
+                        Text(widget.idnumber, style: const TextStyle(fontWeight: FontWeight.w500)),
                       ],
                     ),
                     Row(

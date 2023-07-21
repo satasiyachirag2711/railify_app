@@ -1,7 +1,6 @@
 import 'package:date_picker_timeline/date_picker_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/booking_detailscreen.dart';
@@ -61,7 +60,7 @@ class _SelectDepartureTrainState extends State<SelectDepartureTrain> {
                   },
                 ),
               ),
-              Container(
+              SizedBox(
                   height: Get.height * 1.3,
                   child: ListView.builder(
                     itemCount: AppList.search.length,
@@ -83,7 +82,7 @@ class _SelectDepartureTrainState extends State<SelectDepartureTrain> {
                             );
                           },
                           child: Container(
-                            margin: EdgeInsets.all(20),
+                            margin: const EdgeInsets.all(20),
                             decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                             height: Get.height * 0.2,
                             child: Column(
@@ -95,7 +94,7 @@ class _SelectDepartureTrainState extends State<SelectDepartureTrain> {
                                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.038),
                                   ),
                                   subtitle: Text(
-                                    "Economy",
+                                    AppString.economy,
                                     style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
                                   ),
                                   trailing: Wrap(
@@ -112,7 +111,7 @@ class _SelectDepartureTrainState extends State<SelectDepartureTrain> {
                                     ],
                                   ),
                                 ),
-                                Divider(),
+                                const Divider(),
                                 Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                                   crossAxisAlignment: CrossAxisAlignment.center,

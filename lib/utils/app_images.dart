@@ -47,4 +47,15 @@ class AppImages {
   static String barcode = "$image/barcode.png";
   static String qrcode = "$image/qrcode.png";
   static String paymentnew = "$image/payment.png";
+  static String foodone = "$image/food_one.png";
+  static String foodtwo = "$image/food_two.png";
+  static String foodthree = "$image/food_three.png";
+  static String foodfour = "$image/food_four.png";
+  static String foodfive = "$image/food_five.png";
+  static String foodsix = "$image/food_six.png";
+  static String foodseven = "$image/food_seven.png";
+  static String foodeight = "$image/food_eight.png";
+  static String foodnine = "$image/food_nine.png";
+  static String foodten = "$image/food_ten.png";
+  static String pizaa = "$image/pizaa.png";
 }

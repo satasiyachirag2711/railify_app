@@ -52,8 +52,8 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
                 child: Text(value),
               );
             }).toList(),
-            onChanged: (Value) {
-              globle.selectedValue = Value;
+            onChanged: (value) {
+              globle.selectedValue = value;
             },
           ),
           Text(
@@ -77,8 +77,8 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
                 child: Text(value),
               );
             }).toList(),
-            onChanged: (Value) {
-              globle.selectedValuetwo = Value;
+            onChanged: (value) {
+              globle.selectedValuetwo = value;
             },
           ),
           Text(
@@ -170,14 +170,14 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
                           child: Text(value),
                         );
                       }).toList(),
-                      onChanged: (Value) {
-                        globle.selectedValuethree = Value;
+                      onChanged: (value) {
+                        globle.selectedValuethree = value;
                       },
                     ),
                   ],
                 ),
               ),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Expanded(
                 child: Column(
                   children: [
@@ -202,8 +202,8 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
                           child: Text(value),
                         );
                       }).toList(),
-                      onChanged: (Value) {
-                        globle.selectedValuefour = Value;
+                      onChanged: (value) {
+                        globle.selectedValuefour = value;
                       },
                     ),
                   ],
@@ -216,7 +216,7 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
             child: CustomBtn(
               text: AppString.search,
               onPressed: () {
-                Get.to(SelectDepartureTrain());
+                Get.to(const SelectDepartureTrain());
               },
             ),
           ),

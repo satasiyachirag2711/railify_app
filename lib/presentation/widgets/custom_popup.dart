@@ -29,7 +29,7 @@ class CustomPopup extends StatelessWidget {
             SizedBox(height: Get.height * 0.03),
             Text(AppString.pleasewait, style: TextStyle(color: AppColor.black, fontSize: Get.width * 0.03)),
             Text(AppString.youwill_homepage, style: TextStyle(color: AppColor.black, height: 1.2, fontSize: Get.width * 0.03)),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             SpinKitCircle(
               size: Get.width * 0.15,
               itemBuilder: (BuildContext context, int index) {

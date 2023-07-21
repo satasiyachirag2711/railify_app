@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/select_payment.dart';
 import 'package:railify_app/presentation/widgets/custom_btn.dart';
@@ -112,8 +110,8 @@ class _SelectSeatScreenState extends State<SelectSeatScreen> {
                                   } else {
                                     globle.select.add(AppList.seat[index]);
                                   }
-                                  print(AppList.seat[index]);
-                                  print(globle.select);
+                                  debugPrint(AppList.seat[index]);
+                                  debugPrint("${globle.select}");
                                 },
                                 child: Container(
                                   margin: const EdgeInsets.all(5),

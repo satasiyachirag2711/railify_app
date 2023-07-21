@@ -6,7 +6,7 @@ import 'package:railify_app/utils/app_color.dart';
 class CustomBtnone extends StatelessWidget {
   final String text;
   final void Function()? onPressed;
-  CustomBtnone({super.key, required this.text, this.onPressed});
+  const CustomBtnone({super.key, required this.text, this.onPressed});
 
   @override
   Widget build(BuildContext context) {

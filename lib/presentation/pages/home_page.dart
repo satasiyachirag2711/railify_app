@@ -4,8 +4,8 @@ import 'package:get/get_instance/src/extension_instance.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/home_widgets/home_widgets.dart';
-import 'package:railify_app/presentation/pages/ticket_screen.dart';
-import 'package:railify_app/presentation/pages/wallet_screen.dart';
+import 'package:railify_app/presentation/pages/ticket/ticket_screen.dart';
+import 'package:railify_app/presentation/pages/wallet/wallet_screen.dart';
 import 'package:railify_app/presentation/widgets/custom_bottem_bar.dart';
 
 import 'account/account_screen.dart';
@@ -27,9 +27,9 @@ class _HomePageState extends State<HomePage> {
         return globle.navigation.value == 0
             ? const HomeWigets()
             : globle.navigation.value == 1
-                ? TicketScreen()
+                ? const TicketScreen()
                 : globle.navigation.value == 2
-                    ? WalletScreen()
+                    ? const WalletScreen()
                     : globle.navigation.value == 3
                         ? AccountScreen()
                         : Container();

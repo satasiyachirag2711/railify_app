@@ -39,7 +39,7 @@ class _SecurityUpdateScreenState extends State<SecurityUpdateScreen> {
                 ),
               ),
               index == 5
-                  ? Icon(Icons.arrow_forward_ios)
+                  ? const Icon(Icons.arrow_forward_ios)
                   : Obx(() {
                       return Switch(
                         value: switchValues[index],

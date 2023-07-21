@@ -44,7 +44,7 @@ class _LangauseScreenState extends State<LangauseScreen> {
                   fontSize: Get.width * 0.037,
                 ),
               ),
-              isSelectedList[index] ? Icon(Icons.check) : SizedBox(),
+              isSelectedList[index] ? const Icon(Icons.check) : const SizedBox(),
             ]),
           ),
           separatorBuilder: (context, index) => index == 2

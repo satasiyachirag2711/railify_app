@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/home_page.dart';
-import 'package:railify_app/presentation/widgets/custom_btn.dart';
+import 'package:railify_app/presentation/widgets/customNavigatebotam.dart';
 import 'package:railify_app/presentation/widgets/custom_popup.dart';
 import 'package:railify_app/presentation/widgets/custom_textfield.dart';
 import 'package:railify_app/utils/app_color.dart';
@@ -100,32 +100,27 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Padding(
-          padding: const EdgeInsets.all(20),
-          child: CustomBtn(
-            text: AppString.conti,
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                showDialog(
-                  context: context,
-                  builder: (context) => Padding(
-                    padding: EdgeInsets.only(bottom: Get.height * 0.08),
-                    child: AlertDialog(
-                      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                      title: CustomPopup(text: AppString.resetpasswordsucces),
-                    ),
-                  ),
-                );
+      bottomNavigationBar: CustomBotamNavigate(
+        text: AppString.conti,
+        onPressed: () {
+          if (formKey.currentState!.validate()) {
+            showDialog(
+              context: context,
+              builder: (context) => Padding(
+                padding: EdgeInsets.only(bottom: Get.height * 0.08),
+                child: AlertDialog(
+                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                  title: CustomPopup(text: AppString.resetpasswordsucces),
+                ),
+              ),
+            );
 
-                Future.delayed(const Duration(seconds: 4)).then((value) => Get.off(const HomePage()));
+            Future.delayed(const Duration(seconds: 4)).then((value) => Get.off(const HomePage()));
 
-                globle.confirmPassword.clear();
-                globle.password.clear();
-              }
-            },
-          ),
-        ),
+            globle.confirmPassword.clear();
+            globle.password.clear();
+          }
+        },
       ),
     );
   }

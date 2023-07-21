@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/select_seat_screen.dart';
@@ -67,7 +66,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                             style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.038),
                           ),
                           subtitle: Text(
-                            "Economy",
+                            AppString.economy,
                             style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
                           ),
                           trailing: Wrap(
@@ -84,7 +83,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                             ],
                           ),
                         ),
-                        Divider(),
+                        const Divider(),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           crossAxisAlignment: CrossAxisAlignment.center,
@@ -156,65 +155,69 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                     ],
                   ),
                   Container(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                     height: Get.height * 0.38,
                     width: Get.width,
                     margin: EdgeInsets.symmetric(vertical: Get.height * 0.03),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        CustomTextFild(
-                          hint: "Name",
-                          controller: global.fullName,
-                          leble: AppString.fullname,
-                          icon: Icon(Icons.person),
-                          validator: (value) {
-                            if (global.fullName.text.isEmpty) {
-                              return "Please enter Name";
-                            } else {
-                              null;
-                            }
-                          },
-                        ),
-                        Padding(
-                          padding: EdgeInsets.symmetric(vertical: Get.height * 0.03),
-                          child: CustomTextFild(
-                            hint: AppString.email,
-                            controller: global.email,
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          CustomTextFild(
+                            hint: "Name",
+                            controller: global.fullName,
+                            leble: AppString.fullname,
+                            icon: const Icon(Icons.person),
                             validator: (value) {
-                              if (global.email.text.isEmpty) {
-                                return "Please enter Email";
-                              } else if (global.email.text.isEmail == false) {
-                                return "Please verified email";
+                              if (global.fullName.text.isEmpty) {
+                                return "Please enter Name";
                               } else {
                                 null;
                               }
+                              return null;
                             },
-                            leble: AppString.email,
-                            Icons: IconButton(onPressed: () {}, icon: Icon(Icons.email_outlined)),
                           ),
-                        ),
-                        Text(
-                          AppString.phone,
-                          style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.032, color: AppColor.black),
-                        ),
-                        IntlPhoneField(
-                          controller: global.numberController,
-                          onCountryChanged: (val) {
-                            global.country = val.dialCode;
-                            debugPrint("===>======>phone code ${val.dialCode}");
-                          },
-                          style: TextStyle(fontSize: Get.width * 0.034, fontWeight: FontWeight.bold),
-                          textAlignVertical: TextAlignVertical.center,
-                          decoration: InputDecoration(
-                            counterText: "",
-                            suffixIcon: Icon(Icons.phone),
-                            hintText: AppString.phone,
+                          Padding(
+                            padding: EdgeInsets.symmetric(vertical: Get.height * 0.03),
+                            child: CustomTextFild(
+                              hint: AppString.email,
+                              controller: global.email,
+                              validator: (value) {
+                                if (global.email.text.isEmpty) {
+                                  return "Please enter Email";
+                                } else if (global.email.text.isEmail == false) {
+                                  return "Please verified email";
+                                } else {
+                                  null;
+                                }
+                                return null;
+                              },
+                              leble: AppString.email,
+                              Icons: IconButton(onPressed: () {}, icon: const Icon(Icons.email_outlined)),
+                            ),
                           ),
-                          initialCountryCode: "In",
-                        ),
-                      ],
+                          Text(
+                            AppString.phone,
+                            style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.032, color: AppColor.black),
+                          ),
+                          IntlPhoneField(
+                            controller: global.numberController,
+                            onCountryChanged: (val) {
+                              global.country = val.dialCode;
+                              debugPrint("===>======>phone code ${val.dialCode}");
+                            },
+                            style: TextStyle(fontSize: Get.width * 0.034, fontWeight: FontWeight.bold),
+                            textAlignVertical: TextAlignVertical.center,
+                            decoration: InputDecoration(
+                              counterText: "",
+                              suffixIcon: const Icon(Icons.phone),
+                              hintText: AppString.phone,
+                            ),
+                            initialCountryCode: "In",
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                   Text(
@@ -222,133 +225,135 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                     style: TextStyle(fontSize: Get.width * 0.05, fontWeight: FontWeight.bold),
                   ),
                   Container(
-                    padding: EdgeInsets.all(16),
+                    padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                     height: global.show.value == false ? Get.height * 0.5 : Get.height * 0.15,
                     width: Get.width,
                     margin: EdgeInsets.symmetric(vertical: Get.height * 0.03),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        ListTile(
-                          title: Text(
-                            AppString.passenger1,
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.042),
+                    child: SingleChildScrollView(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          ListTile(
+                            title: Text(
+                              AppString.passenger1,
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.042),
+                            ),
+                            leading: Icon(Icons.airline_seat_recline_normal_rounded, color: AppColor.black, size: Get.width * 0.07),
+                            trailing: IconButton(
+                              onPressed: () {
+                                global.show.value = !global.show.value;
+                              },
+                              icon: Icon(global.show.value ? Icons.keyboard_arrow_up_outlined : Icons.keyboard_arrow_down_outlined, color: AppColor.black, size: Get.width * 0.07),
+                            ),
                           ),
-                          leading: Icon(Icons.airline_seat_recline_normal_rounded, color: AppColor.black, size: Get.width * 0.07),
-                          trailing: IconButton(
-                            onPressed: () {
-                              global.show.value = !global.show.value;
-                            },
-                            icon: Icon(global.show.value ? Icons.keyboard_arrow_up_outlined : Icons.keyboard_arrow_down_outlined, color: AppColor.black, size: Get.width * 0.07),
-                          ),
-                        ),
-                        Divider(),
-                        global.show.value == false
-                            ? Column(
-                                children: [
-                                  Row(
-                                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                    children: [
-                                      Text(
-                                        AppString.sameas,
-                                        style: TextStyle(fontSize: Get.width * 0.042, fontWeight: FontWeight.bold),
-                                      ),
-                                      Switch(
-                                        value: global.switc.value,
-                                        onChanged: (value) {
-                                          global.switc.value = !global.switc.value;
-                                        },
-                                      )
-                                    ],
-                                  ),
-                                  Divider(),
-                                  CustomTextFild(
-                                    hint: "Name",
-                                    controller: global.fullName,
-                                    leble: AppString.fullname,
-                                    icon: Icon(Icons.person),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
-                                    child: Row(
+                          const Divider(),
+                          global.show.value == false
+                              ? Column(
+                                  children: [
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                "ID Type",
-                                                style: TextStyle(fontWeight: FontWeight.w500, height: 2.4, fontSize: Get.width * 0.036),
-                                              ),
-                                              DropdownButton<String>(
-                                                isExpanded: true,
-                                                icon: Icon(Icons.keyboard_arrow_down_outlined, size: Get.width * 0.08),
-                                                hint: Text(
-                                                  "ID Type",
-                                                  style: TextStyle(fontWeight: FontWeight.w500, color: AppColor.black54, fontSize: Get.width * 0.038),
-                                                ),
-                                                value: global.selectedValuefive,
-                                                items: AppList.idtype.map<DropdownMenuItem<String>>((value) {
-                                                  return DropdownMenuItem<String>(
-                                                    value: value,
-                                                    child: Text(value),
-                                                  );
-                                                }).toList(),
-                                                onChanged: (value) {
-                                                  setState(() {
-                                                    global.selectedValuefive = value;
-                                                  });
-                                                },
-                                              ),
-                                            ],
-                                          ),
+                                        Text(
+                                          AppString.sameas,
+                                          style: TextStyle(fontSize: Get.width * 0.042, fontWeight: FontWeight.bold),
                                         ),
-                                        SizedBox(width: 20),
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment: CrossAxisAlignment.start,
-                                            children: [
-                                              CustomTextFild(
-                                                numberKeyboard: true,
-                                                hint: AppString.idnumber,
-                                                controller: global.idnumber,
-                                                leble: AppString.idnumber,
-                                              ),
-                                            ],
-                                          ),
+                                        Switch(
+                                          value: global.switc.value,
+                                          onChanged: (value) {
+                                            global.switc.value = !global.switc.value;
+                                          },
                                         )
                                       ],
                                     ),
-                                  ),
-                                  Text(
-                                    "Passenger Type",
-                                    style: TextStyle(fontWeight: FontWeight.w500, height: 2.4, fontSize: Get.width * 0.036),
-                                  ),
-                                  DropdownButton<String>(
-                                    isExpanded: true,
-                                    icon: Icon(Icons.keyboard_arrow_down_outlined, size: Get.width * 0.08),
-                                    hint: Text(
-                                      "Passenger Type",
-                                      style: TextStyle(fontWeight: FontWeight.w500, color: AppColor.black54, fontSize: Get.width * 0.038),
+                                    const Divider(),
+                                    CustomTextFild(
+                                      hint: "Name",
+                                      controller: global.fullName,
+                                      leble: AppString.fullname,
+                                      icon: const Icon(Icons.person),
                                     ),
-                                    value: global.selectedValuesix,
-                                    items: AppList.passengertype.map<DropdownMenuItem<String>>((value) {
-                                      return DropdownMenuItem<String>(
-                                        value: value,
-                                        child: Text(value),
-                                      );
-                                    }).toList(),
-                                    onChanged: (value) {
-                                      setState(() {
-                                        global.selectedValuesix = value;
-                                      });
-                                    },
-                                  ),
-                                ],
-                              )
-                            : SizedBox(),
-                      ],
+                                    Padding(
+                                      padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
+                                      child: Row(
+                                        children: [
+                                          Expanded(
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  "ID Type",
+                                                  style: TextStyle(fontWeight: FontWeight.w500, height: 2.4, fontSize: Get.width * 0.036),
+                                                ),
+                                                DropdownButton<String>(
+                                                  isExpanded: true,
+                                                  icon: Icon(Icons.keyboard_arrow_down_outlined, size: Get.width * 0.08),
+                                                  hint: Text(
+                                                    "ID Type",
+                                                    style: TextStyle(fontWeight: FontWeight.w500, color: AppColor.black54, fontSize: Get.width * 0.038),
+                                                  ),
+                                                  value: global.selectedValuefive,
+                                                  items: AppList.idtype.map<DropdownMenuItem<String>>((value) {
+                                                    return DropdownMenuItem<String>(
+                                                      value: value,
+                                                      child: Text(value),
+                                                    );
+                                                  }).toList(),
+                                                  onChanged: (value) {
+                                                    setState(() {
+                                                      global.selectedValuefive = value;
+                                                    });
+                                                  },
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          const SizedBox(width: 20),
+                                          Expanded(
+                                            child: Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children: [
+                                                CustomTextFild(
+                                                  numberKeyboard: true,
+                                                  hint: AppString.idnumber,
+                                                  controller: global.idnumber,
+                                                  leble: AppString.idnumber,
+                                                ),
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                    Text(
+                                      "Passenger Type",
+                                      style: TextStyle(fontWeight: FontWeight.w500, height: 2.4, fontSize: Get.width * 0.036),
+                                    ),
+                                    DropdownButton<String>(
+                                      isExpanded: true,
+                                      icon: Icon(Icons.keyboard_arrow_down_outlined, size: Get.width * 0.08),
+                                      hint: Text(
+                                        "Passenger Type",
+                                        style: TextStyle(fontWeight: FontWeight.w500, color: AppColor.black54, fontSize: Get.width * 0.038),
+                                      ),
+                                      value: global.selectedValuesix,
+                                      items: AppList.passengertype.map<DropdownMenuItem<String>>((value) {
+                                        return DropdownMenuItem<String>(
+                                          value: value,
+                                          child: Text(value),
+                                        );
+                                      }).toList(),
+                                      onChanged: (value) {
+                                        setState(() {
+                                          global.selectedValuesix = value;
+                                        });
+                                      },
+                                    ),
+                                  ],
+                                )
+                              : const SizedBox(),
+                        ],
+                      ),
                     ),
                   ),
                   Container(

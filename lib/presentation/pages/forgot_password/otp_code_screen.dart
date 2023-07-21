@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:pinput/pinput.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/forgot_password/create_new_password.dart';
-import 'package:railify_app/presentation/widgets/custom_btn.dart';
+import 'package:railify_app/presentation/widgets/customNavigatebotam.dart';
 import 'package:railify_app/utils/app_color.dart';
 import 'package:railify_app/utils/app_string.dart';
 
@@ -71,23 +71,18 @@ class _OtpCodeScreenState extends State<OtpCodeScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: Get.width * 0.08, vertical: Get.height * 0.02),
-          child: CustomBtn(
-            text: AppString.conti,
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                if (globle.pinput.length > 3) {
-                  globle.password.clear();
-                  Get.to(
-                    CreateNewPassword(),
-                  );
-                }
-              }
-            },
-          ),
-        ),
+      bottomNavigationBar: CustomBotamNavigate(
+        text: AppString.conti,
+        onPressed: () {
+          if (formKey.currentState!.validate()) {
+            if (globle.pinput.length > 3) {
+              globle.password.clear();
+              Get.to(
+                const CreateNewPassword(),
+              );
+            }
+          }
+        },
       ),
     );
   }

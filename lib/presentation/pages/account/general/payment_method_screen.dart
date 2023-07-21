@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/utils/app_images.dart';
@@ -11,6 +10,7 @@ import '../../../../utils/app_string.dart';
 import '../../../widgets/custom_btn.dart';
 import '../../../widgets/custom_textfield.dart';
 
+// ignore: must_be_immutable
 class PaymentMethodScreen extends StatefulWidget {
   final String name;
   String? payment;
@@ -93,9 +93,9 @@ class _AddNewPaymentState extends State<AddNewPayment> {
             Get.back();
           },
         ),
-        title: Text(AppString.addnewpayment, style: TextStyle(fontWeight: FontWeight.bold)),
+        title: Text(AppString.addnewpayment, style: const TextStyle(fontWeight: FontWeight.bold)),
         centerTitle: true,
-        actions: [Icon(Icons.document_scanner)],
+        actions: const [Icon(Icons.document_scanner)],
       ),
       body: Padding(
         padding: const EdgeInsets.all(25),
@@ -124,7 +124,7 @@ class _AddNewPaymentState extends State<AddNewPayment> {
               ),
               TextField(
                 controller: globle.date,
-                keyboardType: TextInputType.numberWithOptions(),
+                keyboardType: const TextInputType.numberWithOptions(),
                 decoration: InputDecoration(
                   suffixIcon: IconButton(
                       onPressed: () {
@@ -136,11 +136,11 @@ class _AddNewPaymentState extends State<AddNewPayment> {
                   hintStyle: TextStyle(color: Colors.black.withOpacity(0.6)),
                   disabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
-                    borderSide: BorderSide(color: Colors.black38),
+                    borderSide: const BorderSide(color: Colors.black38),
                   ),
                 ),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               CustomTextFild(
                 maxlength: 3,
                 numberKeyboard: true,

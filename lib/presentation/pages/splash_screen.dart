@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:railify_app/presentation/pages/intro_screen.dart';
 
 import '../../utils/app_color.dart';
@@ -19,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    Future.delayed(const Duration(seconds: 3)).then((value) => Get.off(IntroScreen()));
+    Future.delayed(const Duration(seconds: 3)).then((value) => Get.off(const IntroScreen()));
     super.initState();
   }
 

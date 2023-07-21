@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/confirm_pin_screen.dart';
 import 'package:railify_app/presentation/widgets/custom_textfield.dart';
@@ -74,7 +72,7 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
                           style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.038),
                         ),
                         subtitle: Text(
-                          "Economy",
+                          AppString.economy,
                           style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
                         ),
                         trailing: Wrap(
@@ -241,7 +239,7 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
                             ),
                             SizedBox(width: Get.width * 0.1),
                             Text(
-                              "${widget.seat[1]}",
+                              widget.seat[1],
                               style: TextStyle(color: AppColor.black, fontWeight: FontWeight.bold, fontSize: Get.width * 0.034),
                             ),
                             Padding(
@@ -441,7 +439,7 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
                           const Text("\$2.00", style: TextStyle(fontWeight: FontWeight.bold)),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [

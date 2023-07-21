@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:railify_app/presentation/widgets/custom_btn.dart';
 
 import '../../../controller/globle_controller.dart';
@@ -34,7 +33,7 @@ class _CheckBookScreenState extends State<CheckBookScreen> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           child: CustomBtn(
             text: "Check",
             onPressed: () {},

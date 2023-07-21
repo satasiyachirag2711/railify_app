@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable
+
 import 'dart:io';
 
 import 'package:flutter/material.dart';
@@ -32,7 +34,7 @@ class _AccountScreenState extends State<AccountScreen> {
   @override
   void initState() {
     // TODO: implement initState
-    print("=============================${widget.image}");
+    debugPrint("=============================${widget.image}");
     super.initState();
   }
 
@@ -51,9 +53,9 @@ class _AccountScreenState extends State<AccountScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               ListTile(
-                contentPadding: EdgeInsets.all(0),
+                contentPadding: const EdgeInsets.all(0),
                 leading: CircleAvatar(
-                  backgroundImage: widget.image != null ? FileImage(File(widget.image!)) : AssetImage("assets/placeholder_image.png") as ImageProvider<Object>?,
+                  backgroundImage: widget.image != null ? FileImage(File(widget.image!)) : const AssetImage("assets/placeholder_image.png") as ImageProvider<Object>?,
                   radius: Get.width * 0.04,
                 ),
                 title: Text(AppString.andrew, style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.04)),
@@ -159,15 +161,15 @@ class _AccountScreenState extends State<AccountScreen> {
                             : Icon(Icons.arrow_forward_ios_rounded, size: Get.width * 0.05),
                     onTap: () {
                       index == 0
-                          ? Get.to(PersonalScreen())
+                          ? Get.to(const PersonalScreen())
                           : index == 1
                               ? Get.to(PassengerList(fullName: "", name: AppList.account[index]["dataOne"]))
                               : index == 2
                                   ? Get.to(PaymentMethodScreen(payment: "", name: AppList.account[index]["dataOne"]))
                                   : index == 3
-                                      ? Get.to(NotificationAccount())
+                                      ? Get.to(const NotificationAccount())
                                       : index == 4
-                                          ? Get.to(SecurityUpdateScreen())
+                                          ? Get.to(const SecurityUpdateScreen())
                                           : index == 5
                                               ? Get.to(const LangauseScreen())
                                               : const SizedBox();

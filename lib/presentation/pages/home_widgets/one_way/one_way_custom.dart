@@ -52,8 +52,8 @@ class _OneWayCustomState extends State<OneWayCustom> {
                 child: Text(value),
               );
             }).toList(),
-            onChanged: (Value) {
-              globle.selectedValue = Value;
+            onChanged: (value) {
+              globle.selectedValue = value;
             },
           ),
           Text(
@@ -77,8 +77,8 @@ class _OneWayCustomState extends State<OneWayCustom> {
                 child: Text(value),
               );
             }).toList(),
-            onChanged: (Value) {
-              globle.selectedValuetwo = Value;
+            onChanged: (value) {
+              globle.selectedValuetwo = value;
             },
           ),
           Text(
@@ -127,14 +127,14 @@ class _OneWayCustomState extends State<OneWayCustom> {
                           child: Text(value),
                         );
                       }).toList(),
-                      onChanged: (Value) {
-                        globle.selectedValuethree = Value;
+                      onChanged: (value) {
+                        globle.selectedValuethree = value;
                       },
                     ),
                   ],
                 ),
               ),
-              SizedBox(width: 20),
+              const SizedBox(width: 20),
               Expanded(
                 child: Column(
                   children: [
@@ -159,8 +159,8 @@ class _OneWayCustomState extends State<OneWayCustom> {
                           child: Text(value),
                         );
                       }).toList(),
-                      onChanged: (Value) {
-                        globle.selectedValuefour = Value;
+                      onChanged: (value) {
+                        globle.selectedValuefour = value;
                       },
                     ),
                   ],
@@ -173,7 +173,7 @@ class _OneWayCustomState extends State<OneWayCustom> {
             child: CustomBtn(
               text: AppString.search,
               onPressed: () {
-                Get.to(SearchResultScreen());
+                Get.to(const SearchResultScreen());
               },
             ),
           ),

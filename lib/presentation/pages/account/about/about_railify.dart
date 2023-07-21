@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../utils/App_list.dart';
 import '../../../../utils/app_images.dart';
@@ -23,7 +22,7 @@ class _AboutRailifyScreenState extends State<AboutRailifyScreen> {
         title: Text(widget.name),
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         child: Center(
           child: Column(
             children: [
@@ -35,16 +34,16 @@ class _AboutRailifyScreenState extends State<AboutRailifyScreen> {
                 AppString.railify,
                 style: TextStyle(fontSize: Get.width * 0.05, fontWeight: FontWeight.bold, height: 3),
               ),
-              Divider(height: 20),
+              const Divider(height: 20),
               SizedBox(
                 height: Get.height * 0.5,
                 child: ListView.builder(
                   itemCount: AppList.about.length,
                   itemBuilder: (context, index) => Padding(
-                    padding: EdgeInsets.only(top: 30),
+                    padding: const EdgeInsets.only(top: 30),
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [Text(AppList.about[index], style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.035)), Icon(Icons.arrow_forward_ios_rounded)],
+                      children: [Text(AppList.about[index], style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.035)), const Icon(Icons.arrow_forward_ios_rounded)],
                     ),
                   ),
                 ),

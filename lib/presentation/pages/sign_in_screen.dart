@@ -1,12 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/forgot_password/reset_password_screen.dart';
 import 'package:railify_app/presentation/pages/home_page.dart';
 import 'package:railify_app/presentation/pages/sign_up_screen.dart';
-import 'package:railify_app/presentation/widgets/custom_btn.dart';
+import 'package:railify_app/presentation/widgets/customNavigatebotam.dart';
 import 'package:railify_app/presentation/widgets/custom_or_continue_with.dart';
 import 'package:railify_app/presentation/widgets/custom_popup.dart';
 import 'package:railify_app/presentation/widgets/custom_textfield.dart';
@@ -59,6 +57,7 @@ class _SignInScreenState extends State<SignInScreen> {
                     } else {
                       null;
                     }
+                    return null;
                   },
                   controller: globle.email,
                   leble: AppString.email,
@@ -80,6 +79,7 @@ class _SignInScreenState extends State<SignInScreen> {
                       } else {
                         null;
                       }
+                      return null;
                     },
                     obsertext: globle.tab.value,
                     hint: AppString.Password,
@@ -160,34 +160,29 @@ class _SignInScreenState extends State<SignInScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05, vertical: Get.height * 0.02),
-          child: CustomBtn(
-            text: AppString.SignIn,
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                if (globle.chacked.value == true) {
-                  showDialog(
-                    context: context,
-                    builder: (context) => Padding(
-                      padding: EdgeInsets.only(bottom: Get.height * 0.08),
-                      child: AlertDialog(
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                        title: CustomPopup(text: AppString.signinsucess),
-                      ),
-                    ),
-                  );
+      bottomNavigationBar: CustomBotamNavigate(
+        text: AppString.SignIn,
+        onPressed: () {
+          if (formKey.currentState!.validate()) {
+            if (globle.chacked.value == true) {
+              showDialog(
+                context: context,
+                builder: (context) => Padding(
+                  padding: EdgeInsets.only(bottom: Get.height * 0.08),
+                  child: AlertDialog(
+                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                    title: CustomPopup(text: AppString.signinsucess),
+                  ),
+                ),
+              );
 
-                  Future.delayed(const Duration(seconds: 4)).then((value) => Get.off(const HomePage()));
+              Future.delayed(const Duration(seconds: 4)).then((value) => Get.off(const HomePage()));
 
-                  globle.email.clear();
-                  globle.password.clear();
-                }
-              }
-            },
-          ),
-        ),
+              globle.email.clear();
+              globle.password.clear();
+            }
+          }
+        },
       ),
     );
   }

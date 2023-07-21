@@ -146,7 +146,7 @@ class _HelpCenterState extends State<HelpCenter> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
+                            margin: const EdgeInsets.symmetric(vertical: 15),
                             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                             decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                             height: Get.height * 0.07,
@@ -181,7 +181,7 @@ class _HelpCenterState extends State<HelpCenter> {
                             ),
                           ),
                           Container(
-                            margin: EdgeInsets.symmetric(vertical: 15),
+                            margin: const EdgeInsets.symmetric(vertical: 15),
                             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                             decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                             height: Get.height * 0.07,
@@ -221,7 +221,7 @@ class _HelpCenterState extends State<HelpCenter> {
                     ListView.builder(
                       itemCount: AppList.helpCenter.length,
                       itemBuilder: (context, index) => Container(
-                        margin: EdgeInsets.symmetric(vertical: 15),
+                        margin: const EdgeInsets.symmetric(vertical: 15),
                         padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
                         decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                         height: Get.height * 0.07,

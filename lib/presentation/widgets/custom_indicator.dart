@@ -7,7 +7,7 @@ class CustomIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(10)),
+      borderRadius: const BorderRadius.all(Radius.circular(10)),
       child: LinearProgressIndicator(
         backgroundColor: Colors.black12,
         minHeight: 8,

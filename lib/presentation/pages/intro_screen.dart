@@ -1,7 +1,7 @@
+// ignore_for_file: must_be_immutable
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/models/intro_model.dart';
 import 'package:railify_app/presentation/pages/one_boarder_screen.dart';
@@ -10,7 +10,7 @@ import 'package:railify_app/utils/app_color.dart';
 import '../../utils/app_string.dart';
 
 class IntroScreen extends StatefulWidget {
-  IntroScreen({Key? key}) : super(key: key);
+  const IntroScreen({Key? key}) : super(key: key);
 
   @override
   State<IntroScreen> createState() => _IntroScreenState();

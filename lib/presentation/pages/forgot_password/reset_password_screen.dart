@@ -1,10 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/forgot_password/otp_code_screen.dart';
-import 'package:railify_app/presentation/widgets/custom_btn.dart';
+import 'package:railify_app/presentation/widgets/customNavigatebotam.dart';
 import 'package:railify_app/presentation/widgets/custom_textfield.dart';
 import 'package:railify_app/utils/app_color.dart';
 import 'package:railify_app/utils/app_string.dart';
@@ -56,6 +54,7 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                         } else {
                           null;
                         }
+                        return null;
                       },
                       controller: globle.email,
                       leble: AppString.email,
@@ -75,21 +74,16 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: BottomAppBar(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: Get.width * 0.05, vertical: Get.height * 0.02),
-          child: CustomBtn(
-            text: AppString.conti,
-            onPressed: () {
-              if (formKey.currentState!.validate()) {
-                Get.to(OtpCodeScreen(
-                  email: globle.email.text.toString(),
-                ));
-                globle.email.clear();
-              }
-            },
-          ),
-        ),
+      bottomNavigationBar: CustomBotamNavigate(
+        text: AppString.conti,
+        onPressed: () {
+          if (formKey.currentState!.validate()) {
+            Get.to(OtpCodeScreen(
+              email: globle.email.text.toString(),
+            ));
+            globle.email.clear();
+          }
+        },
       ),
     );
   }

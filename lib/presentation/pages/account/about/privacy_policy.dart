@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 
 import '../../../../utils/app_color.dart';
 import '../../../../utils/app_string.dart';
@@ -41,7 +40,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                 style: TextStyle(color: AppColor.black54, height: 1.6, fontSize: Get.width * 0.036),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10),
                 child: Text(
                   AppString.deviceinformation,
                   style: TextStyle(color: AppColor.black54, height: 1.6, fontSize: Get.width * 0.036),
@@ -57,7 +56,7 @@ class _PrivacyScreenState extends State<PrivacyScreen> {
                 style: TextStyle(color: AppColor.black54, height: 1.6, fontSize: Get.width * 0.036),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 10),
+                padding: const EdgeInsets.only(left: 10),
                 child: Text(
                   AppString.deviceinformation,
                   style: TextStyle(color: AppColor.black54, height: 1.6, fontSize: Get.width * 0.036),

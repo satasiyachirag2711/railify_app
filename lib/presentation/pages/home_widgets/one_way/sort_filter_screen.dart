@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/search_result_screen.dart';
 import 'package:railify_app/presentation/widgets/custom_btn.dart';
@@ -40,8 +39,8 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
           return Column(
             children: [
               Container(
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                 height: Get.height * 0.42,
                 width: Get.width,
@@ -56,7 +55,7 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                     Expanded(
                       child: ListView.builder(
                         itemCount: AppList.sortfilter.length,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) => RadioListTile(
                           title: Text(AppList.sortfilter[index].toString()),
                           value: index,
@@ -71,8 +70,8 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                 height: Get.height * 0.25,
                 width: Get.width,
@@ -84,11 +83,11 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                       style: TextStyle(fontSize: Get.width * 0.05, fontWeight: FontWeight.bold),
                     ),
                     Divider(height: Get.height * 0.04),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Center(
                       child: Text(
                         ' ${global.rangeValues.start.toStringAsFixed(1)}AM - ${global.rangeValues.end.toStringAsFixed(1)} AM',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                     ),
                     RangeSlider(
@@ -104,8 +103,8 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                 height: Get.height * 0.25,
                 width: Get.width,
@@ -117,11 +116,11 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                       style: TextStyle(fontSize: Get.width * 0.05, fontWeight: FontWeight.bold),
                     ),
                     Divider(height: Get.height * 0.04),
-                    SizedBox(height: 30),
+                    const SizedBox(height: 30),
                     Center(
                       child: Text(
                         '\$${global.ticketrange.start.toString()} - \$${global.ticketrange.end.toString()}',
-                        style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                       ),
                     ),
                     RangeSlider(
@@ -137,8 +136,8 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                 height: Get.height * 0.35,
                 width: Get.width,
@@ -153,7 +152,7 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                     Expanded(
                       child: ListView.builder(
                         itemCount: AppList.sortfilterOne.length,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) => RadioListTile(
                           title: Text(AppList.sortfilterOne[index].toString()),
                           value: index,
@@ -168,8 +167,8 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                 height: Get.height * 0.38,
                 width: Get.width,
@@ -184,7 +183,7 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                     Expanded(
                       child: ListView.builder(
                         itemCount: AppList.sortfilterTwo.length,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) => RadioListTile(
                           title: Text(AppList.sortfilterTwo[index].toString()),
                           value: index,
@@ -199,8 +198,8 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                 height: Get.height * 0.96,
                 width: Get.width,
@@ -232,7 +231,7 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                     Expanded(
                       child: ListView.builder(
                         itemCount: AppList.sortfilterThree.length,
-                        physics: NeverScrollableScrollPhysics(),
+                        physics: const NeverScrollableScrollPhysics(),
                         itemBuilder: (context, index) => Row(
                           children: [
                             Checkbox(
@@ -258,8 +257,8 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                 ),
               ),
               Container(
-                margin: EdgeInsets.all(20),
-                padding: EdgeInsets.all(20),
+                margin: const EdgeInsets.all(20),
+                padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
                 height: Get.height * 0.1,
                 width: Get.width,
@@ -275,7 +274,7 @@ class _SortFilterScreenState extends State<SortFilterScreen> {
                     Expanded(
                         child: CustomBtn(
                             onPressed: () {
-                              Get.off(SearchResultScreen());
+                              Get.off(const SearchResultScreen());
                             },
                             text: AppString.apply)),
                   ],

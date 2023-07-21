@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -42,7 +41,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
           "Personal Info",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        actions: [const Icon(Icons.edit)],
+        actions: const [Icon(Icons.edit)],
       ),
       body: Padding(
         padding: const EdgeInsets.all(20),
@@ -60,7 +59,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
                     decoration: BoxDecoration(
                       color: AppColor.white,
                       borderRadius: BorderRadius.circular(Get.width),
-                      image: image != null && image!.path != null
+                      image: image != null
                           ? DecorationImage(
                               image: FileImage(File(image!.path)),
                               fit: BoxFit.cover,
@@ -91,6 +90,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
                     } else {
                       null;
                     }
+                    return null;
                   },
                 ),
               ),
@@ -106,6 +106,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
                   } else {
                     null;
                   }
+                  return null;
                 },
               ),
               Padding(
@@ -121,6 +122,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
                     } else {
                       null;
                     }
+                    return null;
                   },
                   leble: AppString.email,
                   Icons: IconButton(onPressed: () {}, icon: const Icon(Icons.email_outlined)),
@@ -183,8 +185,8 @@ class _PersonalScreenState extends State<PersonalScreen> {
                     child: Text(value, style: const TextStyle(fontWeight: FontWeight.bold)),
                   );
                 }).toList(),
-                onChanged: (Value) {
-                  global.selectedValuetwo = Value;
+                onChanged: (value) {
+                  global.selectedValuetwo = value;
                 },
               ),
               Padding(
@@ -205,7 +207,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
   pickImage() async {
     image = await picker.pickImage(source: ImageSource.gallery);
     setState(() {
-      print(image);
+      debugPrint("${image}");
     });
   }
 

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:pinput/pinput.dart';
 import 'package:railify_app/presentation/pages/home_page.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/transaction_details_screen.dart';
@@ -74,7 +73,7 @@ class _ConfirmPinScreenState extends State<ConfirmPinScreen> {
                   ),
                   controller: pinput,
                   validator: (s) {
-                    print(pinput.text);
+                    debugPrint(pinput.text);
                     return null;
                   },
                   pinputAutovalidateMode: PinputAutovalidateMode.onSubmit,
@@ -83,7 +82,7 @@ class _ConfirmPinScreenState extends State<ConfirmPinScreen> {
               CustomBtn(
                 text: AppString.confirm,
                 onPressed: () {
-                  print(pinput.length);
+                  debugPrint("${pinput.length}");
                   if (pinput.length > 3) {
                     showDialog(
                       context: context,
@@ -130,13 +129,13 @@ class _ConfirmPinScreenState extends State<ConfirmPinScreen> {
                                         );
                                       },
                                       text: AppString.viewtransaction),
-                                  SizedBox(height: 20),
+                                  const SizedBox(height: 20),
                                   ElevatedButton(
                                     onPressed: () {
-                                      Get.offAll(HomePage());
+                                      Get.offAll(const HomePage());
                                     },
-                                    child: Text(AppString.backtohome),
                                     style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue.shade100), minimumSize: MaterialStatePropertyAll(Size(Get.width, 50)), shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
+                                    child: Text(AppString.backtohome),
                                   )
                                 ],
                               ),

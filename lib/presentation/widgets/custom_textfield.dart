@@ -1,3 +1,5 @@
+// ignore_for_file: must_be_immutable, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -13,8 +15,10 @@ class CustomTextFild extends StatelessWidget {
   final bool margin;
   final bool max;
   IconButton? Icons;
+  bool? enabled;
   int? maxlength;
   Icon? icon;
+  Widget? suffix;
   final bool obsertext;
   final TextEditingController controller;
   final Function? onChange;
@@ -24,26 +28,8 @@ class CustomTextFild extends StatelessWidget {
   final List<TextInputFormatter>? inputFormatter;
   final TextInputType? inputType;
 
-  CustomTextFild({
-    Key? key,
-    required this.hint,
-    required this.controller,
-    this.whit = false,
-    this.cngsize = false,
-    this.margin = false,
-    this.onChange,
-    this.max = false,
-    this.obsertext = false,
-    this.button,
-    this.numberKeyboard = false,
-    this.inputFormatter,
-    this.inputType,
-    required this.leble,
-    this.Icons,
-    this.icon,
-    this.maxlength,
-    this.validator,
-  }) : super(key: key);
+  CustomTextFild({Key? key, required this.hint, required this.controller, this.whit = false, this.cngsize = false, this.margin = false, this.onChange, this.max = false, this.obsertext = false, this.button, this.enabled = true, this.numberKeyboard = false, this.inputFormatter, this.inputType, required this.leble, this.Icons, this.icon, this.maxlength, this.validator, this.suffix})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -56,6 +42,7 @@ class CustomTextFild extends StatelessWidget {
         ),
         TextFormField(
           maxLength: maxlength,
+          enabled: enabled,
           validator: validator,
           cursorColor: AppColor.grey,
           keyboardType: numberKeyboard ? TextInputType.number : TextInputType.emailAddress,
@@ -67,11 +54,13 @@ class CustomTextFild extends StatelessWidget {
           onChanged: (String value) {},
           decoration: InputDecoration(
             suffixIcon: Icons,
+            counter: const Text(""),
+            suffix: suffix,
             hintText: hint,
             prefixIcon: icon,
             hintStyle: TextStyle(
               fontSize: Get.width * 0.034,
-              color: AppColor.black54,
+              color: AppColor.black,
             ),
           ),
         ),

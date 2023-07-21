@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:railify_app/presentation/widgets/custom_btn.dart';
 import 'package:railify_app/utils/app_color.dart';
 import 'package:railify_app/utils/app_images.dart';
@@ -64,19 +63,19 @@ class _GetDiscountScreenState extends State<GetDiscountScreen> {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 10),
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: ElevatedButton(
                   onPressed: () {},
-                  child: Text(
-                    AppString.vx79,
-                    style: TextStyle(color: AppColor.black, fontSize: Get.width * 0.04),
-                  ),
                   style: ButtonStyle(
                     backgroundColor: MaterialStatePropertyAll(Colors.grey.shade100),
-                    elevation: MaterialStatePropertyAll(0),
+                    elevation: const MaterialStatePropertyAll(0),
                     minimumSize: MaterialStatePropertyAll(
                       Size(Get.width, Get.height * 0.06),
                     ),
+                  ),
+                  child: Text(
+                    AppString.vx79,
+                    style: TextStyle(color: AppColor.black, fontSize: Get.width * 0.04),
                   ),
                 ),
               ),

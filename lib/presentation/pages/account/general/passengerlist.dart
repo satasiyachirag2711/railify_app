@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
 import 'package:intl/intl.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/widgets/custom_btn.dart';
@@ -15,7 +13,7 @@ class PassengerList extends StatefulWidget {
   final String name;
   final String fullName;
 
-  PassengerList({super.key, required this.name, required this.fullName});
+  const PassengerList({super.key, required this.name, required this.fullName});
 
   @override
   State<PassengerList> createState() => _PassengerListState();
@@ -27,7 +25,7 @@ class _PassengerListState extends State<PassengerList> {
   void initState() {
     if (widget.fullName.isNotEmpty) {
       AppList.passengerList.add(widget.fullName);
-      print("===============><>${AppList.passengerList}");
+      debugPrint("===============><>${AppList.passengerList}");
     }
 
     super.initState();
@@ -41,10 +39,10 @@ class _PassengerListState extends State<PassengerList> {
         bottom: AppBar(
           leading: const SizedBox(),
           title: Row(
-            children: [
-              const Text("No."),
-              const SizedBox(width: 40),
-              const Text("Name"),
+            children: const [
+              Text("No."),
+              SizedBox(width: 40),
+              Text("Name"),
             ],
           ),
           leadingWidth: 1,
@@ -114,13 +112,14 @@ class _AddPassengerState extends State<AddPassenger> {
               hint: "Name",
               controller: globle.fullName,
               leble: AppString.fullname,
-              icon: Icon(Icons.person),
+              icon: const Icon(Icons.person),
               validator: (value) {
                 if (globle.fullName.text.isEmpty) {
                   return "Please enter Name";
                 } else {
                   null;
                 }
+                return null;
               },
             ),
             Row(
@@ -156,7 +155,7 @@ class _AddPassengerState extends State<AddPassenger> {
                     ],
                   ),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -307,7 +306,7 @@ class _EditPassengerState extends State<EditPassenger> {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: Icon(Icons.delete),
+            icon: const Icon(Icons.delete),
           ),
         ],
       ),
@@ -320,13 +319,14 @@ class _EditPassengerState extends State<EditPassenger> {
               hint: widget.name,
               controller: globle.fullName,
               leble: AppString.fullname,
-              icon: Icon(Icons.person),
+              icon: const Icon(Icons.person),
               validator: (value) {
                 if (globle.fullName.text.isEmpty) {
                   return "Please enter Name";
                 } else {
                   null;
                 }
+                return null;
               },
             ),
             Row(
@@ -362,7 +362,7 @@ class _EditPassengerState extends State<EditPassenger> {
                     ],
                   ),
                 ),
-                SizedBox(width: 20),
+                const SizedBox(width: 20),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

@@ -21,12 +21,14 @@ class _NotificationScreenState extends State<NotificationScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: BackButton(
-          onPressed: () {},
+          onPressed: () {
+            Get.back();
+          },
         ),
-        actions: [IconButton(onPressed: () {}, icon: Icon(Icons.settings))],
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.settings))],
         title: Text(
           AppString.notification,
-          style: TextStyle(fontWeight: FontWeight.bold),
+          style: const TextStyle(fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
       ),
@@ -38,7 +40,7 @@ class _NotificationScreenState extends State<NotificationScreen> {
               height: Get.height * 0.67,
               padding: const EdgeInsets.all(20),
               child: ListView.separated(
-                physics: NeverScrollableScrollPhysics(),
+                physics: const NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) => ListTile(
                   leading: Image.asset(AppList.notification[index]["image"], scale: 20),
                   title: Text(
@@ -47,14 +49,14 @@ class _NotificationScreenState extends State<NotificationScreen> {
                   ),
                   trailing: index == 0 || index == 1
                       ? Container(
-                          padding: EdgeInsets.all(8),
+                          padding: const EdgeInsets.all(8),
                           decoration: BoxDecoration(color: AppColor.blue, borderRadius: BorderRadius.circular(5)),
                           child: Text(
                             AppString.ne,
                             style: TextStyle(color: AppColor.white, fontSize: Get.width * 0.025),
                           ))
-                      : SizedBox(),
-                  contentPadding: EdgeInsets.only(left: 15),
+                      : const SizedBox(),
+                  contentPadding: const EdgeInsets.only(left: 15),
                   subtitle: Text(AppList.notification[index]["datatwo"], style: TextStyle(fontSize: Get.width * 0.03, height: 2)), // Wrap the string in a Text widget
                 ),
                 separatorBuilder: (context, index) => Padding(
