@@ -92,7 +92,7 @@ class AppList {
   static RxList sortfilter = ["Default", "Lowest Price", "Highest Price", "Shortest Duration", "Longest Duration"].obs;
   static RxList sortfilterOne = ["Show All Ticket", "Show Available Ticket", "Show Unavailable Ticket"].obs;
   static RxList sortfilterTwo = ["All Class", "Executive", "Business", "Economy"].obs;
-  static RxList idtype = ["ID Card"].obs;
+  static RxList<String> idtype = ["ID Card"].obs;
   static RxList passengertype = ["Adult(General)"].obs;
   static RxList<Map<String, dynamic>> sortfilterThree = [
     {"image": "assets/images/ball.png", "data1": "Alaska Railroad", "data2": false},

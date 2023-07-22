@@ -22,4 +22,4 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-// Complect Ui App 21/07/2023,Friday
+// Complect Ui App 22/07/2023,Seterday

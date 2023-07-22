@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:railify_app/controller/globle_controller.dart';
-import 'package:railify_app/presentation/pages/home_widgets/one_way/widget/custom_btn.dart';
-import 'package:railify_app/presentation/pages/ticket/ticket_canceled_screen.dart';
+import 'package:railify_app/presentation/pages/home_widgets/widget/custom_btn.dart';
+import 'package:railify_app/presentation/pages/home_widgets/widget/custom_trip_details.dart';
+import 'package:railify_app/presentation/pages/ticket/ticket_screen.dart';
 import 'package:railify_app/utils/App_list.dart';
 
 import '../../../../utils/app_color.dart';
@@ -39,97 +40,20 @@ class _CancelTripScreenState extends State<CancelTripScreen> {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text("Trip Details", style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.04)),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 20),
-                child: GestureDetector(
-                  onTap: () {
-                    // Get.to(
-                    //   SelectNewSchedule(
-                    //     title: AppList.search[index]["data1"],
-                    //     image: AppList.search[index]["image"],
-                    //     subtitle: AppList.search[index]["data5"],
-                    //     leading: AppList.search[index]["data3"],
-                    //     date: DateFormat('dd MMMM yyyy').format(global.selectedDate),
-                    //     trailingtwo: AppList.search[index]["data4"],
-                    //   ),
-                    // );
-                  },
-                  child: Container(
-                    decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
-                    height: Get.height * 0.2,
-                    child: Column(
-                      children: [
-                        ListTile(
-                            leading: Image.asset(widget.image, scale: 5),
-                            title: Text(
-                              widget.title,
-                              style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.038),
-                            ),
-                            subtitle: Text(
-                              AppString.economy,
-                              style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                            ),
-                            trailing: ElevatedButton(onPressed: () {}, child: const Text("Paid"))),
-                        const Divider(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  AppString.apex,
-                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
-                                  child: Text(
-                                    widget.leading,
-                                    style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
-                                  ),
-                                ),
-                                Text(
-                                  widget.date,
-                                  style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                                )
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Image.asset(AppImages.searchicon, scale: 12),
-                                Text(
-                                  widget.subtitle,
-                                  style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                                )
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Text(
-                                  AppString.proxima,
-                                  style: TextStyle(fontSize: Get.width * 0.034),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
-                                  child: Text(
-                                    widget.trailingtwo,
-                                    style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
-                                  ),
-                                ),
-                                Text(
-                                  widget.date,
-                                  style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                                )
-                              ],
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
+              Container(
+                decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
+                height: Get.height * 0.22,
+                child: CustomTripDetails(
+                  tr: 0,
+                  image: widget.image,
+                  title: widget.title,
+                  date: widget.date,
+                  leading: widget.leading,
+                  trailingtwo: widget.trailingtwo,
+                  subtitle: widget.subtitle,
                 ),
               ),
+              SizedBox(height: 15),
               Container(
                 padding: const EdgeInsets.all(20),
                 height: Get.height * 0.8,
@@ -142,6 +66,7 @@ class _CancelTripScreenState extends State<CancelTripScreen> {
                     SizedBox(
                       height: Get.height * 0.7,
                       child: ListView.builder(
+                        physics: NeverScrollableScrollPhysics(),
                         itemCount: AppList.canceltrip.length,
                         itemBuilder: (context, index) => RadioListTile(
                           contentPadding: const EdgeInsets.all(0),
@@ -234,7 +159,7 @@ class _CancelTripScreenState extends State<CancelTripScreen> {
                                                   const SizedBox(height: 20),
                                                   ElevatedButton(
                                                     onPressed: () {
-                                                      Get.offAll(TicketCancelSceen());
+                                                      Get.off(TicketScreen());
                                                     },
                                                     style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue.shade100), minimumSize: MaterialStatePropertyAll(Size(Get.width, 50)), shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
                                                     child: const Text("Ok"),

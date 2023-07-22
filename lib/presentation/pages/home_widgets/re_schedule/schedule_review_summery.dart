@@ -1,40 +1,54 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:railify_app/controller/globle_controller.dart';
-import 'package:railify_app/presentation/pages/home_widgets/one_way/confirm_pin_screen.dart';
+import 'package:railify_app/presentation/pages/home_widgets/one_way/transaction_details_screen.dart';
 import 'package:railify_app/presentation/pages/home_widgets/widget/custom_trip_details.dart';
-import 'package:railify_app/presentation/widgets/custom_textfield.dart';
 
 import '../../../../utils/app_color.dart';
+import '../../../../utils/app_images.dart';
 import '../../../../utils/app_string.dart';
 import '../../../widgets/custom_btn.dart';
+import '../../home_page.dart';
 
-class ReviewSummeryScreen extends StatefulWidget {
-  final String image;
-  final String title;
-  final double trailing;
-  final String date;
-  final String leading;
-  final String trailingtwo;
-  final String subtitle;
+class ScheduleReviewSummery extends StatefulWidget {
   final String name;
   final String email;
   final String phonenumber;
-  final String seat;
-  final String paymentimage;
-  final String paymentname;
   final String idtype;
   final String idnumber;
   final String passengertype;
+  final String timeThree;
+  final String timeFour;
+  final String dateTwo;
+  final String subtitletwo;
+  final String imagetwo;
+  final String titletwo;
+  final double price;
+  final String seat;
 
-  const ReviewSummeryScreen(
-      {super.key, required this.image, required this.title, required this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.subtitle, required this.name, required this.email, required this.phonenumber, required this.seat, required this.paymentimage, required this.paymentname, required this.idtype, required this.idnumber, required this.passengertype});
+  const ScheduleReviewSummery({
+    super.key,
+    required this.name,
+    required this.email,
+    required this.phonenumber,
+    required this.idtype,
+    required this.idnumber,
+    required this.passengertype,
+    required this.price,
+    required this.imagetwo,
+    required this.timeThree,
+    required this.timeFour,
+    required this.dateTwo,
+    required this.subtitletwo,
+    required this.titletwo,
+    required this.seat,
+  });
 
   @override
-  State<ReviewSummeryScreen> createState() => _ReviewSummeryScreenState();
+  State<ScheduleReviewSummery> createState() => _ScheduleReviewSummeryState();
 }
 
-class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
+class _ScheduleReviewSummeryState extends State<ScheduleReviewSummery> {
   GlobleController global = Get.find();
   int price = 0;
 
@@ -56,10 +70,10 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  AppString.departuretrain,
+                  "New ${AppString.departuretrain}",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.045),
                 ),
-                CustomTripDetails(image: widget.image, title: widget.title, date: widget.date, leading: widget.leading, trailingtwo: widget.trailingtwo, subtitle: widget.subtitle, trailing: "\$${widget.trailing.toString()}"),
+                CustomTripDetails(image: widget.imagetwo, title: widget.titletwo, date: widget.dateTwo, leading: widget.timeThree, trailingtwo: widget.timeFour, subtitle: widget.subtitletwo, trailing: "\$${widget.price.toString()}"),
                 Text(
                   AppString.contackdetail,
                   style: TextStyle(fontSize: Get.width * 0.045, fontWeight: FontWeight.bold),
@@ -152,11 +166,11 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
                             ),
                             SizedBox(width: Get.width * 0.1),
                             Text(
-                              widget.seat[1],
+                              "${widget.seat}",
                               style: TextStyle(color: AppColor.black, fontWeight: FontWeight.bold, fontSize: Get.width * 0.034),
                             ),
                             Padding(
-                              padding: EdgeInsets.only(left: Get.width * 0.08, right: Get.width * 0.05),
+                              padding: EdgeInsets.only(left: Get.width * 0.06, right: Get.width * 0.05),
                               child: Icon(Icons.edit, color: AppColor.blue, size: Get.width * 0.05),
                             ),
                           ],
@@ -165,30 +179,10 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
                     ],
                   ),
                 ),
-                Text(
-                  AppString.paymentmethod,
-                  style: TextStyle(fontSize: Get.width * 0.045, fontWeight: FontWeight.bold),
-                ),
-                Container(
-                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(20)),
-                  padding: const EdgeInsets.all(10),
-                  child: Center(
-                    child: ListTile(
-                      contentPadding: const EdgeInsets.all(15),
-                      leading: Image.asset(widget.paymentimage, scale: 14),
-                      tileColor: AppColor.white,
-                      title: Text(widget.paymentname, style: TextStyle(fontSize: Get.width * 0.04, fontWeight: FontWeight.bold)),
-                      trailing: Text(
-                        AppString.change,
-                        style: TextStyle(color: AppColor.blue, fontSize: Get.width * 0.035, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ),
-                ),
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 15),
                   decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
-                  height: global.hide.value == true ? Get.height * 0.2 : Get.height * 0.09,
+                  height: global.hide.value == true ? Get.height * 0.18 : Get.height * 0.08,
                   width: Get.width,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -206,37 +200,24 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
                             },
                             icon: Icon(global.hide.value ? Icons.keyboard_arrow_up_outlined : Icons.keyboard_arrow_down_outlined, color: AppColor.black, size: Get.width * 0.06)),
                       ),
-                      const Divider(),
+                      global.hide.value == true ? Divider() : SizedBox(),
                       global.hide.value == true
-                          ? Row(
-                              crossAxisAlignment: CrossAxisAlignment.end,
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    crossAxisAlignment: CrossAxisAlignment.start,
-                                    children: [
-                                      CustomTextFild(
-                                        hint: AppString.entercode,
-                                        leble: AppString.entercode,
-                                        controller: global.redeem,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Expanded(
-                                  child: ElevatedButton(
-                                    style: ButtonStyle(
-                                      shape: MaterialStatePropertyAll(
-                                        RoundedRectangleBorder(
-                                          borderRadius: BorderRadius.circular(30),
-                                        ),
-                                      ),
+                          ? Expanded(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    height: Get.height * 0.04,
+                                    width: Get.width * 0.3,
+                                    decoration: BoxDecoration(border: Border.all(color: AppColor.blue, width: 2), borderRadius: BorderRadius.circular(20)),
+                                    child: Center(
+                                      child: Text(AppString.vx79, style: TextStyle(color: AppColor.blue, fontWeight: FontWeight.bold)),
                                     ),
-                                    onPressed: () {},
-                                    child: Text(AppString.redeemcode),
                                   ),
-                                ),
-                              ],
+                                  SizedBox(width: 10),
+                                  Icon(Icons.delete, color: Colors.red)
+                                ],
+                              ),
                             )
                           : const SizedBox(),
                     ],
@@ -268,7 +249,7 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
                 Container(
                   padding: const EdgeInsets.all(16),
                   decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
-                  height: Get.height * 0.16,
+                  height: Get.height * 0.25,
                   width: Get.width,
                   margin: EdgeInsets.symmetric(vertical: Get.height * 0.03),
                   child: Column(
@@ -278,28 +259,39 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(AppString.priceadult, style: TextStyle(color: AppColor.black54)),
-                          Text("\$${widget.trailing.toString()}", style: const TextStyle(fontWeight: FontWeight.bold)),
+                          Text("Old Ticket Price (Adult*1)", style: TextStyle(color: AppColor.black54)),
+                          Text("\$40", style: const TextStyle(fontWeight: FontWeight.bold)),
                         ],
                       ),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text(AppString.tax, style: TextStyle(color: AppColor.black54)),
-                          const Text("\$2.00", style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("New Ticket Price (Adult*1)", style: TextStyle(color: AppColor.black54)),
+                          Text("\$${widget.price.toString()}", style: const TextStyle(fontWeight: FontWeight.bold)),
                         ],
                       ),
-                      const Divider(),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text("Price Conversion Difference", style: TextStyle(color: AppColor.black54)),
+                          Text("\$${40 - widget.price}", style: TextStyle(fontWeight: FontWeight.bold)),
+                        ],
+                      ),
+                      Divider(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(AppString.totalprice, style: TextStyle(color: AppColor.black54)),
-                          Text("\$${widget.trailing + 2}", style: const TextStyle(fontWeight: FontWeight.bold)),
+                          Text("\$${40 - widget.price}", style: TextStyle(fontWeight: FontWeight.bold)),
                         ],
                       ),
                     ],
                   ),
                 ),
+                Text(
+                  AppString.theremaining,
+                  style: TextStyle(color: AppColor.black54),
+                )
               ],
             );
           }),
@@ -310,24 +302,68 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
             padding: const EdgeInsets.all(20),
             child: CustomBtn(
                 onPressed: () {
-                  Get.to(ConfirmPinScreen(
-                      title: widget.title,
-                      trailing: widget.trailing,
-                      leading: widget.leading,
-                      trailingtwo: widget.trailingtwo,
-                      date: widget.date,
-                      subtitle: widget.subtitle,
-                      image: widget.image,
-                      email: widget.email,
-                      name: widget.name,
-                      phonenumber: widget.phonenumber,
-                      seat: widget.seat,
-                      paymentname: widget.paymentname,
-                      passengertype: widget.passengertype,
-                      idtype: widget.idtype,
-                      idnumber: widget.idnumber));
+                  showDialog(
+                    context: context,
+                    builder: (context) => Padding(
+                      padding: EdgeInsets.only(bottom: Get.height * 0.08),
+                      child: AlertDialog(
+                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                        title: Container(
+                          decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(10)),
+                          height: Get.height * 0.65,
+                          child: SingleChildScrollView(
+                            child: Column(
+                              children: [
+                                Image.asset(
+                                  AppImages.verify,
+                                  width: Get.width,
+                                  height: Get.height * 0.3,
+                                  fit: BoxFit.cover,
+                                ),
+                                Text(AppString.ticketbooking, style: TextStyle(color: AppColor.blue, height: 1.5, fontSize: Get.width * 0.05, fontWeight: FontWeight.bold)),
+                                SizedBox(height: Get.height * 0.03),
+                                Text(AppString.youhavesuccess, textAlign: TextAlign.center, style: TextStyle(color: AppColor.black, height: 1.2, fontSize: Get.width * 0.03)),
+                                const SizedBox(height: 20),
+                                CustomBtn(
+                                    onPressed: () {
+                                      Get.to(
+                                        TransactionDetailsScreen(
+                                          title: widget.titletwo,
+                                          trailing: widget.price,
+                                          leading: widget.timeThree,
+                                          trailingtwo: widget.timeFour,
+                                          date: widget.dateTwo,
+                                          subtitle: widget.subtitletwo,
+                                          image: widget.imagetwo,
+                                          email: widget.email,
+                                          name: widget.name,
+                                          phonenumber: widget.phonenumber,
+                                          seat: widget.seat,
+                                          passengertype: widget.passengertype,
+                                          idtype: widget.idtype,
+                                          idnumber: widget.idnumber,
+                                          paymentname: '',
+                                        ),
+                                      );
+                                    },
+                                    text: AppString.viewtransaction),
+                                SizedBox(height: 20),
+                                ElevatedButton(
+                                  onPressed: () {
+                                    Get.offAll(HomePage());
+                                  },
+                                  child: Text(AppString.backtohome),
+                                  style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue.shade100), minimumSize: MaterialStatePropertyAll(Size(Get.width, 50)), shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
+                                )
+                              ],
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  );
                 },
-                text: AppString.confirmbooking)),
+                text: "Confirm New Schedule")),
       ),
     );
   }

@@ -3,13 +3,14 @@ import 'package:get/get.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:railify_app/controller/globle_controller.dart';
 import 'package:railify_app/presentation/pages/home_widgets/one_way/select_seat_screen.dart';
+import 'package:railify_app/presentation/pages/home_widgets/widget/custom_dropdownbutton.dart';
+import 'package:railify_app/presentation/pages/home_widgets/widget/custom_trip_details.dart';
 import 'package:railify_app/presentation/widgets/custom_btn.dart';
 import 'package:railify_app/presentation/widgets/custom_textfield.dart';
 import 'package:railify_app/utils/App_list.dart';
 import 'package:railify_app/utils/app_string.dart';
 
 import '../../../../utils/app_color.dart';
-import '../../../../utils/app_images.dart';
 
 class BookingDetailScreen extends StatefulWidget {
   final String image;
@@ -53,94 +54,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                     AppString.tripdetail,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.045),
                   ),
-                  Container(
-                    decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
-                    height: Get.height * 0.22,
-                    margin: EdgeInsets.symmetric(vertical: Get.height * 0.02),
-                    child: Column(
-                      children: [
-                        ListTile(
-                          leading: Image.asset(widget.image, scale: 5),
-                          title: Text(
-                            widget.title,
-                            style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.038),
-                          ),
-                          subtitle: Text(
-                            AppString.economy,
-                            style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                          ),
-                          trailing: Wrap(
-                            children: [
-                              Text(
-                                "Available",
-                                style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: Get.width * 0.028),
-                              ),
-                              SizedBox(width: Get.width * 0.04),
-                              Text(
-                                "\$${widget.trailing}",
-                                style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
-                              )
-                            ],
-                          ),
-                        ),
-                        const Divider(),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  AppString.apex,
-                                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
-                                  child: Text(
-                                    widget.leading,
-                                    style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
-                                  ),
-                                ),
-                                Text(
-                                  widget.date,
-                                  style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                                )
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Image.asset(AppImages.searchicon, scale: 12),
-                                Text(
-                                  widget.subtitle,
-                                  style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                                )
-                              ],
-                            ),
-                            Column(
-                              children: [
-                                Text(
-                                  AppString.proxima,
-                                  style: TextStyle(fontSize: Get.width * 0.034),
-                                ),
-                                Padding(
-                                  padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
-                                  child: Text(
-                                    widget.trailingtwo,
-                                    style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
-                                  ),
-                                ),
-                                Text(
-                                  widget.date,
-                                  style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
-                                )
-                              ],
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                  ),
+                  CustomTripDetails(image: widget.image, title: widget.title, date: widget.date, leading: widget.leading, trailingtwo: widget.trailingtwo, subtitle: widget.subtitle, trailing: "\$${widget.trailing}"),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -276,36 +190,23 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                                     Padding(
                                       padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
                                       child: Row(
+                                        crossAxisAlignment: CrossAxisAlignment.start,
                                         children: [
                                           Expanded(
-                                            child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                Text(
-                                                  "ID Type",
-                                                  style: TextStyle(fontWeight: FontWeight.w500, height: 2.4, fontSize: Get.width * 0.036),
-                                                ),
-                                                DropdownButton<String>(
-                                                  isExpanded: true,
-                                                  icon: Icon(Icons.keyboard_arrow_down_outlined, size: Get.width * 0.08),
-                                                  hint: Text(
-                                                    "ID Type",
-                                                    style: TextStyle(fontWeight: FontWeight.w500, color: AppColor.black54, fontSize: Get.width * 0.038),
-                                                  ),
-                                                  value: global.selectedValuefive,
-                                                  items: AppList.idtype.map<DropdownMenuItem<String>>((value) {
-                                                    return DropdownMenuItem<String>(
-                                                      value: value,
-                                                      child: Text(value),
-                                                    );
-                                                  }).toList(),
-                                                  onChanged: (value) {
-                                                    setState(() {
-                                                      global.selectedValuefive = value;
-                                                    });
-                                                  },
-                                                ),
-                                              ],
+                                            child: CustomDropDown(
+                                              hint: "ID Type",
+                                              value: global.selectedValuefive,
+                                              items: AppList.idtype.map<DropdownMenuItem<String>>((value) {
+                                                return DropdownMenuItem<String>(
+                                                  value: value,
+                                                  child: Text(value),
+                                                );
+                                              }).toList(),
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  global.selectedValuefive = value;
+                                                });
+                                              },
                                             ),
                                           ),
                                           const SizedBox(width: 20),
@@ -325,17 +226,8 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                                         ],
                                       ),
                                     ),
-                                    Text(
-                                      "Passenger Type",
-                                      style: TextStyle(fontWeight: FontWeight.w500, height: 2.4, fontSize: Get.width * 0.036),
-                                    ),
-                                    DropdownButton<String>(
-                                      isExpanded: true,
-                                      icon: Icon(Icons.keyboard_arrow_down_outlined, size: Get.width * 0.08),
-                                      hint: Text(
-                                        "Passenger Type",
-                                        style: TextStyle(fontWeight: FontWeight.w500, color: AppColor.black54, fontSize: Get.width * 0.038),
-                                      ),
+                                    CustomDropDown(
+                                      hint: "Passenger Type",
                                       value: global.selectedValuesix,
                                       items: AppList.passengertype.map<DropdownMenuItem<String>>((value) {
                                         return DropdownMenuItem<String>(
