@@ -84,7 +84,7 @@ class _RefundCalculationScreenState extends State<RefundCalculationScreen> {
                 ),
                 CustomDropDown(
                   hint: "${AppString.origin} Station",
-                  value: globle.selectedValue,
+                  value: globle.refundone,
                   items: AppList.origin.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -93,14 +93,14 @@ class _RefundCalculationScreenState extends State<RefundCalculationScreen> {
                   }).toList(),
                   onChanged: (value) {
                     setState(() {
-                      globle.selectedValue = value;
+                      globle.refundone = value;
                     });
                   },
                   decoration: const InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
                 ),
                 CustomDropDown(
                   hint: "${AppString.destination} Station",
-                  value: globle.selectedValuetwo,
+                  value: globle.refundtwo,
                   items: AppList.desti.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -109,7 +109,7 @@ class _RefundCalculationScreenState extends State<RefundCalculationScreen> {
                   }).toList(),
                   onChanged: (value) {
                     setState(() {
-                      globle.selectedValuetwo = value;
+                      globle.refundtwo = value;
                     });
                   },
                   decoration: const InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
@@ -155,7 +155,7 @@ class _RefundCalculationScreenState extends State<RefundCalculationScreen> {
                     Expanded(
                       child: CustomDropDown(
                         hint: AppString.train,
-                        value: globle.selectedValuethree,
+                        value: globle.refundthree,
                         items: AppList.train.map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
@@ -163,7 +163,7 @@ class _RefundCalculationScreenState extends State<RefundCalculationScreen> {
                           );
                         }).toList(),
                         onChanged: (value) {
-                          globle.selectedValuethree = value;
+                          globle.refundthree = value;
                         },
                       ),
                     ),
@@ -193,7 +193,7 @@ class _RefundCalculationScreenState extends State<RefundCalculationScreen> {
                 child: CustomBtn(
                     text: "Calculation Refund",
                     onPressed: () {
-                      Get.to(RefundCalculationTwo(title: widget.title, departuredate: globle.date.text, departuretime: globle.starttime.text, origin: globle.selectedValue, destination: globle.selectedValuetwo, passenger: globle.train.toString(), train: globle.selectedValuethree, ticket: globle.note.text));
+                      Get.to(RefundCalculationTwo(title: widget.title, departuredate: globle.date.text, departuretime: globle.starttime.text, origin: globle.refundone, destination: globle.refundtwo, passenger: globle.train.toString(), train: globle.refundthree, ticket: globle.note.text));
                     }))));
   }
 

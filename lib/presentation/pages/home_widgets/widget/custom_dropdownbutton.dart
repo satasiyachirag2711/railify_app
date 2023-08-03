@@ -18,15 +18,15 @@ class CustomDropDown extends StatelessWidget {
       children: [
         Text(
           hint,
-          style: TextStyle(fontWeight: FontWeight.w500, height: 2, fontSize: Get.width * 0.038),
+          style: TextStyle(fontWeight: FontWeight.w500, height: 2, fontSize: Get.width * 0.036),
         ),
         DropdownButtonFormField<String>(
           isExpanded: true,
           decoration: decoration,
-          icon: Icon(Icons.keyboard_arrow_down_outlined, size: Get.width * 0.08),
+          icon: Icon(Icons.keyboard_arrow_down_outlined, size: Get.width * 0.07),
           hint: Text(
             hint,
-            style: TextStyle(fontWeight: FontWeight.w500, color: AppColor.black54, fontSize: Get.width * 0.04),
+            style: TextStyle(fontWeight: FontWeight.w500, color: AppColor.black54, fontSize: Get.width * 0.038),
           ),
           value: value,
           items: items,

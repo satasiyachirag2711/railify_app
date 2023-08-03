@@ -36,7 +36,7 @@ class _TrainLiveStatusScreenState extends State<TrainLiveStatusScreen> {
             children: [
               CustomDropDown(
                   hint: AppString.train,
-                  value: globle.two,
+                  value: globle.statusone,
                   items: AppList.selectTrain.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -45,12 +45,12 @@ class _TrainLiveStatusScreenState extends State<TrainLiveStatusScreen> {
                   }).toList(),
                   onChanged: (value) {
                     setState(() {
-                      globle.two = value;
+                      globle.statusone = value;
                     });
                   }),
               CustomDropDown(
                   hint: AppString.trainnumber,
-                  value: globle.one,
+                  value: globle.statustwo,
                   items: AppList.trainumber.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -59,7 +59,7 @@ class _TrainLiveStatusScreenState extends State<TrainLiveStatusScreen> {
                   }).toList(),
                   onChanged: (value) {
                     setState(() {
-                      globle.one = value;
+                      globle.statustwo = value;
                     });
                   }),
             ],
@@ -72,7 +72,7 @@ class _TrainLiveStatusScreenState extends State<TrainLiveStatusScreen> {
             child: CustomBtn(
               onPressed: () {
                 if (formKey.currentState!.validate()) {
-                  Get.to(TrainLiveStatusTwoScreen(select: globle.two, number: globle.one, title: widget.title));
+                  Get.to(TrainLiveStatusTwoScreen(select: globle.statusone, number: globle.statustwo, title: widget.title));
                 }
               },
               text: AppString.checktrainlive,

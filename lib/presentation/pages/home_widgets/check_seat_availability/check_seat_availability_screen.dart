@@ -39,7 +39,7 @@ class _CheckSeatAvailabilityState extends State<CheckSeatAvailability> {
               CustomDropDown(
                   decoration: InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
                   hint: AppString.origin,
-                  value: globle.selectedValue,
+                  value: globle.availabilityone,
                   items: AppList.origin.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -48,13 +48,13 @@ class _CheckSeatAvailabilityState extends State<CheckSeatAvailability> {
                   }).toList(),
                   onChanged: (value) {
                     setState(() {
-                      globle.selectedValue = value;
+                      globle.availabilityone = value;
                     });
                   }),
               CustomDropDown(
                   decoration: InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
                   hint: AppString.destination,
-                  value: globle.selectedValuetwo,
+                  value: globle.availabilitytwo,
                   items: AppList.desti.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -63,7 +63,7 @@ class _CheckSeatAvailabilityState extends State<CheckSeatAvailability> {
                   }).toList(),
                   onChanged: (value) {
                     setState(() {
-                      globle.selectedValuetwo = value;
+                      globle.availabilitytwo = value;
                     });
                   }),
               SizedBox(height: 10),
@@ -80,7 +80,7 @@ class _CheckSeatAvailabilityState extends State<CheckSeatAvailability> {
               CustomDropDown(
                   decoration: InputDecoration(prefixIcon: Icon(Icons.train)),
                   hint: AppString.train,
-                  value: globle.selectedValuethree,
+                  value: globle.availabilitythree,
                   items: AppList.train.map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
@@ -89,7 +89,7 @@ class _CheckSeatAvailabilityState extends State<CheckSeatAvailability> {
                   }).toList(),
                   onChanged: (value) {
                     setState(() {
-                      globle.selectedValuethree = value;
+                      globle.availabilitythree = value;
                     });
                   }),
             ],

@@ -164,6 +164,7 @@ class _RoundBookingScreenState extends State<RoundBookingScreen> {
                     width: Get.width,
                     margin: EdgeInsets.symmetric(vertical: Get.height * 0.03),
                     child: SingleChildScrollView(
+                      physics: NeverScrollableScrollPhysics(),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -206,41 +207,42 @@ class _RoundBookingScreenState extends State<RoundBookingScreen> {
                                       leble: AppString.fullname,
                                       icon: const Icon(Icons.person),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
-                                      child: Row(
-                                        children: [
-                                          Expanded(
-                                            child: CustomDropDown(
-                                                hint: "ID Type",
-                                                value: global.selectedValuefive,
-                                                items: AppList.idtype.map<DropdownMenuItem<String>>((String value) {
-                                                  return DropdownMenuItem<String>(
-                                                    value: value,
-                                                    child: Text(value),
-                                                  );
-                                                }).toList(),
-                                                onChanged: (value) {
-                                                  setState(() {
-                                                    global.selectedValuefive = value;
-                                                  });
-                                                }),
-                                          ),
-                                          const SizedBox(width: 20),
-                                          Expanded(
+                                    Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: CustomDropDown(
+                                              hint: "ID Type",
+                                              value: global.roundfive,
+                                              items: AppList.idtype.map<DropdownMenuItem<String>>((String value) {
+                                                return DropdownMenuItem<String>(
+                                                  value: value,
+                                                  child: Text(value),
+                                                );
+                                              }).toList(),
+                                              onChanged: (value) {
+                                                setState(() {
+                                                  global.roundfive = value;
+                                                });
+                                              }),
+                                        ),
+                                        const SizedBox(width: 20),
+                                        Expanded(
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(top: 12),
                                             child: CustomTextFild(
                                               numberKeyboard: true,
                                               hint: AppString.idnumber,
                                               controller: global.idnumber,
                                               leble: AppString.idnumber,
                                             ),
-                                          )
-                                        ],
-                                      ),
+                                          ),
+                                        )
+                                      ],
                                     ),
                                     CustomDropDown(
                                         hint: "Passenger Type",
-                                        value: global.selectedValuesix,
+                                        value: global.roundsix,
                                         items: AppList.passengertype.map<DropdownMenuItem<String>>((value) {
                                           return DropdownMenuItem<String>(
                                             value: value,
@@ -249,7 +251,7 @@ class _RoundBookingScreenState extends State<RoundBookingScreen> {
                                         }).toList(),
                                         onChanged: (value) {
                                           setState(() {
-                                            global.selectedValuesix = value;
+                                            global.roundsix = value;
                                           });
                                         }),
                                   ],
@@ -291,8 +293,8 @@ class _RoundBookingScreenState extends State<RoundBookingScreen> {
                         time: widget.time,
                         timetwo: widget.timetwo,
                         idnumber: global.idnumber.text,
-                        idtype: global.selectedValuefive,
-                        passengertype: global.selectedValuesix,
+                        idtype: global.roundfive,
+                        passengertype: global.roundsix,
                         title: widget.title,
                         trailing: widget.trailing,
                         leading: widget.leading,

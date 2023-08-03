@@ -223,10 +223,10 @@ class _SheduleBookingScreenState extends State<SheduleBookingScreen> {
                                             }).toList(),
                                             onChanged: (value) {
                                               setState(() {
-                                                global.selectedValuefive = value;
+                                                global.bookingone = value;
                                               });
                                             },
-                                            value: global.selectedValuefive)),
+                                            value: global.bookingone)),
                                     const SizedBox(width: 20),
                                     Expanded(
                                       child: CustomTextFild(
@@ -249,10 +249,10 @@ class _SheduleBookingScreenState extends State<SheduleBookingScreen> {
                                   }).toList(),
                                   onChanged: (value) {
                                     setState(() {
-                                      global.selectedValuesix = value;
+                                      global.bookingtwo = value;
                                     });
                                   },
-                                  value: global.selectedValuesix)
+                                  value: global.bookingtwo)
                             ],
                           )
                         else
@@ -272,8 +272,8 @@ class _SheduleBookingScreenState extends State<SheduleBookingScreen> {
             if (formKey.currentState!.validate()) {
               Get.to(SheduleSelectSeat(
                   idnumber: global.idnumber.text,
-                  idtype: global.selectedValuefive,
-                  passengertype: global.selectedValuesix,
+                  idtype: global.bookingone,
+                  passengertype: global.bookingtwo,
                   subtitletwo: widget.subtitletwo,
                   imagetwo: widget.imagetwo,
                   price: widget.price,

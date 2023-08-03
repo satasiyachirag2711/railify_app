@@ -139,7 +139,7 @@ class _AddPassengerState extends State<AddPassenger> {
                           "ID Type",
                           style: TextStyle(fontWeight: FontWeight.w500, color: AppColor.black54, fontSize: Get.width * 0.038),
                         ),
-                        value: globle.selectedValuefive,
+                        value: globle.passengerone,
                         items: AppList.idtype.map<DropdownMenuItem<String>>((value) {
                           return DropdownMenuItem<String>(
                             value: value,
@@ -148,7 +148,7 @@ class _AddPassengerState extends State<AddPassenger> {
                         }).toList(),
                         onChanged: (value) {
                           setState(() {
-                            globle.selectedValuefive = value;
+                            globle.passengerone = value;
                           });
                         },
                       ),
@@ -346,7 +346,7 @@ class _EditPassengerState extends State<EditPassenger> {
                           "ID Type",
                           style: TextStyle(fontWeight: FontWeight.w500, color: AppColor.black54, fontSize: Get.width * 0.038),
                         ),
-                        value: globle.selectedValuefive,
+                        value: globle.passengertwo,
                         items: AppList.idtype.map<DropdownMenuItem<String>>((value) {
                           return DropdownMenuItem<String>(
                             value: value,
@@ -355,7 +355,7 @@ class _EditPassengerState extends State<EditPassenger> {
                         }).toList(),
                         onChanged: (value) {
                           setState(() {
-                            globle.selectedValuefive = value;
+                            globle.passengertwo = value;
                           });
                         },
                       ),

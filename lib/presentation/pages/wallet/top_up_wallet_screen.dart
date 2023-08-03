@@ -39,12 +39,7 @@ class _TopUpWalletScreenState extends State<TopUpWalletScreen> {
                     controller: globle.topup,
                     keyboardType: TextInputType.number,
                     maxLength: 8,
-                    decoration: InputDecoration(
-                      counterText: "",
-                      prefixText: "\$",
-                      contentPadding: EdgeInsets.only(left: Get.width * 0.25),
-                      focusedBorder: InputBorder.none,
-                    ),
+                    decoration: InputDecoration(counterText: "", prefixText: "\$", contentPadding: EdgeInsets.only(left: Get.width * 0.25), focusedBorder: InputBorder.none, border: InputBorder.none),
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.08),
                   ),
                 ),
@@ -73,7 +68,7 @@ class _TopUpWalletScreenState extends State<TopUpWalletScreen> {
       ),
       bottomNavigationBar: CustomBotamNavigate(
           onPressed: () {
-            Get.to(SelectPaymentWalletScreen(title: globle.topup.text));
+            Get.off(SelectPaymentWalletScreen(title: globle.topup.text));
           },
           text: AppString.conti),
     );

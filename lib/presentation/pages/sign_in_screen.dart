@@ -118,7 +118,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
                 Center(
                   child: Padding(
-                    padding: EdgeInsets.symmetric(vertical: Get.height * 0.04),
+                    padding: EdgeInsets.symmetric(vertical: Get.height * 0.02),
                     child: TextButton(
                       onPressed: () {
                         Get.to(const ResetPasswordScreen());
@@ -154,7 +154,6 @@ class _SignInScreenState extends State<SignInScreen> {
                   ),
                 ),
                 CustomContinue(top: Get.height * 0.04, bottom: Get.height * 0.04),
-                SizedBox(height: Get.height * 0.08),
               ],
             ),
           ),
@@ -176,7 +175,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 ),
               );
 
-              Future.delayed(const Duration(seconds: 4)).then((value) => Get.off(const HomePage()));
+              Future.delayed(const Duration(seconds: 4)).then((value) => Get.offAll(const HomePage()));
 
               globle.email.clear();
               globle.password.clear();

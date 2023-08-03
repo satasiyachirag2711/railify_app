@@ -141,10 +141,11 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                   Container(
                     padding: const EdgeInsets.all(16),
                     decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
-                    height: global.show.value == false ? Get.height * 0.5 : Get.height * 0.15,
+                    height: global.show.value == false ? Get.height * 0.5 : Get.height * 0.3,
                     width: Get.width,
                     margin: EdgeInsets.symmetric(vertical: Get.height * 0.03),
                     child: SingleChildScrollView(
+                      physics: const NeverScrollableScrollPhysics(),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -187,48 +188,43 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                                       leble: AppString.fullname,
                                       icon: const Icon(Icons.person),
                                     ),
-                                    Padding(
-                                      padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
-                                      child: Row(
-                                        crossAxisAlignment: CrossAxisAlignment.start,
-                                        children: [
-                                          Expanded(
-                                            child: CustomDropDown(
-                                              hint: "ID Type",
-                                              value: global.selectedValuefive,
-                                              items: AppList.idtype.map<DropdownMenuItem<String>>((value) {
-                                                return DropdownMenuItem<String>(
-                                                  value: value,
-                                                  child: Text(value),
-                                                );
-                                              }).toList(),
-                                              onChanged: (value) {
-                                                setState(() {
-                                                  global.selectedValuefive = value;
-                                                });
-                                              },
+                                    Row(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Expanded(
+                                          child: CustomDropDown(
+                                            hint: "ID Type",
+                                            value: global.onefive,
+                                            items: AppList.idtype.map<DropdownMenuItem<String>>((value) {
+                                              return DropdownMenuItem<String>(
+                                                value: value,
+                                                child: Text(value),
+                                              );
+                                            }).toList(),
+                                            onChanged: (value) {
+                                              setState(() {
+                                                global.onefive = value;
+                                              });
+                                            },
+                                          ),
+                                        ),
+                                        const SizedBox(width: 20),
+                                        Expanded(
+                                          child: Padding(
+                                            padding: const EdgeInsets.only(top: 12),
+                                            child: CustomTextFild(
+                                              numberKeyboard: true,
+                                              hint: AppString.idnumber,
+                                              controller: global.idnumber,
+                                              leble: AppString.idnumber,
                                             ),
                                           ),
-                                          const SizedBox(width: 20),
-                                          Expanded(
-                                            child: Column(
-                                              crossAxisAlignment: CrossAxisAlignment.start,
-                                              children: [
-                                                CustomTextFild(
-                                                  numberKeyboard: true,
-                                                  hint: AppString.idnumber,
-                                                  controller: global.idnumber,
-                                                  leble: AppString.idnumber,
-                                                ),
-                                              ],
-                                            ),
-                                          )
-                                        ],
-                                      ),
+                                        )
+                                      ],
                                     ),
                                     CustomDropDown(
                                       hint: "Passenger Type",
-                                      value: global.selectedValuesix,
+                                      value: global.onesix,
                                       items: AppList.passengertype.map<DropdownMenuItem<String>>((value) {
                                         return DropdownMenuItem<String>(
                                           value: value,
@@ -237,7 +233,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                                       }).toList(),
                                       onChanged: (value) {
                                         setState(() {
-                                          global.selectedValuesix = value;
+                                          global.onesix = value;
                                         });
                                       },
                                     ),
@@ -274,8 +270,8 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                   Get.to(
                     SelectSeatScreen(
                         idnumber: global.idnumber.text,
-                        idtype: global.selectedValuefive,
-                        passengertype: global.selectedValuesix,
+                        idtype: global.onefive,
+                        passengertype: global.onesix,
                         title: widget.title,
                         trailing: widget.trailing,
                         leading: widget.leading,

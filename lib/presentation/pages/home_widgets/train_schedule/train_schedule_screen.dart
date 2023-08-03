@@ -35,7 +35,7 @@ class _TrainscheduleScreenState extends State<TrainscheduleScreen> {
           children: [
             CustomDropDown(
                 hint: AppString.selectdeparture,
-                value: globle.three,
+                value: globle.shedule,
                 items: AppList.trainschedule.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -44,7 +44,7 @@ class _TrainscheduleScreenState extends State<TrainscheduleScreen> {
                 }).toList(),
                 onChanged: (value) {
                   setState(() {
-                    globle.three = value;
+                    globle.shedule = value;
                   });
                 }),
             Row(
@@ -104,7 +104,7 @@ class _TrainscheduleScreenState extends State<TrainscheduleScreen> {
           child: CustomBtn(
               onPressed: () {
                 if (globle.starttime.text.isNotEmpty && globle.endtime.text.isNotEmpty) {
-                  Get.to(TrainScheduleTwo(title: widget.title, select: globle.three, starttime: globle.starttime.text, endtime: globle.endtime.text));
+                  Get.to(TrainScheduleTwo(title: widget.title, select: globle.shedule, starttime: globle.starttime.text, endtime: globle.endtime.text));
                   globle.starttime.clear();
                   globle.endtime.clear();
                 }

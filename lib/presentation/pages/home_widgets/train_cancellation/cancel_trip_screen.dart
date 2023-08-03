@@ -56,7 +56,7 @@ class _CancelTripScreenState extends State<CancelTripScreen> {
               SizedBox(height: 15),
               Container(
                 padding: const EdgeInsets.all(20),
-                height: Get.height * 0.8,
+                height: Get.height * 0.7,
                 decoration: BoxDecoration(color: AppColor.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -64,7 +64,7 @@ class _CancelTripScreenState extends State<CancelTripScreen> {
                     Text(AppString.reasonforcancel, style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.04)),
                     const Divider(height: 25),
                     SizedBox(
-                      height: Get.height * 0.7,
+                      height: Get.height * 0.6,
                       child: ListView.builder(
                         physics: NeverScrollableScrollPhysics(),
                         itemCount: AppList.canceltrip.length,

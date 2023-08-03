@@ -26,7 +26,7 @@ class _TicketScreenState extends State<TicketScreen> {
       body: DefaultTabController(
           length: 3,
           child: Padding(
-            padding: const EdgeInsets.all(20),
+            padding: const EdgeInsets.all(10),
             child: Column(
               children: [
                 TabBar(

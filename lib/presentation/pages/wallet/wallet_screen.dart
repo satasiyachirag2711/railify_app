@@ -72,7 +72,7 @@ class _WalletScreenState extends State<WalletScreen> {
                         ),
                         Text(
                           AppString.price,
-                          style: TextStyle(color: AppColor.white, fontWeight: FontWeight.bold, fontSize: Get.width * 0.07, height: 1.4),
+                          style: TextStyle(color: AppColor.white, fontWeight: FontWeight.bold, fontSize: Get.width * 0.065, height: 1.4),
                         ),
                       ],
                     ),
@@ -84,7 +84,7 @@ class _WalletScreenState extends State<WalletScreen> {
                           children: [
                             Text(
                               AppString.visa,
-                              style: TextStyle(color: AppColor.white, fontWeight: FontWeight.bold, fontSize: Get.width * 0.077),
+                              style: TextStyle(color: AppColor.white, fontWeight: FontWeight.bold, fontSize: Get.width * 0.07),
                             ),
                             Icon(Icons.circle_rounded, color: Colors.red.shade300),
                             Icon(Icons.circle_rounded, color: Colors.yellow.shade300)
@@ -99,7 +99,7 @@ class _WalletScreenState extends State<WalletScreen> {
                             width: Get.width * 0.25,
                             decoration: BoxDecoration(borderRadius: BorderRadius.circular(20), color: AppColor.white),
                             child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              mainAxisAlignment: MainAxisAlignment.spaceAround,
                               children: [
                                 Icon(Icons.keyboard_double_arrow_down, size: Get.width * 0.05),
                                 Text(
@@ -151,7 +151,7 @@ class _WalletScreenState extends State<WalletScreen> {
                     itemBuilder: (context, index) => ListTile(
                           contentPadding: const EdgeInsets.all(0),
                           leading: index == 0 ? Image.asset(AppImages.cutlery, scale: 20, color: AppColor.blue) : Icon(index == 4 || index == 7 || index == 13 ? Icons.keyboard_double_arrow_down : Icons.train, color: AppColor.blue),
-                          title: Text(AppList.recenttransaction[index]["data"], style: TextStyle(fontWeight: FontWeight.w600, fontSize: Get.width * 0.04)),
+                          title: Text(AppList.recenttransaction[index]["data"], style: TextStyle(fontWeight: FontWeight.w600, fontSize: Get.width * 0.038)),
                           subtitle: Text(AppList.recenttransaction[index]["dataone"], style: TextStyle(height: 1.5, fontSize: Get.width * 0.03)),
                           trailing: Wrap(
                             crossAxisAlignment: WrapCrossAlignment.center,

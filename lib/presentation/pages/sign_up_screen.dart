@@ -139,7 +139,6 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       ),
                     ),
                     CustomContinue(top: Get.height * 0.05, bottom: Get.height * 0.04),
-                    SizedBox(height: Get.height * 0.09),
                   ],
                 );
               }),
@@ -162,7 +161,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   ),
                 );
 
-                Future.delayed(const Duration(seconds: 4)).then((value) => Get.off(const HomePage()));
+                Future.delayed(const Duration(seconds: 4)).then((value) => Get.offAll(const HomePage()));
 
                 globle.email.clear();
                 globle.password.clear();

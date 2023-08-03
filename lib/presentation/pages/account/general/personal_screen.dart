@@ -178,7 +178,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
                   AppString.gender,
                   style: TextStyle(fontWeight: FontWeight.w500, color: AppColor.black54, fontSize: Get.width * 0.038),
                 ),
-                value: global.selectedValuetwo,
+                value: global.personal,
                 items: AppList.gender.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -186,7 +186,7 @@ class _PersonalScreenState extends State<PersonalScreen> {
                   );
                 }).toList(),
                 onChanged: (value) {
-                  global.selectedValuetwo = value;
+                  global.personal = value;
                 },
               ),
               Padding(

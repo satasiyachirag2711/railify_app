@@ -105,7 +105,7 @@ class _SelectPaymentWalletScreenState extends State<SelectPaymentWalletScreen> {
                           ),
                           CustomBtn(
                             onPressed: () {
-                              Get.off(const WalletScreen());
+                              Get.offAll(const WalletScreen());
                             },
                             text: "ok",
                           )

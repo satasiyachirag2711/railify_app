@@ -31,11 +31,11 @@ class _OneWayCustomState extends State<OneWayCustom> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             CustomDropDown(
               hint: AppString.origin,
-              value: globle.selectedValue,
+              value: globle.oneone,
               items: AppList.origin.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
@@ -44,14 +44,14 @@ class _OneWayCustomState extends State<OneWayCustom> {
               }).toList(),
               onChanged: (value) {
                 setState(() {
-                  globle.selectedValue = value;
+                  globle.oneone = value;
                 });
               },
               decoration: const InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
             ),
             CustomDropDown(
               hint: AppString.destination,
-              value: globle.selectedValuetwo,
+              value: globle.onetwo,
               items: AppList.desti.map<DropdownMenuItem<String>>((String value) {
                 return DropdownMenuItem<String>(
                   value: value,
@@ -60,7 +60,7 @@ class _OneWayCustomState extends State<OneWayCustom> {
               }).toList(),
               onChanged: (value) {
                 setState(() {
-                  globle.selectedValuetwo = value;
+                  globle.onetwo = value;
                 });
               },
               decoration: const InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
@@ -81,7 +81,7 @@ class _OneWayCustomState extends State<OneWayCustom> {
                 Expanded(
                   child: CustomDropDown(
                     hint: AppString.train,
-                    value: globle.selectedValuethree,
+                    value: globle.onethree,
                     items: AppList.train.map<DropdownMenuItem<String>>((String value) {
                       return DropdownMenuItem<String>(
                         value: value,
@@ -90,7 +90,7 @@ class _OneWayCustomState extends State<OneWayCustom> {
                     }).toList(),
                     onChanged: (value) {
                       setState(() {
-                        globle.selectedValuethree = value;
+                        globle.onethree = value;
                       });
                     },
                     decoration: InputDecoration(prefixIcon: Icon(Icons.train)),
@@ -100,7 +100,7 @@ class _OneWayCustomState extends State<OneWayCustom> {
                 Expanded(
                   child: CustomDropDown(
                       hint: AppString.adult,
-                      value: globle.selectedValuefour,
+                      value: globle.onefour,
                       decoration: InputDecoration(prefixIcon: Icon(Icons.person)),
                       items: AppList.passenger.map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
@@ -110,7 +110,7 @@ class _OneWayCustomState extends State<OneWayCustom> {
                       }).toList(),
                       onChanged: (value) {
                         setState(() {
-                          globle.selectedValuefour = value;
+                          globle.onefour = value;
                         });
                       }),
                 )

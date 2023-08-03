@@ -44,7 +44,7 @@ class _TrainFareScreenState extends State<TrainFareScreen> {
                     CustomDropDown(
                         decoration: InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
                         hint: AppString.origin,
-                        value: globle.selectedValue,
+                        value: globle.fareone,
                         items: AppList.origin.map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
@@ -53,13 +53,13 @@ class _TrainFareScreenState extends State<TrainFareScreen> {
                         }).toList(),
                         onChanged: (value) {
                           setState(() {
-                            globle.selectedValue = value;
+                            globle.fareone = value;
                           });
                         }),
                     CustomDropDown(
                         decoration: InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
                         hint: AppString.destination,
-                        value: globle.selectedValuetwo,
+                        value: globle.faretwo,
                         items: AppList.desti.map<DropdownMenuItem<String>>((String value) {
                           return DropdownMenuItem<String>(
                             value: value,
@@ -68,7 +68,7 @@ class _TrainFareScreenState extends State<TrainFareScreen> {
                         }).toList(),
                         onChanged: (value) {
                           setState(() {
-                            globle.selectedValuetwo = value;
+                            globle.faretwo = value;
                           });
                         }),
                     CustomBtn(
@@ -94,7 +94,7 @@ class _TrainFareScreenState extends State<TrainFareScreen> {
                           ListTile(
                             leading: const Icon(Icons.train_sharp),
                             title: Text(
-                              "${globle.selectedValue} - ${globle.selectedValuetwo}",
+                              "${globle.fareone} - ${globle.faretwo}",
                               style: const TextStyle(fontWeight: FontWeight.w500),
                             ),
                             subtitle: Text(

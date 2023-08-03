@@ -46,6 +46,8 @@ dependencies:
   share_plus: ^7.0.2
   image_picker: ^1.0.1
   syncfusion_flutter_sliders: ^22.1.39
+  shared_preferences: ^2.0.0
+  provider: ^5.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

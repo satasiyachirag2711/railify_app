@@ -81,7 +81,7 @@ class _HomeWigetsState extends State<HomeWigets> {
               Column(
                 children: [
                   Container(
-                    height: Get.height * 0.6,
+                    height: Get.height * 0.62,
                     padding: EdgeInsets.all(Get.width * 0.06),
                     margin: EdgeInsets.only(left: Get.width * 0.05, right: Get.width * 0.05, top: Get.height * 0.18),
                     decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(Get.width * 0.04)),
@@ -220,7 +220,7 @@ class _HomeWigetsState extends State<HomeWigets> {
                     ),
                   ),
                   SizedBox(
-                    height: Get.height * 0.42,
+                    height: Get.height * 0.36,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 3,
@@ -244,11 +244,11 @@ class _HomeWigetsState extends State<HomeWigets> {
                                     top: Radius.circular(Get.width * 0.08),
                                   ),
                                 ),
-                                height: Get.height * 0.25,
-                                width: Get.width * 0.8,
+                                height: Get.height * 0.20,
+                                width: Get.width * 0.9,
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 15, top: 15),
+                                padding: const EdgeInsets.only(left: 15, top: 10),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -257,7 +257,7 @@ class _HomeWigetsState extends State<HomeWigets> {
                                       AppString.get25off,
                                       style: TextStyle(
                                         color: AppColor.black,
-                                        fontSize: Get.width * 0.04,
+                                        fontSize: Get.width * 0.038,
                                         height: 1.6,
                                         fontWeight: FontWeight.bold,
                                       ),
@@ -285,7 +285,7 @@ class _HomeWigetsState extends State<HomeWigets> {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.symmetric(horizontal: Get.width * 0.04),
+                    padding: EdgeInsets.symmetric(horizontal: Get.width * 0.036),
                     child: GestureDetector(
                       onTap: () {
                         Get.to(const OurNewStroiescreen());
@@ -305,12 +305,12 @@ class _HomeWigetsState extends State<HomeWigets> {
                   ),
                   Container(
                     margin: EdgeInsets.only(bottom: Get.height * 0.02),
-                    height: Get.height * 0.42,
+                    height: Get.height * 0.4,
                     child: ListView.builder(
                       scrollDirection: Axis.horizontal,
                       itemCount: 2,
                       itemBuilder: (context, index) => Container(
-                        margin: const EdgeInsets.all(20),
+                        margin: const EdgeInsets.all(10),
                         decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(Get.width * 0.08)),
                         child: SingleChildScrollView(
                           child: Column(
@@ -327,7 +327,7 @@ class _HomeWigetsState extends State<HomeWigets> {
                                 width: Get.width * 0.8,
                               ),
                               Padding(
-                                padding: const EdgeInsets.only(left: 15, top: 15),
+                                padding: const EdgeInsets.only(left: 15, top: 10),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -336,7 +336,7 @@ class _HomeWigetsState extends State<HomeWigets> {
                                       AppString.trainapp,
                                       style: TextStyle(
                                         color: AppColor.black,
-                                        fontSize: Get.width * 0.04,
+                                        fontSize: Get.width * 0.038,
                                         height: 1.6,
                                         fontWeight: FontWeight.bold,
                                       ),

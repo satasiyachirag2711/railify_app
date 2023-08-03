@@ -115,7 +115,7 @@ class _CreateNewPasswordState extends State<CreateNewPassword> {
               ),
             );
 
-            Future.delayed(const Duration(seconds: 4)).then((value) => Get.off(const HomePage()));
+            Future.delayed(const Duration(seconds: 4)).then((value) => Get.offAll(const HomePage()));
 
             globle.confirmPassword.clear();
             globle.password.clear();

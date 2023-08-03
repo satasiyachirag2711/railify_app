@@ -35,7 +35,7 @@ class _CreateStationAlarmScreenState extends State<CreateStationAlarmScreen> {
             CustomDropDown(
                 decoration: const InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
                 hint: "Select Station",
-                value: globle.selectedValuetwo,
+                value: globle.stationone,
                 items: AppList.desti.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -44,14 +44,14 @@ class _CreateStationAlarmScreenState extends State<CreateStationAlarmScreen> {
                 }).toList(),
                 onChanged: (value) {
                   setState(() {
-                    globle.selectedValuetwo = value;
+                    globle.stationone = value;
                   });
                 }),
             SizedBox(height: 15),
             CustomDropDown(
                 decoration: const InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
                 hint: AppString.selecttrain,
-                value: globle.two,
+                value: globle.stationtwo,
                 items: AppList.selectTrain.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -60,14 +60,14 @@ class _CreateStationAlarmScreenState extends State<CreateStationAlarmScreen> {
                 }).toList(),
                 onChanged: (value) {
                   setState(() {
-                    globle.two = value;
+                    globle.stationtwo = value;
                   });
                 }),
             SizedBox(height: 15),
             CustomDropDown(
                 decoration: const InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
                 hint: "Alarm",
-                value: globle.four,
+                value: globle.stationthree,
                 items: AppList.alarm.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -76,7 +76,7 @@ class _CreateStationAlarmScreenState extends State<CreateStationAlarmScreen> {
                 }).toList(),
                 onChanged: (value) {
                   setState(() {
-                    globle.four = value;
+                    globle.stationthree = value;
                   });
                 }),
             const SizedBox(height: 25),

@@ -31,12 +31,12 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(
-              height: 20,
+              height: 10,
             ),
             CustomDropDown(
                 decoration: InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
                 hint: AppString.origin,
-                value: globle.selectedValue,
+                value: globle.roundone,
                 items: AppList.origin.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -45,13 +45,13 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
                 }).toList(),
                 onChanged: (value) {
                   setState(() {
-                    globle.selectedValue = value;
+                    globle.roundone = value;
                   });
                 }),
             CustomDropDown(
                 decoration: InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
                 hint: AppString.destination,
-                value: globle.selectedValuetwo,
+                value: globle.roundtwo,
                 items: AppList.desti.map<DropdownMenuItem<String>>((String value) {
                   return DropdownMenuItem<String>(
                     value: value,
@@ -60,7 +60,7 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
                 }).toList(),
                 onChanged: (value) {
                   setState(() {
-                    globle.selectedValuetwo = value;
+                    globle.roundtwo = value;
                   });
                 }),
             SizedBox(height: 20),
@@ -68,7 +68,7 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
               children: [
                 Expanded(
                   child: CustomTextFild(
-                    controller: globle.date,
+                    controller: globle.datetwo,
                     Icons: IconButton(
                         onPressed: () {
                           selectDate(context);
@@ -96,10 +96,10 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
             Row(
               children: [
                 Expanded(
-                  child: CustomDropDown(              decoration: InputDecoration(prefixIcon: Icon(Icons.train)),
-
+                  child: CustomDropDown(
+                      decoration: InputDecoration(prefixIcon: Icon(Icons.train)),
                       hint: AppString.train,
-                      value: globle.selectedValuethree,
+                      value: globle.roundthree,
                       items: AppList.train.map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -108,16 +108,16 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
                       }).toList(),
                       onChanged: (value) {
                         setState(() {
-                          globle.selectedValuethree = value;
+                          globle.roundthree = value;
                         });
                       }),
                 ),
                 SizedBox(width: 20),
                 Expanded(
-                  child: CustomDropDown(              decoration: InputDecoration(prefixIcon: Icon(Icons.person)),
-
+                  child: CustomDropDown(
+                      decoration: InputDecoration(prefixIcon: Icon(Icons.person)),
                       hint: AppString.passenger,
-                      value: globle.selectedValuefour,
+                      value: globle.roundfour,
                       items: AppList.passenger.map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
@@ -126,7 +126,7 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
                       }).toList(),
                       onChanged: (value) {
                         setState(() {
-                          globle.selectedValuefour = value;
+                          globle.roundfour = value;
                         });
                       }),
                 )
@@ -156,7 +156,7 @@ class _RoundTripCustomState extends State<RoundTripCustom> {
       lastDate: DateTime(2030),
     );
     if (picked != null) {
-      globle.date.text = DateFormat("dd/MM/yyyy").format(picked);
+      globle.datetwo.text = DateFormat("dd/MM/yyyy").format(picked);
     }
   }
 }
