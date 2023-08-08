@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
@@ -20,6 +22,11 @@ class _TicketCancelSceenState extends State<TicketCancelSceen> {
   GlobleController global = Get.find();
   @override
   Widget build(BuildContext context) {
+    double randomValue1 = Random().nextDouble() * 12.0;
+    double randomValue2 = Random().nextDouble() * 12.0;
+    String formattedRandomTime1 = DateFormat('HH:mm').format(DateTime.utc(0, 1, 1).add(Duration(hours: (randomValue1 + 8).toInt(), minutes: ((randomValue1 - (randomValue1 + 8).toInt()) * 60).toInt())));
+    String formattedRandomTime2 = DateFormat('HH:mm').format(DateTime.utc(0, 1, 1).add(Duration(hours: (randomValue2 + 8).toInt(), minutes: ((randomValue2 - (randomValue2 + 8).toInt()) * 60).toInt())));
+
     return Scaffold(
       body: DefaultTabController(
           length: 2,
@@ -58,7 +65,7 @@ class _TicketCancelSceenState extends State<TicketCancelSceen> {
                   SizedBox(
                     height: Get.height,
                     child: ListView.builder(
-                      itemCount: AppList.search.length,
+                      itemCount: global.data.length,
                       itemBuilder: (context, index) => Column(
                         children: [
                           Container(
@@ -74,7 +81,7 @@ class _TicketCancelSceenState extends State<TicketCancelSceen> {
                   SizedBox(
                     height: Get.height,
                     child: ListView.builder(
-                      itemCount: AppList.search.length,
+                      itemCount: 10,
                       itemBuilder: (context, index) => Column(
                         children: [
                           Container(
@@ -96,9 +103,9 @@ class _TicketCancelSceenState extends State<TicketCancelSceen> {
                                     )),
                                 const Divider(),
                                 ListTile(
-                                  leading: Image.asset(AppList.search[index]["image"], scale: index == 2 ? 9 : 5),
+                                  leading: Image.asset(index % 2 == 0 ? "assets/images/search_one.jpeg" : "assets/images/search_two.png"),
                                   title: Text(
-                                    AppList.search[index]["data1"],
+                                    global.data[index].contains('- -') ? global.data[index].toString().split('- -').last : global.data[index].toString().split('-').last,
                                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.038),
                                   ),
                                   subtitle: Text(
@@ -121,7 +128,7 @@ class _TicketCancelSceenState extends State<TicketCancelSceen> {
                                         Padding(
                                           padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
                                           child: Text(
-                                            AppList.search[index]["data3"],
+                                            formattedRandomTime1,
                                             style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
                                           ),
                                         ),
@@ -135,7 +142,7 @@ class _TicketCancelSceenState extends State<TicketCancelSceen> {
                                       children: [
                                         Image.asset(AppImages.searchicon, scale: 12),
                                         Text(
-                                          AppList.search[index]["data5"],
+                                          "Duration 1h 30m",
                                           style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
                                         )
                                       ],
@@ -149,7 +156,7 @@ class _TicketCancelSceenState extends State<TicketCancelSceen> {
                                         Padding(
                                           padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
                                           child: Text(
-                                            AppList.search[index]["data4"],
+                                            formattedRandomTime2,
                                             style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
                                           ),
                                         ),

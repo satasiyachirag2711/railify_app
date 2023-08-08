@@ -19,9 +19,8 @@ class BookingDetailScreen extends StatefulWidget {
   final String date;
   final String leading;
   final String trailingtwo;
-  final String subtitle;
 
-  const BookingDetailScreen({super.key, required this.image, required this.title, required this.subtitle, required this.trailing, required this.leading, required this.trailingtwo, required this.date});
+  const BookingDetailScreen({super.key, required this.image, required this.title, required this.trailing, required this.leading, required this.trailingtwo, required this.date});
 
   @override
   State<BookingDetailScreen> createState() => _BookingDetailScreenState();
@@ -54,7 +53,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                     AppString.tripdetail,
                     style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.045),
                   ),
-                  CustomTripDetails(image: widget.image, title: widget.title, date: widget.date, leading: widget.leading, trailingtwo: widget.trailingtwo, subtitle: widget.subtitle, trailing: "\$${widget.trailing}"),
+                  CustomTripDetails(image: widget.image, title: widget.title, date: widget.date, leading: widget.leading, trailingtwo: widget.trailingtwo, trailing: "\$${widget.trailing}"),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
@@ -75,6 +74,7 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                     width: Get.width,
                     margin: EdgeInsets.symmetric(vertical: Get.height * 0.03),
                     child: SingleChildScrollView(
+                      physics: NeverScrollableScrollPhysics(),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -277,7 +277,6 @@ class _BookingDetailScreenState extends State<BookingDetailScreen> {
                         leading: widget.leading,
                         trailingtwo: widget.trailingtwo,
                         date: widget.date,
-                        subtitle: widget.subtitle,
                         image: widget.image,
                         email: global.email.text,
                         name: global.fullName.text,

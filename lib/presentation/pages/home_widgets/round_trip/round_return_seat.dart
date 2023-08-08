@@ -15,7 +15,6 @@ class RoundReturnSeat extends StatefulWidget {
   final String date;
   final String leading;
   final String trailingtwo;
-  final String subtitle;
   final String name;
   final String email;
   final String phonenumber;
@@ -38,7 +37,6 @@ class RoundReturnSeat extends StatefulWidget {
       required this.date,
       required this.leading,
       required this.trailingtwo,
-      required this.subtitle,
       required this.name,
       required this.email,
       required this.phonenumber,
@@ -186,7 +184,6 @@ class _RoundReturnSeatState extends State<RoundReturnSeat> {
                     leading: widget.leading,
                     trailingtwo: widget.trailingtwo,
                     date: widget.date,
-                    subtitle: widget.subtitle,
                     image: widget.image,
                     phonenumber: widget.phonenumber,
                     name: widget.name,

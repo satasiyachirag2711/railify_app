@@ -49,13 +49,12 @@ class _CreateStationAlarmScreenState extends State<CreateStationAlarmScreen> {
                 }),
             SizedBox(height: 15),
             CustomDropDown(
-                decoration: const InputDecoration(prefixIcon: Icon(Icons.iron_sharp)),
                 hint: AppString.selecttrain,
-                value: globle.stationtwo,
-                items: AppList.selectTrain.map<DropdownMenuItem<String>>((String value) {
+                value: globle.data.first,
+                items: globle.data.map<DropdownMenuItem<String>>((value) {
                   return DropdownMenuItem<String>(
                     value: value,
-                    child: Text(value),
+                    child: Text(value.contains('- -') ? value.toString().split('- -').last : value.toString().split('-').last),
                   );
                 }).toList(),
                 onChanged: (value) {

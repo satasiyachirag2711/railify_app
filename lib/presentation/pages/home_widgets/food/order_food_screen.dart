@@ -11,12 +11,11 @@ import '../../../../utils/app_string.dart';
 class OrderFoodScreen extends StatefulWidget {
   final String title;
   final String image;
-  final String subtitle;
   final String time;
   final String timetwo;
   final String date;
 
-  const OrderFoodScreen({super.key, required this.title, required this.image, required this.subtitle, required this.time, required this.timetwo, required this.date});
+  const OrderFoodScreen({super.key, required this.title, required this.image, required this.time, required this.timetwo, required this.date});
 
   @override
   State<OrderFoodScreen> createState() => _OrderFoodScreenState();
@@ -219,7 +218,7 @@ class _OrderFoodScreenState extends State<OrderFoodScreen> {
                     }
 
                     debugPrint("${global.basket}");
-                    Get.to(FoodSelectPaymentMethod(food: global.basket, total: totalprice().toStringAsFixed(2), image: widget.image, title: widget.title, date: widget.date, timeone: widget.time, timetwo: widget.timetwo, subtitle: widget.subtitle));
+                    Get.to(FoodSelectPaymentMethod(food: global.basket, total: totalprice().toStringAsFixed(2), image: widget.image, title: widget.title, date: widget.date, timeone: widget.time, timetwo: widget.timetwo));
                   },
                 ))));
   }

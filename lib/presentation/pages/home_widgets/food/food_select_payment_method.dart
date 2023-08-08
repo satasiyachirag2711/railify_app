@@ -14,7 +14,6 @@ class FoodSelectPaymentMethod extends StatefulWidget {
   final String date;
   final String timeone;
   final String timetwo;
-  final String subtitle;
   final String total;
   final List food;
 
@@ -25,7 +24,6 @@ class FoodSelectPaymentMethod extends StatefulWidget {
     required this.date,
     required this.timeone,
     required this.timetwo,
-    required this.subtitle,
     required this.total,
     required this.food,
   });
@@ -119,7 +117,6 @@ class _FoodSelectPaymentMethodState extends State<FoodSelectPaymentMethod> {
                 date: widget.date,
                 timeone: widget.timeone,
                 timetwo: widget.timetwo,
-                subtitle: widget.subtitle,
                 total: widget.total,
                 paymentimage: AppList.payment[globle.payment]["image"],
                 paymentname: AppList.payment[globle.payment]["dataOne"],

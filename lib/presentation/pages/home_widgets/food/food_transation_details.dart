@@ -17,7 +17,6 @@ class FoodTransactionDetails extends StatefulWidget {
   final String date;
   final String timeone;
   final String timetwo;
-  final String subtitle;
   final String total;
   final String paymentimage;
   final String paymentname;
@@ -30,7 +29,6 @@ class FoodTransactionDetails extends StatefulWidget {
     required this.date,
     required this.timeone,
     required this.timetwo,
-    required this.subtitle,
     required this.total,
     required this.paymentimage,
     required this.paymentname,
@@ -98,7 +96,6 @@ class _FoodTransactionDetailsState extends State<FoodTransactionDetails> {
               date: widget.date,
               leading: widget.timeone,
               trailingtwo: widget.timetwo,
-              subtitle: widget.subtitle,
             ),
             Text(
               "Order Summary",

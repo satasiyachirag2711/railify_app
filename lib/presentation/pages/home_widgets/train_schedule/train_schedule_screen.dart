@@ -47,6 +47,7 @@ class _TrainscheduleScreenState extends State<TrainscheduleScreen> {
                     globle.shedule = value;
                   });
                 }),
+            const SizedBox(height: 10),
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [

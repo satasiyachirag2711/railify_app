@@ -21,6 +21,13 @@ class _HomePageState extends State<HomePage> {
   GlobleController globle = Get.put(GlobleController());
 
   @override
+  void initState() {
+    globle.getUsers();
+
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() {

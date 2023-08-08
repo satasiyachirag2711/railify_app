@@ -78,17 +78,6 @@ class AppList {
     {"image": AppImages.user, "dataOne": AppString.account, "datatwo": AppString.dec, "datathree": AppString.youraccount},
   ].obs;
 
-  static RxList<Map<String, dynamic>> search = [
-    {"image": "assets/images/search_one.jpeg", "data1": "Amtrak", "data2": "40.00", "data3": "08:00", "data4": "09:30", "data5": "Duration 1h 30m"},
-    {"image": "assets/images/search_two.png", "data1": "Pennsylvania R...", "data2": "34.00", "data3": "09:00", "data4": "10:45", "data5": "Duration 1h 45m"},
-    {"image": "assets/images/search_three.png", "data1": "Kansas City So...", "data2": "42.00", "data3": "10:00", "data4": "11:20", "data5": "Duration 1h 20m"},
-    {"image": "assets/images/search_one.jpeg", "data1": "Amtrak", "data2": "40.00", "data3": "11:00", "data4": "12:30", "data5": "Duration 1h 30m"},
-    {"image": "assets/images/search_five.png", "data1": "MTA NYC", "data2": "38.00", "data3": "12:00", "data4": "13:40", "data5": "Duration 1h 40m"}
-  ].obs;
-
-  static RxList<String> selectTrain = ["Amtrak", "Pennsylvania R...", "Kansas City So...", "MTA NYC"].obs;
-  static RxList<String> trainumber = ["9910", "4527", "9032", "3340", "4045"].obs;
-
   static RxList sortfilter = ["Default", "Lowest Price", "Highest Price", "Shortest Duration", "Longest Duration"].obs;
   static RxList sortfilterOne = ["Show All Ticket", "Show Available Ticket", "Show Unavailable Ticket"].obs;
   static RxList sortfilterTwo = ["All Class", "Executive", "Business", "Economy"].obs;
@@ -169,23 +158,6 @@ class AppList {
     {"image": AppImages.facebook, "dataOne": AppString.facebook},
     {"image": AppImages.twitter, "dataOne": AppString.twitter},
     {"image": AppImages.world, "dataOne": AppString.website},
-  ].obs;
-
-  static RxList<Map<String, dynamic>> trainroute = [
-    {"image": "assets/images/ball.png", "dataOne": "Alaska Railroad"},
-    {"image": "assets/images/search_one.jpeg", "dataOne": "Amtrak"},
-    {"image": "assets/images/sortfilterfour.png", "dataOne": "Chicago and North Wester..."},
-    {"image": "assets/images/search_three.png", "dataOne": "Kansas City Southern RaiL..."},
-    {"image": "assets/images/sortfilter_two.jpeg", "dataOne": "Milwaukee Road"},
-    {"image": "assets/images/search_five.png", "dataOne": "MTA NYC"},
-    {"image": "assets/images/sortfilter_three.png", "dataOne": "New Haven McGinnis"},
-    {"image": "assets/images/sortfilterfour.png", "dataOne": "New York Central Railroad"},
-    {"image": "assets/images/sort_filter_six.jpeg", "dataOne": "Pacific Electric Railway"},
-    {"image": "assets/images/search_two.png", "dataOne": "Pennsylvania Railroad"},
-    {"image": "assets/images/sort_filter_seven.png", "dataOne": "Tri-Rail"},
-    {"image": "assets/images/search_five.png", "dataOne": "Union Pacific Railroad"},
-    {"image": "assets/images/sortfilter_two.jpeg", "dataOne": "Western Pacific"},
-    {"image": "assets/images/milvauke.png", "dataOne": "Wisconsin and Southern R..."},
   ].obs;
 
   static RxList<Map<String, dynamic>> trainlivestatus = [

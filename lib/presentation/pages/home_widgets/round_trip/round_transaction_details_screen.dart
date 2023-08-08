@@ -26,7 +26,6 @@ class RoundTransactionDetailsScreen extends StatefulWidget {
   final String date;
   final String leading;
   final String trailingtwo;
-  final String subtitle;
   final String name;
   final String email;
   final String phonenumber;
@@ -50,7 +49,6 @@ class RoundTransactionDetailsScreen extends StatefulWidget {
       required this.date,
       required this.leading,
       required this.trailingtwo,
-      required this.subtitle,
       required this.name,
       required this.email,
       required this.phonenumber,
@@ -127,8 +125,7 @@ class _RoundTransactionDetailsScreenState extends State<RoundTransactionDetailsS
               title: widget.title,
               date: widget.date,
               leading: widget.leading,
-              trailingtwo: widget.trailing.toString(),
-              subtitle: widget.subtitle,
+              trailingtwo: widget.trailingtwo.toString(),
               text: "",
             ),
             Text(
@@ -141,7 +138,6 @@ class _RoundTransactionDetailsScreenState extends State<RoundTransactionDetailsS
               date: widget.returndate,
               leading: widget.time,
               trailingtwo: widget.timetwo,
-              subtitle: widget.subtitle,
               text: "",
             ),
             Text(
@@ -318,7 +314,6 @@ class _RoundTransactionDetailsScreenState extends State<RoundTransactionDetailsS
                                     leading: widget.leading,
                                     trailingtwo: widget.trailingtwo,
                                     date: widget.date,
-                                    subtitle: widget.subtitle,
                                     image: widget.image,
                                     email: widget.email,
                                     name: widget.name,
@@ -424,7 +419,6 @@ class _RoundTransactionDetailsScreenState extends State<RoundTransactionDetailsS
                                     leading: widget.time,
                                     trailingtwo: widget.timetwo,
                                     date: widget.returndate,
-                                    subtitle: widget.subtitle,
                                     image: widget.imagetwo,
                                     name: widget.name,
                                     seat: widget.seattwo,

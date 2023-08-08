@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:get/get_navigation/get_navigation.dart';
-import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
 import 'package:railify_app/presentation/pages/home_widgets/re_schedule/shedule_select_seat.dart';
 import 'package:railify_app/presentation/pages/home_widgets/widget/custom_dropdownbutton.dart';
@@ -24,13 +21,11 @@ class SheduleBookingScreen extends StatefulWidget {
   final String timeFour;
   final String date;
   final String dateTwo;
-  final String subtitle;
-  final String subtitletwo;
   final String imagetwo;
   final String titletwo;
   final String price;
 
-  const SheduleBookingScreen({super.key, required this.image, required this.title, required this.timeOne, required this.timeTwo, required this.timeThree, required this.timeFour, required this.date, required this.dateTwo, required this.subtitle, required this.subtitletwo, required this.imagetwo, required this.titletwo, required this.price});
+  const SheduleBookingScreen({super.key, required this.image, required this.title, required this.timeOne, required this.timeTwo, required this.timeThree, required this.timeFour, required this.date, required this.dateTwo, required this.imagetwo, required this.titletwo, required this.price});
 
   @override
   State<SheduleBookingScreen> createState() => _SheduleBookingScreenState();
@@ -63,7 +58,6 @@ class _SheduleBookingScreenState extends State<SheduleBookingScreen> {
                     date: widget.date,
                     leading: widget.timeOne,
                     trailingtwo: widget.timeTwo,
-                    subtitle: widget.subtitle,
                   ),
                   Text(
                     "${AppString.tripdetail} (Return)",
@@ -76,7 +70,6 @@ class _SheduleBookingScreenState extends State<SheduleBookingScreen> {
                     date: widget.dateTwo,
                     leading: widget.timeThree,
                     trailingtwo: widget.timeFour,
-                    subtitle: widget.subtitletwo,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -274,7 +267,6 @@ class _SheduleBookingScreenState extends State<SheduleBookingScreen> {
                   idnumber: global.idnumber.text,
                   idtype: global.bookingone,
                   passengertype: global.bookingtwo,
-                  subtitletwo: widget.subtitletwo,
                   imagetwo: widget.imagetwo,
                   price: widget.price,
                   name: global.fullName.text,

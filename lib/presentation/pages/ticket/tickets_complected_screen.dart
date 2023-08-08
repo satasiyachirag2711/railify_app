@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:railify_app/presentation/widgets/custom_train.dart';
 
 import '../../../controller/globle_controller.dart';
-import '../../../utils/App_list.dart';
 import '../../../utils/app_color.dart';
 
 class TicketsComplectedScreen extends StatefulWidget {
@@ -14,13 +13,6 @@ class TicketsComplectedScreen extends StatefulWidget {
 }
 
 class _TicketsComplectedScreenState extends State<TicketsComplectedScreen> {
-  final List<Map<String, dynamic>> reverce = AppList.search.reversed.toList();
-  @override
-  void initState() {
-    debugPrint("$reverce");
-    super.initState();
-  }
-
   GlobleController global = Get.find();
   @override
   Widget build(BuildContext context) {
@@ -30,7 +22,7 @@ class _TicketsComplectedScreenState extends State<TicketsComplectedScreen> {
         child: SizedBox(
           height: Get.height,
           child: ListView.builder(
-            itemCount: AppList.search.length,
+            itemCount: global.data.length,
             itemBuilder: (context, index) => Column(
               children: [
                 Container(

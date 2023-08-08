@@ -1,5 +1,8 @@
+import 'dart:convert';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 
 class GlobleController extends GetxController {
@@ -93,4 +96,16 @@ class GlobleController extends GetxController {
   RxList select = [].obs;
   RxBool unselect = false.obs;
   RxList<Map> basket = [{}].obs;
+  List data = [];
+
+  Future<List> getUsers() async {
+    String jsonString = await rootBundle.loadString('assets/trains.json');
+
+    List<dynamic> jsonList = json.decode(jsonString);
+
+    data = jsonList;
+    print(data);
+
+    return data;
+  }
 }

@@ -4,7 +4,6 @@ import 'package:intl/intl.dart';
 import 'package:railify_app/presentation/widgets/custom_train.dart';
 
 import '../../../controller/globle_controller.dart';
-import '../../../utils/App_list.dart';
 import '../../../utils/app_color.dart';
 import '../../../utils/app_images.dart';
 import '../../../utils/app_string.dart';
@@ -58,10 +57,15 @@ class _TicketActiveScreenState extends State<TicketActiveScreen> {
                   SizedBox(
                     height: Get.height,
                     child: ListView.builder(
-                      itemCount: AppList.search.length,
+                      itemCount: global.data.length,
                       itemBuilder: (context, index) => Column(
                         children: [
-                          Container(margin: const EdgeInsets.all(15), decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)), height: Get.height * 0.2, child: CustomTrain(index: index, tr: 2),),
+                          Container(
+                            margin: const EdgeInsets.all(15),
+                            decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
+                            height: Get.height * 0.2,
+                            child: CustomTrain(index: index, tr: 2),
+                          ),
                         ],
                       ),
                     ),
@@ -82,9 +86,9 @@ class _TicketActiveScreenState extends State<TicketActiveScreen> {
                             trailing: ElevatedButton(onPressed: () {}, child: const Text("Paid"))),
                         const Divider(),
                         ListTile(
-                          leading: Image.asset(AppList.search[0]["image"], scale: 5),
+                          leading: Image.asset("assets/images/search_one.jpeg"),
                           title: Text(
-                            AppList.search[0]["data1"],
+                            global.data[0].contains('- -') ? global.data[0].toString().split('- -').last : global.data[0].toString().split('-').last,
                             style: TextStyle(fontWeight: FontWeight.w500, fontSize: Get.width * 0.038),
                           ),
                           subtitle: Text(
@@ -107,7 +111,7 @@ class _TicketActiveScreenState extends State<TicketActiveScreen> {
                                 Padding(
                                   padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
                                   child: Text(
-                                    AppList.search[0]["data3"],
+                                    "10:00",
                                     style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
                                   ),
                                 ),
@@ -121,7 +125,7 @@ class _TicketActiveScreenState extends State<TicketActiveScreen> {
                               children: [
                                 Image.asset(AppImages.searchicon, scale: 12),
                                 Text(
-                                  AppList.search[0]["data5"],
+                                  "Duration 1h 30m",
                                   style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
                                 )
                               ],
@@ -135,7 +139,7 @@ class _TicketActiveScreenState extends State<TicketActiveScreen> {
                                 Padding(
                                   padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
                                   child: Text(
-                                    AppList.search[0]["data4"],
+                                    "12:00",
                                     style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
                                   ),
                                 ),

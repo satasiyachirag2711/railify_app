@@ -23,7 +23,6 @@ class TransactionDetailsScreen extends StatefulWidget {
   final String date;
   final String leading;
   final String trailingtwo;
-  final String subtitle;
   final String name;
   final String email;
   final String phonenumber;
@@ -34,7 +33,7 @@ class TransactionDetailsScreen extends StatefulWidget {
 
   final String paymentname;
 
-  const TransactionDetailsScreen({super.key, required this.image, required this.title, required this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.subtitle, required this.name, required this.email, required this.phonenumber, required this.seat, required this.paymentname, required this.idtype, required this.idnumber, required this.passengertype});
+  const TransactionDetailsScreen({super.key, required this.image, required this.title, required this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.name, required this.email, required this.phonenumber, required this.seat, required this.paymentname, required this.idtype, required this.idnumber, required this.passengertype});
 
   @override
   State<TransactionDetailsScreen> createState() => _TransactionDetailsScreenState();
@@ -90,7 +89,7 @@ class _TransactionDetailsScreenState extends State<TransactionDetailsScreen> {
               AppString.tripdetail,
               style: TextStyle(fontWeight: FontWeight.bold, height: 2, fontSize: Get.width * 0.045),
             ),
-            CustomTripDetails(image: widget.image, title: widget.title, date: widget.date, leading: widget.leading, trailingtwo: widget.trailingtwo, subtitle: widget.subtitle, text: ""),
+            CustomTripDetails(image: widget.image, title: widget.title, date: widget.date, leading: widget.leading, trailingtwo: widget.trailingtwo, text: ""),
             Text(
               AppString.paymentmethod,
               style: TextStyle(fontSize: Get.width * 0.045, fontWeight: FontWeight.bold),
@@ -246,21 +245,7 @@ class _TransactionDetailsScreenState extends State<TransactionDetailsScreen> {
                                 text: AppString.showeticket,
                                 onPressed: () {
                                   Get.to(ETicketScreen(
-                                      title: widget.title,
-                                      trailing: widget.trailing,
-                                      leading: widget.leading,
-                                      trailingtwo: widget.trailingtwo,
-                                      date: widget.date,
-                                      subtitle: widget.subtitle,
-                                      image: widget.image,
-                                      email: widget.email,
-                                      name: widget.name,
-                                      phonenumber: widget.phonenumber,
-                                      seat: widget.seat,
-                                      paymentname: widget.paymentname,
-                                      passengertype: widget.passengertype,
-                                      idtype: widget.idtype,
-                                      idnumber: widget.idnumber));
+                                      title: widget.title, trailing: widget.trailing, leading: widget.leading, trailingtwo: widget.trailingtwo, date: widget.date, image: widget.image, email: widget.email, name: widget.name, phonenumber: widget.phonenumber, seat: widget.seat, paymentname: widget.paymentname, passengertype: widget.passengertype, idtype: widget.idtype, idnumber: widget.idnumber));
                                 },
                               )
                             ],

@@ -18,7 +18,6 @@ class CheckOutOrderScreen extends StatefulWidget {
   final String date;
   final String timeone;
   final String timetwo;
-  final String subtitle;
   final String total;
   final String paymentimage;
   final String paymentname;
@@ -31,7 +30,6 @@ class CheckOutOrderScreen extends StatefulWidget {
     required this.date,
     required this.timeone,
     required this.timetwo,
-    required this.subtitle,
     required this.total,
     required this.paymentimage,
     required this.paymentname,
@@ -73,7 +71,6 @@ class _CheckOutOrderScreenState extends State<CheckOutOrderScreen> {
                   date: widget.date,
                   leading: widget.timeone,
                   trailingtwo: widget.timetwo,
-                  subtitle: widget.subtitle,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -301,7 +298,6 @@ class _CheckOutOrderScreenState extends State<CheckOutOrderScreen> {
                                       date: widget.date,
                                       timeone: widget.timeone,
                                       timetwo: widget.timetwo,
-                                      subtitle: widget.subtitle,
                                       total: widget.total,
                                       paymentimage: widget.paymentimage,
                                       paymentname: widget.paymentname,

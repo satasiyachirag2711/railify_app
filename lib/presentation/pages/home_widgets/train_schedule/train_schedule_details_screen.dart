@@ -14,10 +14,9 @@ class TrainScheduleDetailsScreen extends StatefulWidget {
   final String stationtwo;
   final String number;
   final String time;
-  final String subtitle;
   final String timetwo;
 
-  const TrainScheduleDetailsScreen({super.key, required this.image, required this.title, required this.apptitle, required this.stationone, required this.stationtwo, required this.number, required this.time, required this.timetwo, required this.subtitle});
+  const TrainScheduleDetailsScreen({super.key, required this.image, required this.title, required this.apptitle, required this.stationone, required this.stationtwo, required this.number, required this.time, required this.timetwo});
 
   @override
   State<TrainScheduleDetailsScreen> createState() => _TrainScheduleDetailsScreenState();
@@ -47,7 +46,6 @@ class _TrainScheduleDetailsScreenState extends State<TrainScheduleDetailsScreen>
                   date: "",
                   leading: widget.time,
                   trailingtwo: widget.timetwo,
-                  subtitle: widget.subtitle,
                   tr: 3,
                   station: widget.stationone,
                   stationone: widget.stationtwo,

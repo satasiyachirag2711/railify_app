@@ -14,13 +14,12 @@ class RoundETicketScreen extends StatefulWidget {
   final String date;
   final String leading;
   final String trailingtwo;
-  final String subtitle;
   final String name;
   final String idtype;
   final String idnumber;
   final String passengertype;
   final String seat;
-  const RoundETicketScreen({super.key, required this.image, required this.title, required this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.subtitle, required this.name, required this.idtype, required this.idnumber, required this.passengertype, required this.seat});
+  const RoundETicketScreen({super.key, required this.image, required this.title, required this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.name, required this.idtype, required this.idnumber, required this.passengertype, required this.seat});
 
   @override
   State<RoundETicketScreen> createState() => _RoundETicketScreenState();
@@ -105,7 +104,7 @@ class _RoundETicketScreenState extends State<RoundETicketScreen> {
                           children: [
                             Image.asset(AppImages.searchicon, scale: 12),
                             Text(
-                              widget.subtitle,
+                              "Duration 1h 30m",
                               style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
                             )
                           ],

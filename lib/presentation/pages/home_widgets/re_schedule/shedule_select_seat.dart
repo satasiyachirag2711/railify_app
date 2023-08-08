@@ -18,7 +18,6 @@ class SheduleSelectSeat extends StatefulWidget {
   final String timeThree;
   final String timeFour;
   final String dateTwo;
-  final String subtitletwo;
   final String imagetwo;
   final String titletwo;
   final String price;
@@ -36,7 +35,6 @@ class SheduleSelectSeat extends StatefulWidget {
     required this.timeThree,
     required this.timeFour,
     required this.dateTwo,
-    required this.subtitletwo,
     required this.titletwo,
   });
 
@@ -162,7 +160,6 @@ class _SheduleSelectSeatState extends State<SheduleSelectSeat> {
                   idnumber: widget.idnumber,
                   idtype: widget.idtype,
                   passengertype: widget.passengertype,
-                  subtitletwo: widget.subtitletwo,
                   imagetwo: widget.imagetwo,
                   price: double.parse(widget.price),
                   name: widget.name,

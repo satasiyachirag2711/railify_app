@@ -20,7 +20,6 @@ class ScheduleReviewSummery extends StatefulWidget {
   final String timeThree;
   final String timeFour;
   final String dateTwo;
-  final String subtitletwo;
   final String imagetwo;
   final String titletwo;
   final double price;
@@ -39,7 +38,6 @@ class ScheduleReviewSummery extends StatefulWidget {
     required this.timeThree,
     required this.timeFour,
     required this.dateTwo,
-    required this.subtitletwo,
     required this.titletwo,
     required this.seat,
   });
@@ -73,7 +71,7 @@ class _ScheduleReviewSummeryState extends State<ScheduleReviewSummery> {
                   "New ${AppString.departuretrain}",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.045),
                 ),
-                CustomTripDetails(image: widget.imagetwo, title: widget.titletwo, date: widget.dateTwo, leading: widget.timeThree, trailingtwo: widget.timeFour, subtitle: widget.subtitletwo, trailing: "\$${widget.price.toString()}"),
+                CustomTripDetails(image: widget.imagetwo, title: widget.titletwo, date: widget.dateTwo, leading: widget.timeThree, trailingtwo: widget.timeFour, trailing: "\$${widget.price.toString()}"),
                 Text(
                   AppString.contackdetail,
                   style: TextStyle(fontSize: Get.width * 0.045, fontWeight: FontWeight.bold),
@@ -166,7 +164,7 @@ class _ScheduleReviewSummeryState extends State<ScheduleReviewSummery> {
                             ),
                             SizedBox(width: Get.width * 0.1),
                             Text(
-                              "${widget.seat}",
+                              widget.seat,
                               style: TextStyle(color: AppColor.black, fontWeight: FontWeight.bold, fontSize: Get.width * 0.034),
                             ),
                             Padding(
@@ -200,7 +198,7 @@ class _ScheduleReviewSummeryState extends State<ScheduleReviewSummery> {
                             },
                             icon: Icon(global.hide.value ? Icons.keyboard_arrow_up_outlined : Icons.keyboard_arrow_down_outlined, color: AppColor.black, size: Get.width * 0.06)),
                       ),
-                      global.hide.value == true ? Divider() : SizedBox(),
+                      global.hide.value == true ? const Divider() : const SizedBox(),
                       global.hide.value == true
                           ? Expanded(
                               child: Row(
@@ -214,8 +212,8 @@ class _ScheduleReviewSummeryState extends State<ScheduleReviewSummery> {
                                       child: Text(AppString.vx79, style: TextStyle(color: AppColor.blue, fontWeight: FontWeight.bold)),
                                     ),
                                   ),
-                                  SizedBox(width: 10),
-                                  Icon(Icons.delete, color: Colors.red)
+                                  const SizedBox(width: 10),
+                                  const Icon(Icons.delete, color: Colors.red)
                                 ],
                               ),
                             )
@@ -260,7 +258,7 @@ class _ScheduleReviewSummeryState extends State<ScheduleReviewSummery> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Old Ticket Price (Adult*1)", style: TextStyle(color: AppColor.black54)),
-                          Text("\$40", style: const TextStyle(fontWeight: FontWeight.bold)),
+                          const Text("\$40", style: TextStyle(fontWeight: FontWeight.bold)),
                         ],
                       ),
                       Row(
@@ -274,15 +272,15 @@ class _ScheduleReviewSummeryState extends State<ScheduleReviewSummery> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text("Price Conversion Difference", style: TextStyle(color: AppColor.black54)),
-                          Text("\$${40 - widget.price}", style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("\$${40 - widget.price}", style: const TextStyle(fontWeight: FontWeight.bold)),
                         ],
                       ),
-                      Divider(),
+                      const Divider(),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(AppString.totalprice, style: TextStyle(color: AppColor.black54)),
-                          Text("\$${40 - widget.price}", style: TextStyle(fontWeight: FontWeight.bold)),
+                          Text("\$${40 - widget.price}", style: const TextStyle(fontWeight: FontWeight.bold)),
                         ],
                       ),
                     ],
@@ -333,7 +331,6 @@ class _ScheduleReviewSummeryState extends State<ScheduleReviewSummery> {
                                           leading: widget.timeThree,
                                           trailingtwo: widget.timeFour,
                                           date: widget.dateTwo,
-                                          subtitle: widget.subtitletwo,
                                           image: widget.imagetwo,
                                           email: widget.email,
                                           name: widget.name,
@@ -347,13 +344,13 @@ class _ScheduleReviewSummeryState extends State<ScheduleReviewSummery> {
                                       );
                                     },
                                     text: AppString.viewtransaction),
-                                SizedBox(height: 20),
+                                const SizedBox(height: 20),
                                 ElevatedButton(
                                   onPressed: () {
-                                    Get.offAll(HomePage());
+                                    Get.offAll(const HomePage());
                                   },
-                                  child: Text(AppString.backtohome),
                                   style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(Colors.blue.shade100), minimumSize: MaterialStatePropertyAll(Size(Get.width, 50)), shape: MaterialStatePropertyAll(RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)))),
+                                  child: Text(AppString.backtohome),
                                 )
                               ],
                             ),

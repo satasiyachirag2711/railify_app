@@ -14,7 +14,6 @@ class ETicketScreen extends StatefulWidget {
   final String date;
   final String leading;
   final String trailingtwo;
-  final String subtitle;
   final String name;
   final String email;
   final String phonenumber;
@@ -24,7 +23,7 @@ class ETicketScreen extends StatefulWidget {
   final String passengertype;
 
   final String paymentname;
-  const ETicketScreen({super.key, required this.image, required this.title, required this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.subtitle, required this.name, required this.email, required this.phonenumber, required this.seat, required this.idtype, required this.idnumber, required this.passengertype, required this.paymentname});
+  const ETicketScreen({super.key, required this.image, required this.title, required this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.name, required this.email, required this.phonenumber, required this.seat, required this.idtype, required this.idnumber, required this.passengertype, required this.paymentname});
 
   @override
   State<ETicketScreen> createState() => _ETicketScreenState();
@@ -109,7 +108,7 @@ class _ETicketScreenState extends State<ETicketScreen> {
                           children: [
                             Image.asset(AppImages.searchicon, scale: 12),
                             Text(
-                              widget.subtitle,
+                              "Duration 1h 30m",
                               style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
                             )
                           ],

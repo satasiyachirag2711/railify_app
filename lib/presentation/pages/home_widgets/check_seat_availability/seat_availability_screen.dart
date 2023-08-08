@@ -10,13 +10,12 @@ import '../../../../utils/app_string.dart';
 class SeatAvailability extends StatefulWidget {
   final String title;
   final String image;
-  final String subtitle;
   final String price;
   final String time;
   final String timetwo;
   final String date;
 
-  const SeatAvailability({super.key, required this.title, required this.image, required this.time, required this.timetwo, required this.date, required this.subtitle, required this.price});
+  const SeatAvailability({super.key, required this.title, required this.image, required this.time, required this.timetwo, required this.date, required this.price});
 
   @override
   State<SeatAvailability> createState() => _SeatAvailabilityState();
@@ -43,7 +42,6 @@ class _SeatAvailabilityState extends State<SeatAvailability> {
                 date: widget.date,
                 leading: widget.time,
                 trailingtwo: widget.timetwo,
-                subtitle: widget.subtitle,
               ),
               SizedBox(height: Get.height * 0.01),
               Padding(

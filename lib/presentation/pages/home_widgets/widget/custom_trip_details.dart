@@ -16,10 +16,9 @@ class CustomTripDetails extends StatelessWidget {
   final String date;
   final String leading;
   final String trailingtwo;
-  final String subtitle;
   String? stationone;
   String? station;
-  CustomTripDetails({super.key, required this.image, required this.title, this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.subtitle, this.text, this.tr, this.station, this.stationone});
+  CustomTripDetails({super.key, required this.image, required this.title, this.trailing, required this.date, required this.leading, required this.trailingtwo, this.text, this.tr, this.station, this.stationone});
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +26,8 @@ class CustomTripDetails extends StatelessWidget {
         decoration: BoxDecoration(color: AppColor.white, borderRadius: BorderRadius.circular(20)),
         height: Get.height * 0.24,
         margin: EdgeInsets.symmetric(vertical: Get.height * 0.02),
-        child: SingleChildScrollView(physics: const NeverScrollableScrollPhysics(),
+        child: SingleChildScrollView(
+          physics: const NeverScrollableScrollPhysics(),
           child: Column(
             children: [
               ListTile(
@@ -81,7 +81,7 @@ class CustomTripDetails extends StatelessWidget {
                     children: [
                       Text(
                         tr == 3 ? station.toString() : AppString.apex,
-                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.038),
+                        style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.034),
                       ),
                       Padding(
                         padding: EdgeInsets.symmetric(vertical: Get.height * 0.01),
@@ -100,7 +100,7 @@ class CustomTripDetails extends StatelessWidget {
                     children: [
                       Image.asset(AppImages.searchicon, scale: 12),
                       Text(
-                        subtitle,
+                        "Duration 1h 30m",
                         style: TextStyle(color: AppColor.black54, fontSize: Get.width * 0.03),
                       )
                     ],

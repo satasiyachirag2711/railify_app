@@ -55,7 +55,7 @@ class _AccountScreenState extends State<AccountScreen> {
               ListTile(
                 contentPadding: const EdgeInsets.all(0),
                 leading: CircleAvatar(
-                  backgroundImage: widget.image != null ? FileImage(File(widget.image!)) : const AssetImage("assets/placeholder_image.png") as ImageProvider<Object>?,
+                  backgroundImage: widget.image != null ? FileImage(File(widget.image!)) : const AssetImage("assets/.png") as ImageProvider<Object>?,
                   radius: Get.width * 0.04,
                 ),
                 title: Text(AppString.andrew, style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.04)),
@@ -155,6 +155,8 @@ class _AccountScreenState extends State<AccountScreen> {
                                   value: global.unselect.value,
                                   onChanged: (value) {
                                     global.unselect.value = !global.unselect.value;
+                                    if (global.unselect.value == true) {
+                                    } else {}
                                   },
                                 );
                               })

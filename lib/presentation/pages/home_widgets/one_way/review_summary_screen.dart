@@ -16,7 +16,6 @@ class ReviewSummeryScreen extends StatefulWidget {
   final String date;
   final String leading;
   final String trailingtwo;
-  final String subtitle;
   final String name;
   final String email;
   final String phonenumber;
@@ -27,8 +26,7 @@ class ReviewSummeryScreen extends StatefulWidget {
   final String idnumber;
   final String passengertype;
 
-  const ReviewSummeryScreen(
-      {super.key, required this.image, required this.title, required this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.subtitle, required this.name, required this.email, required this.phonenumber, required this.seat, required this.paymentimage, required this.paymentname, required this.idtype, required this.idnumber, required this.passengertype});
+  const ReviewSummeryScreen({super.key, required this.image, required this.title, required this.trailing, required this.date, required this.leading, required this.trailingtwo, required this.name, required this.email, required this.phonenumber, required this.seat, required this.paymentimage, required this.paymentname, required this.idtype, required this.idnumber, required this.passengertype});
 
   @override
   State<ReviewSummeryScreen> createState() => _ReviewSummeryScreenState();
@@ -59,7 +57,7 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
                   AppString.departuretrain,
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: Get.width * 0.045),
                 ),
-                CustomTripDetails(image: widget.image, title: widget.title, date: widget.date, leading: widget.leading, trailingtwo: widget.trailingtwo, subtitle: widget.subtitle, trailing: "\$${widget.trailing.toString()}"),
+                CustomTripDetails(image: widget.image, title: widget.title, date: widget.date, leading: widget.leading, trailingtwo: widget.trailingtwo, trailing: "\$${widget.trailing.toString()}"),
                 Text(
                   AppString.contackdetail,
                   style: TextStyle(fontSize: Get.width * 0.045, fontWeight: FontWeight.bold),
@@ -310,22 +308,8 @@ class _ReviewSummeryScreenState extends State<ReviewSummeryScreen> {
             padding: const EdgeInsets.all(20),
             child: CustomBtn(
                 onPressed: () {
-                  Get.to(ConfirmPinScreen(
-                      title: widget.title,
-                      trailing: widget.trailing,
-                      leading: widget.leading,
-                      trailingtwo: widget.trailingtwo,
-                      date: widget.date,
-                      subtitle: widget.subtitle,
-                      image: widget.image,
-                      email: widget.email,
-                      name: widget.name,
-                      phonenumber: widget.phonenumber,
-                      seat: widget.seat,
-                      paymentname: widget.paymentname,
-                      passengertype: widget.passengertype,
-                      idtype: widget.idtype,
-                      idnumber: widget.idnumber));
+                  Get.to(
+                      ConfirmPinScreen(title: widget.title, trailing: widget.trailing, leading: widget.leading, trailingtwo: widget.trailingtwo, date: widget.date, image: widget.image, email: widget.email, name: widget.name, phonenumber: widget.phonenumber, seat: widget.seat, paymentname: widget.paymentname, passengertype: widget.passengertype, idtype: widget.idtype, idnumber: widget.idnumber));
                 },
                 text: AppString.confirmbooking)),
       ),

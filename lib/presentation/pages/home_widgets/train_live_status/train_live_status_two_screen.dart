@@ -39,7 +39,7 @@ class _TrainLiveStatusTwoScreenState extends State<TrainLiveStatusTwoScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 Text(
-                  "${widget.select}(${widget.number})",
+                  "${widget.select.contains("- -") ? widget.select.toString().split('- -').last : widget.select.toString().split('-').last}(${widget.number.toString().split('/').first})",
                   style: TextStyle(fontSize: Get.width * 0.044, color: AppColor.white),
                 ),
                 Divider(

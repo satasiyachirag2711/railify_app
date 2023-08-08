@@ -5,7 +5,6 @@ import 'package:railify_app/presentation/pages/home_widgets/train_live_status/tr
 import 'package:railify_app/presentation/pages/home_widgets/widget/custom_dropdownbutton.dart';
 import 'package:railify_app/presentation/widgets/custom_btn.dart';
 
-import '../../../../utils/App_list.dart';
 import '../../../../utils/app_string.dart';
 
 class TrainLiveStatusScreen extends StatefulWidget {
@@ -36,11 +35,11 @@ class _TrainLiveStatusScreenState extends State<TrainLiveStatusScreen> {
             children: [
               CustomDropDown(
                   hint: AppString.train,
-                  value: globle.statusone,
-                  items: AppList.selectTrain.map<DropdownMenuItem<String>>((String value) {
+                  value: globle.data.first,
+                  items: globle.data.map<DropdownMenuItem<String>>((value) {
                     return DropdownMenuItem<String>(
                       value: value,
-                      child: Text(value),
+                      child: Text(value.contains('- -') ? value.toString().split('- -').last : value.toString().split('-').last),
                     );
                   }).toList(),
                   onChanged: (value) {
@@ -50,11 +49,11 @@ class _TrainLiveStatusScreenState extends State<TrainLiveStatusScreen> {
                   }),
               CustomDropDown(
                   hint: AppString.trainnumber,
-                  value: globle.statustwo,
-                  items: AppList.trainumber.map<DropdownMenuItem<String>>((String value) {
+                  value: globle.data.first,
+                  items: globle.data.map<DropdownMenuItem<String>>((value) {
                     return DropdownMenuItem<String>(
                       value: value,
-                      child: Text(value),
+                      child: Text(value.toString().split('/').first),
                     );
                   }).toList(),
                   onChanged: (value) {
@@ -71,8 +70,9 @@ class _TrainLiveStatusScreenState extends State<TrainLiveStatusScreen> {
             padding: const EdgeInsets.all(20),
             child: CustomBtn(
               onPressed: () {
+                print(globle.statusone.toString());
                 if (formKey.currentState!.validate()) {
-                  Get.to(TrainLiveStatusTwoScreen(select: globle.statusone, number: globle.statustwo, title: widget.title));
+                  Get.to(TrainLiveStatusTwoScreen(select: globle.statusone.toString(), number: globle.statustwo.toString(), title: widget.title));
                 }
               },
               text: AppString.checktrainlive,

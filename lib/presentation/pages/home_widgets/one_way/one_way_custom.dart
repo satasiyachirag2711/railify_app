@@ -96,7 +96,7 @@ class _OneWayCustomState extends State<OneWayCustom> {
                     decoration: InputDecoration(prefixIcon: Icon(Icons.train)),
                   ),
                 ),
-                const SizedBox(width: 20),
+                const SizedBox(width: 10),
                 Expanded(
                   child: CustomDropDown(
                       hint: AppString.adult,

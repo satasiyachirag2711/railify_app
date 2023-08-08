@@ -15,10 +15,9 @@ class CancelTripScreen extends StatefulWidget {
   final String title;
   final String image;
   final String trailingtwo;
-  final String subtitle;
   final String leading;
   final String date;
-  const CancelTripScreen({super.key, required this.title, required this.image, required this.trailingtwo, required this.subtitle, required this.leading, required this.date});
+  const CancelTripScreen({super.key, required this.title, required this.image, required this.trailingtwo, required this.leading, required this.date});
 
   @override
   State<CancelTripScreen> createState() => _CancelTripScreenState();
@@ -50,7 +49,6 @@ class _CancelTripScreenState extends State<CancelTripScreen> {
                   date: widget.date,
                   leading: widget.leading,
                   trailingtwo: widget.trailingtwo,
-                  subtitle: widget.subtitle,
                 ),
               ),
               SizedBox(height: 15),
